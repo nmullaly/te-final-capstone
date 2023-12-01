@@ -21,7 +21,8 @@ const routes = [
     name: 'home',
     component: HomeView,
     meta: {
-      requiresAuth: true
+      //requiresAuth: true was the default.  Switching to false.  Talk to ben about this on Monday
+      requiresAuth: false
     }
   },
   {
