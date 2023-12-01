@@ -41,6 +41,7 @@ const routes = [
     meta: {
       requiresAuth: false
     }
+    //I'm making this accessible through the profile page but not the home page -Addie
   },
   {
     path: "/register",
