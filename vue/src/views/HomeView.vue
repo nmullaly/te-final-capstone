@@ -5,32 +5,34 @@
   </div>
 <body>
   <header class = "header" id = "header">
-    <h1 id = "logo">Project Name Working Title</h1>
-    <button class="movies">movies</button>
-    <button class="users">users</button>
-    <button class="scoreboard">scoreboard</button>
+    <!-- I want the below code to be the header component but may have to do some renaming-->
+    <header-bar></header-bar>
   </header>
   <main>
   <div class = "navigation">
     Todo navigation
   </div>
-  <div class = "movieDisplay">
-    Todo movieDisplay
+  <div>
+      <movie-display></movie-display>
   </div>
 </main>
-  <footer class = "footer" id = "footer">Project Name Working Title Credits</footer>
+  <footer-bar></footer-bar>
 </body>
 </template>
 
 <script>
+import HeaderBar from '../components/HeaderBar.vue';
+import FooterBar from '../components/FooterBar.vue';
+import MovieDisplay from '../components/MovieDisplay.vue';
+
 export default {
+  components: {
+    HeaderBar,
+    FooterBar,
+    MovieDisplay,
+  }
 };
 </script>
 
 <style>
-.header{
-  display: flex;
-  background-color: 89A8E6;
-  border: 2px solid black;
-}
 </style> 
