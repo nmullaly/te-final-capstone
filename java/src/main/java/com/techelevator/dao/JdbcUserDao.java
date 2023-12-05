@@ -79,11 +79,6 @@ public class JdbcUserDao implements UserDao {
         try {
             int newUserId = jdbcTemplate.queryForObject(insertUserSql, int.class, user.getUsername(), password_hash, ssRole);
             newUser = getUserById(newUserId);
-
-//            if (newUser != null) {
-//                String insertAccountSql = "INSERT INTO users (user_id, balance) VALUES (?, ?)";
-//                jdbcTemplate.update(insertAccountSql, newUserId, 0);
-//            }
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
         } catch (DataIntegrityViolationException e) {
