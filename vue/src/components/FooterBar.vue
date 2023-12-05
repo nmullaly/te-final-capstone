@@ -13,7 +13,8 @@
   justify-content: center; /* Center vertically */
   align-items: center; /* Center horizontally */
   background-color: #DC8A8A;
-  border: 2px solid #000000;
+  background: linear-gradient(to bottom, #151618, #DC8A8A);
+  /* border: 2px solid #000000; */
   font-size: medium;
 }
 .footyboi > * {
@@ -21,5 +22,16 @@
   flex-grow: 1;
   justify-content: center;
   text-align: center;
+}
+h1{
+  color:aliceblue
+}
+
+h2{
+  color:aliceblue
+}
+
+h3{
+  color:aliceblue
 }
 </style>

@@ -1,4 +1,5 @@
 <template>
+  <header-bar></header-bar>
   <div id="register" class="text-center">
     <form v-on:submit.prevent="register">
       <h1>Create Account</h1>
@@ -25,8 +26,12 @@
 
 <script>
 import authService from '../services/AuthService';
+import HeaderBar from '../components/HeaderBar.vue';
 
 export default {
+  components:{
+    HeaderBar,
+  },
   data() {
     return {
       user: {
@@ -72,11 +77,15 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .form-input-group {
   margin-bottom: 1rem;
 }
 label {
   margin-right: 0.5rem;
 }
+/* .header img#logo {
+  width: 50px; 
+  height: auto; 
+} */
 </style>
