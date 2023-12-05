@@ -1,6 +1,7 @@
 <template>
+  <header-bar></header-bar>
   <div id="login">
-    <form v-on:submit.prevent="login">
+      <form v-on:submit.prevent="login">
       <h1 >Please Sign In</h1>
       <div role="alert" v-if="invalidCredentials">
         Invalid username and password!
@@ -25,9 +26,12 @@
 
 <script>
 import authService from "../services/AuthService";
+import HeaderBar from "../components/HeaderBar.vue";
 
 export default {
-  components: {},
+  components: {
+    HeaderBar,
+  },
   data() {
     return {
       user: {
