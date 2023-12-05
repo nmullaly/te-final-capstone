@@ -12,12 +12,13 @@ CREATE TABLE users (
 );
 
 CREATE TABLE profiles (
+	profile_id SERIAL,
 	username varchar(50) NOT NULL UNIQUE,
 	bio varchar(200),
 	favorite_film varchar(50),
 	favorite_snack varchar(50),
-	constraint pk_profiles PRIMARY KEY (username),
-	constraint fk_profiles_users FOREIGN KEY (username) references users (username)
+	constraint pk_profiles PRIMARY KEY (profile_id),
+	constraint fk_profiles_users FOREIGN KEY (profile_id) references users (user_id)
 );
 
 COMMIT TRANSACTION;
