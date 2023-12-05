@@ -1,7 +1,7 @@
 <template>
     <div class="search-bar">
         <input type="text" placeholder="search..."/>
-        <button>Search Movies!</button>
+        <button>Search Films</button>
     </div>
 </template>
 
