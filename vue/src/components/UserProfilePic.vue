@@ -4,6 +4,8 @@
         <div id="holdThisBox">
         <img src = "../assets/AntMan.jpg" id = "user1" class="userCard"/>
         </div>
+        <img src = "../assets/Airheads.jpg" id = "airheads"/>
+        <img src = "../assets/MarkProsch.jpg" id = "pfp"/>
     </div>
 </template>
 
