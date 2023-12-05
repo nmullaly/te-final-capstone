@@ -1,15 +1,13 @@
-<!-- This component has a bunch of users now for simplicity but in the future should be a template with just one -->
 <template>
-    <div>
-        <div id="holdThisBox">
-        <img src = "../assets/AntMan.jpg" id = "user1" class="userCard"/>
-        </div>
-        <img src = "../assets/Airheads.jpg" id = "airheads"/>
-        <img src = "../assets/MarkProsch.jpg" id = "pfp"/>
+    <div class="w-80 h-80 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" id = "pfp">
+        <img :src="imageSource" alt="Profile Picture" />
     </div>
 </template>
 
 <script>
+export default {
+  props: ['imageSource'],
+};
 </script>
 
 <style>
@@ -23,4 +21,13 @@
     border: 1px solid #CBD1DA;
     border-radius: 50%;
 }
-</style>
+#pfp{
+    width:80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #CBD1DA;
+}
+</style> 
