@@ -2,9 +2,11 @@
     <img
         src="../assets/Popcorn.svg.png"
         id = "logo"
+        width ="200"
+        height="200"
       />
     <h1>Project Name Working Title</h1>
-        <button class="movies">movies</button>
+        <button class="movies">film</button>
         <button class="users">users</button>
         <button class="scoreboard">scoreboard</button>
         <!-- We can v-if to switch redirect to login to redirect to logout based on if the user is logged in -->
@@ -47,7 +49,8 @@ h1{
   margin: left 100px;
 }
 button {
-  margin-left:5px
+  margin-left:5px;
+  text-decoration-style: white
 }
 .movies{
   margin-left: auto;

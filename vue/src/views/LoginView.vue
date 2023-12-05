@@ -67,11 +67,12 @@ export default {
 };
 </script>
 
-<style scoped>
-.form-input-group {
+<style>
+ .form-input-group {
   margin-bottom: 1rem;
+  text-decoration-color: white;
 }
 label {
   margin-right: 0.5rem;
-}
+} 
 </style>
