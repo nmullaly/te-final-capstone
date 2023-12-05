@@ -26,6 +26,7 @@ export default {
 	},
 	data() {
 		return {
+			// Temporary profile object for editing
 			editProfile: {
 				bio: this.profile.bio,
 				film: this.profile.film,
@@ -35,7 +36,7 @@ export default {
 	},
 	methods: {
 		saveChanges() {
-			
+			// TODO: This method should save changes and update the profile in the store/DB as well as display a message reporting the success/failure
 		}
 	}
 }
