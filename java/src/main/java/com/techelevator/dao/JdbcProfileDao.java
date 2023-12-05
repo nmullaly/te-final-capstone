@@ -8,6 +8,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 @Component
 public class JdbcProfileDao implements ProfileDao{
 
@@ -15,6 +19,22 @@ public class JdbcProfileDao implements ProfileDao{
 
     public JdbcProfileDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
+    }
+
+    @Override
+    public List<Profile> getProfiles() {
+        List<Profile> profiles = new ArrayList<>();
+        String sql = "SELECT * FROM profiles";
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+            while (results.next()) {
+                Profile profile = mapRowToProfile(results);
+                profiles.add(profile);
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }
+        return profiles;
     }
 
     @Override
@@ -35,7 +55,7 @@ public class JdbcProfileDao implements ProfileDao{
     @Override
     public Profile getProfileByUsername(String username) {
         Profile profile = null;
-        String sql = "SELECT * FROM profiles WHERE username ILIKE '?'";
+        String sql = "SELECT * FROM profiles WHERE username ILIKE ?";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
             if(results.next()) {
