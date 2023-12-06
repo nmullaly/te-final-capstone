@@ -10,7 +10,7 @@ public class Profile {
     private String favoriteSnack;
     private String favoriteGenres;
 
-    public Profile() {}
+    public Profile() {};
 
     public Profile(int id, String username, int points, String bio,
                    String favoriteFilm, String favoriteSnack) {

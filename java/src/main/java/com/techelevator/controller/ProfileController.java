@@ -36,6 +36,7 @@ public class ProfileController {
 
     // getProfileByUsername - going by id is preferable, but I'm keeping this in case we change our mind
 //    @RequestMapping(path = "/profiles/{name}", method = RequestMethod.GET)
+
 //    public Profile getProfileByUsername(@PathVariable String name) {
 //        Profile profile = profileDao.getProfileByUsername(name);
 //        if (profile == null) {
@@ -46,7 +47,7 @@ public class ProfileController {
 //    }
 
     @RequestMapping(path = "/profiles/{id}", method = RequestMethod.PUT)
-    public Profile updateProfile(@RequestBody int id, @RequestBody Profile profile) {
+    public Profile updateProfile(@PathVariable int id, @RequestBody Profile profile) {
         if (id != profile.getProfileId()) {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Resource id does not match url.");
         }

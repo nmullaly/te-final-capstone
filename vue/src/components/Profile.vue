@@ -16,12 +16,12 @@ import EditProfileForm from '../components/EditProfileForm.vue';
 import profileService from '../services/ProfileService.js';
 
 export default {
+	props: ['profile'],
 	components: {
 		EditProfileForm
 	},
 	data() {
 		return {
-			profile: {},
 			isFormShown: false,
 		}
 	},
@@ -29,22 +29,6 @@ export default {
 		showForm() {
 			this.isFormShown = true;
 		}
-	},
-	created() {
-		let profileId = parseInt(this.$route.params.id);
-		profileService.getProfileById(profileId)
-			.then(response => {
-				this.profile = response.data;
-			})
-			.catch((error) => {
-				if(error.response) {
-					console.log(error.response.status);
-				} else if (error.request) {
-					console.log("Server error");
-				} else {
-					console.log("Front-end error");
-				}
-			})
 	}
 }
 
