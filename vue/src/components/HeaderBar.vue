@@ -39,7 +39,7 @@ export default{
           this.$router.push({ name: 'ProfileView', params: { id: this.$store.state.user.id } });
         },
         logout(){
-          return null;
+          this.$router.push({ name: 'logout' });
         }
     }
     
