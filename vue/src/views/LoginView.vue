@@ -1,13 +1,18 @@
 <template>
   <header-bar></header-bar>
-  <img
-  />
-  <div id="login">
+
+  <div id="curtains-container">
+<img src="../assets/redcurtains.png" alt ="Red Curtains" />
+  </div>
+    
+    <div id="login">
       <form v-on:submit.prevent="login">
+        
       <h1 >Please Sign In</h1>
       <div role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
+  
       <div role="alert" v-if="this.$route.query.registration">
         Thank you for registering, please sign in.
       </div>
@@ -70,6 +75,13 @@ export default {
 </script>
 
 <style>
+#curtains-container{
+  position: relative;
+}
+#curtains-container img {
+width: 100%;
+height: auto;
+}
 label {
   
   color: white;
@@ -86,5 +98,14 @@ button {
 .form-input-group {
 font-family:'Courier New', Courier, monospace;
 font-size: 20px;
+}
+#login {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1; 
+  text-align: center; 
+  color: white; 
 }
 </style>

@@ -56,6 +56,9 @@ export default {
     MovieSearchBar,
     UserSearchBar,
     UserDisplay,
+  },
+  mounted(){
+    window.scrollTo(0, 0);
   }
 };
 </script>
