@@ -8,6 +8,8 @@ import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import ProfileView from '../views/ProfileView.vue';
 import TestView from '../views/TestView.vue';
+import FilmHomeView from '../views/FilmHomeView.vue';
+import FilmView from '../views/FilmView.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -64,6 +66,16 @@ const routes = [
     path: "/test",
     name: "test",
     component: TestView
+  },
+  {
+    path: "/film",
+    name: "FilmHome",
+    component: FilmHomeView,
+  },
+  {
+    path: "/film/:id",
+    name: "FilmView",
+    component: FilmView,
   },
 ];
 
