@@ -1,6 +1,6 @@
 <template>
     <footer class="footyboi">
-        <h1 id = "logo">SilverScreenSavants</h1>
+        <h1 id = "logo">Call of Movie</h1>
         <h2>Copyright 2024</h2>
         <h3>About Us</h3>
     </footer> 
