@@ -24,7 +24,7 @@ public class JdbcProfileDao implements ProfileDao{
     @Override
     public List<Profile> getProfiles() {
         List<Profile> profiles = new ArrayList<>();
-        String sql = "SELECT * FROM profiles";
+        String sql = "SELECT * FROM profiles;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             while (results.next()) {
@@ -40,7 +40,7 @@ public class JdbcProfileDao implements ProfileDao{
     @Override
     public Profile getProfileById(int profileId) {
         Profile profile = null;
-        String sql = "SELECT * FROM profiles WHERE profile_id = ?";
+        String sql = "SELECT * FROM profiles WHERE profile_id = ?;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, profileId);
             if (results.next()) {
@@ -55,7 +55,7 @@ public class JdbcProfileDao implements ProfileDao{
     @Override
     public Profile getProfileByUsername(String username) {
         Profile profile = null;
-        String sql = "SELECT * FROM profiles WHERE username ILIKE ?";
+        String sql = "SELECT * FROM profiles WHERE username ILIKE ?;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
             if(results.next()) {
