@@ -88,4 +88,7 @@ label {
   width: 50px; 
   height: auto; 
 } */
+div{
+  color: white;
+}
 </style>
