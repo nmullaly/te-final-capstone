@@ -7,19 +7,19 @@
       />
      
     <h1>Project Name Working Title</h1>
-    <div id = "SheepleDisplay"><p>REGISTER, SHEEPLE!</p>
+    <div v-if="!$store.state.token" id = "SheepleDisplay"><p>REGISTER, SHEEPLE!</p>
       <img src = "../assets/Sheeple\Savant/Sheeple.png"/>
     </div>
-    <div id = "SavantDisplay"><p>Welcome, Fellow Savant</p>
+    <div v-if="$store.state.token" id = "SavantDisplay"><p>Welcome, Fellow Savant</p>
       <img src = "../assets/Sheeple\Savant/OoS_Golden_Sage_Sprite.png"/>
     </div>
         <button class="movies">Films</button>
         <button class="users">Users</button>
         <button class="scoreboard">Scoreboard</button>
-        <!-- We can v-if to switch redirect to login to redirect to logout based on if the user is logged in -->
-        <button class="login" v-on:click="redirectToLogin">log in</button>
-        <button class="register" v-on:click="redirectToRegister">register</button>
-        <button class="profile" v-on:click="redirectToProfile">profile</button>
+        <button v-if="!$store.state.token" class="login" v-on:click="redirectToLogin">log in</button>
+        <button v-if="$store.state.token" v-bind:to="{ name: 'logout' }" class="logout" v-on:click="logout">log out</button>
+        <button v-if="!$store.state.token" class="register" v-on:click="redirectToRegister">register</button>
+        <button v-if="$store.state.token" class="profile" v-on:click="redirectToProfile">profile</button>
         <button class="home" v-on:click="redirectToHome">home</button>
 </template>
 
@@ -37,6 +37,9 @@ export default{
         },
         redirectToProfile(){
           this.$router.push({ name: 'ProfileView', params: { id: this.$store.state.user.id } });
+        },
+        logout(){
+          return null;
         }
     }
     
@@ -72,10 +75,10 @@ button {
 div.form-input-group {
 text-decoration-color: aliceblue;
 }
-#SheepleDisplay{
+/* #SheepleDisplay{
 display: none;
 }
 #SavantDisplay{
 display: none;
-}
+} */
 </style>
