@@ -5,10 +5,11 @@
         width ="200"
         height="200"
       />
+     
     <h1>Project Name Working Title</h1>
-        <button class="movies">film</button>
-        <button class="users">users</button>
-        <button class="scoreboard">scoreboard</button>
+        <button class="movies">Films</button>
+        <button class="users">Users</button>
+        <button class="scoreboard">Scoreboard</button>
         <!-- We can v-if to switch redirect to login to redirect to logout based on if the user is logged in -->
         <button class="login" v-on:click="redirectToLogin">log in</button>
         <button class="register" v-on:click="redirectToRegister">register</button>
@@ -38,12 +39,13 @@ export default{
 <style>
 .header{
   display: flex;
-  background: linear-gradient(to bottom, #DC8A8A, #151618);
+  background: linear-gradient(to bottom, #DC8A8A, #f01607);
   flex-direction: row; 
   text-align: center;
   text-justify: center;
   align-items: center; 
   font-size: medium;
+  font-style: courier-new;
 }
 .header img#logo {
   width: 50px; 
@@ -51,13 +53,18 @@ export default{
 }
 h1{
   margin: left 100px;
+  font-family: sans-serif;
 }
 button {
   margin-left:5px;
-  text-decoration-style: white
+  text-decoration-style: white;
+  font-family: courier-new;
 }
 .movies{
   margin-left: auto;
+}
+div.form-input-group {
+text-decoration-color: aliceblue;
 }
 
 </style>

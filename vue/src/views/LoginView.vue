@@ -1,5 +1,7 @@
 <template>
   <header-bar></header-bar>
+  <img
+  />
   <div id="login">
       <form v-on:submit.prevent="login">
       <h1 >Please Sign In</h1>
@@ -68,11 +70,17 @@ export default {
 </script>
 
 <style>
- .form-input-group {
-  margin-bottom: 1rem;
-  text-decoration-color: white;
-}
 label {
-  margin-right: 0.5rem;
-} 
+  
+  color: white;
+}
+html > body {
+ background-color: red;
+  font-style: courier-new;
+  text-align: center;
+  
+}
+button {
+  color: black;
+}
 </style>

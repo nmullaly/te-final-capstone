@@ -11,8 +11,8 @@
   <div id = "buffer">
   </div>
   <div id = "content">
-    <h1>Movies</h1>
-      <h2>Find and Review Movies to Gain Rep as a Movie Buff</h2>
+    <h1>Films</h1>
+      <h2>Find and Review Films to Gain Rep as a Film Buff</h2>
     <div class = "navigation">
       <movie-search-bar id = "movieSearchBar"></movie-search-bar>
     </div>
