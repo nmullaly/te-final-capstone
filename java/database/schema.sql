@@ -1,7 +1,9 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS watchlist;
 DROP TABLE IF EXISTS profiles;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -23,4 +25,23 @@ CREATE TABLE profiles (
 	constraint fk_profiles_users FOREIGN KEY (profile_id) references users (user_id)
 );
 
+CREATE TABLE reviews (
+	review_id SERIAL,
+	profile_id int NOT NULL,
+	movie_id int NOT NULL,
+	body VARCHAR(2000) NOT NULL,
+	rating int NOT NULL CHECK (rating >= 0 AND rating <= 5),
+	constraint pk_reviews PRIMARY KEY (review_id),
+	constraint fk_reviews_profiles FOREIGN KEY (profile_id) REFERENCES profiles (profile_id)
+);
+
+CREATE TABLE watchlist (
+	profile_id int NOT NULL,
+	movie_id int NOT NULL,
+	constraint pk_watchlist_profiles PRIMARY KEY (profile_id, movie_id),
+	constraint fk_profiles FOREIGN KEY (profile_id) REFERENCES profiles (profile_id)
+);
+
 COMMIT TRANSACTION;
+
+-- ROLLBACK;
