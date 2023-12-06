@@ -1,7 +1,7 @@
 <template>
     <div class="search-bar">
       <input type="text" v-model="input" placeholder="search..." />
-      <button v-on:click="searchUsers">Search Users!</button>
+      <button v-on:click="searchUsers">Search Users</button>
     </div>
   </template>
   
@@ -30,11 +30,13 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
   }
   
   .search-bar input {
     padding: 5px;
     margin-right: 5px;
+    font-family: 'Courier New', Courier, monospace;
   }
   
   .search-bar button {
