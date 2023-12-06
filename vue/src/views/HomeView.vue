@@ -32,7 +32,7 @@
     <div id="griddy">
       <p class = "buffMessage" id = "mfof">A Message From Our Founder</p>
         <img src = "../assets/Ben.jpg" id = "Ben"/>
-        <p class = "buffMessage">From the moment I understood the inadequacy of the general public's film knowledge I was disgusted.  Film is the most important and enjoyable art form, more than the lesser arts like music or even TV shows.  People who disagree are wrong and will be referred on this website as "Sheeple".  You may even be a Sheeple now.  But do not fear!  The first step to Savant-hood is to create an account on our website and start reviewing movies.  Only then can Movie Buff status be achieved. </p>
+        <p class = "buffMessage">From the moment I understood the inadequacy of the general public's film knowledge I was disgusted.  Film is the most important and enjoyable art form, more than the lesser arts like music or even TV shows.  People who disagree are wrong and will be referred on this website as "Sheeple".  You may even be a Sheeple now.  But do not fear!  The first step to Savant-hood is to create an account on our website and start reviewing films.  Only then can Film Buff status be achieved. </p>
     </div>
   </div>
 </main>
@@ -125,6 +125,6 @@ p{
 
 #mfof{
   font-size: 35px;
-  margin-top:10vw;
+  margin-top:8vw;
 }
 </style>
