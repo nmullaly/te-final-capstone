@@ -6,7 +6,7 @@
         height="200"
       />
      
-    <h1>Project Name Working Title</h1>
+    <h1>SilverScreenSavants</h1>
     <div v-if="!$store.state.token" id = "SheepleDisplay"><p>REGISTER, SHEEPLE!</p>
       <img src = "../assets/Sheeple\Savant/Sheeple.png"/>
     </div>
