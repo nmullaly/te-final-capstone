@@ -29,6 +29,11 @@
         <p>
           Search our users for opinions on what movies to see and even what movies to stay away from. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
+    <div id="griddy">
+      <p class = "buffMessage" id = "mfof">A Message From Our Founder</p>
+        <img src = "../assets/Ben.jpg" id = "Ben"/>
+        <p class = "buffMessage">From the moment I understood the inadequacy of the general public's film knowledge I was disgusted.  Film is the most important and enjoyable art form, more than the lesser arts like music or even TV shows.  People who disagree are wrong and will be referred on this website as "Sheeple".  You may even be a Sheeple now.  But do not fear!  The first step to Savant-hood is to create an account on our website and start reviewing movies.  Only then can Movie Buff status be achieved. </p>
+    </div>
   </div>
 </main>
   <footer-bar></footer-bar>
@@ -108,4 +113,18 @@ h2{
 p{
   color:aliceblue
 }
-</style> 
+
+#Ben{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.buffMessage{
+  font-size: 25px;
+}
+
+#mfof{
+  font-size: 35px;
+  margin-top:10vw;
+}
+</style>
