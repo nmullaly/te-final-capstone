@@ -46,7 +46,7 @@ public class ProfileController {
 //    }
 
     @RequestMapping(path = "/profiles/{id}", method = RequestMethod.PUT)
-    public Profile updateProfile(@RequestBody Profile profile, @RequestBody int id) {
+    public Profile updateProfile(@RequestBody int id, @RequestBody Profile profile) {
         if (id != profile.getProfileId()) {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Resource id does not match url.");
         }

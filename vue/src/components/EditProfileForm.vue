@@ -1,5 +1,5 @@
 <template>
-	<form v-on:submit.prevent="saveChanges" class="profileForm">
+	<form class="profileForm">
 		<div class="form-item">
 			<label for="bio-field">Bio:</label>
 			<input id="bio-field" type="text" v-model="editProfile.bio" autocomplete="off" />
@@ -20,7 +20,7 @@
 			<input id="fav-snack-field" type="text" v-model="editProfile.snack">
 			<p class="error-msg" v-bind:hidden="isSnackErrorHidden">Error: This field cannot be more than 50 characters</p>
 		</div>
-		<button class="btn btn-submit">Save Changes</button>
+		<button class="btn btn-submit" v-on:click="saveChanges">Save Changes</button>
 		<button class="btn btn-cancel" v-on:click="discardChanges">Discard Changes</button>
 	</form>
 </template>
@@ -29,21 +29,22 @@
 import profileService from '../services/ProfileService.js';
 
 export default {
-	props: {
-		profile: {
-			type: Object,
-			required: true
-		}
-	},
+	// props: {
+	// 	profile: {
+	// 		type: Object,
+	// 		required: true
+	// 	}
+	// },
 	data() {
 		return {
+			profile: {},
 			// Temporary profile object for editing
 			editProfile: {
-				id: this.profile.id,
-				bio: this.profile.bio,
-				film: this.profile.film,
-				genres: this.profile.genres,
-				snack: this.profile.snack
+				// id: this.profile.id,
+				// bio: this.profile.bio,
+				// film: this.profile.favoriteFilm,
+				// genres: this.profile.favoriteGenres,
+				// snack: this.profile.favoriteSnack
 			},
 			isBioErrorHidden: true,
 			isFilmErrorHidden: true,
@@ -61,7 +62,7 @@ export default {
 				.updateProfile(this.editProfile)
 				.then(response => {
 					if (response.status === 200) {
-						this.$router.push({ name: 'ProfileView', params: { id: this.profile.id } });
+						this.$router.push({ name: 'ProfileView', params: { id: this.$route.params.id } });
 					}
 				})
 				.catch(error => {
@@ -96,8 +97,28 @@ export default {
 			}
 			return isValid;
 		}
+	},
+	created() {
+		let profileId = parseInt(this.$route.params.id);
+		profileService.getProfileById(profileId)
+			.then(response => {
+				this.profile = response.data;
+			})
+			.catch((error) => {
+				if(error.response) {
+					console.log(error.response.status);
+				} else if (error.request) {
+					console.log("Server error");
+				} else {
+					console.log("Front-end error");
+				}
+			});
+			this.editProfile.bio = this.profile.bio;
+			this.editProfile.film = this.profile.favoriteFilm;
+			this.editProfile.genres = this.profile.favoriteGenres;
+			this.editProfile.snack = this.profile.favoriteSnack;
+			},
 	}
-}
 
 </script>
 

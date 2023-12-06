@@ -3,11 +3,11 @@
 		<h1 id="profile-name">{{ profile.username }}</h1>
 		<p id="profile-points">{{ profile.points }} points</p>
 		<p id="bio">{{ profile.bio }}</p>
-		<p id="fav-film">{{ profile.film }}</p>
-		<p id="fav-genres">{{ profile.genres }}</p>
-		<p id="fav-snack">{{ profile.snack }}</p>
+		<p id="fav-film">{{ profile.favoriteFilm }}</p>
+		<p id="fav-genres">{{ profile.favoriteGenres }}</p>
+		<p id="fav-snack">{{ profile.favoriteSnack }}</p>
 		<button id="edit-profile-btn" v-on:click="showForm">Edit Profile</button>
-		<edit-profile-form v-bind:profile="profile" v-show="isFormShown" />
+		<edit-profile-form v-show="isFormShown" />
 	</div>
 </template>
 
