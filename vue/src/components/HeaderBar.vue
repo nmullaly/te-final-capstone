@@ -7,6 +7,12 @@
       />
      
     <h1>Project Name Working Title</h1>
+    <div id = "SheepleDisplay"><p>REGISTER, SHEEPLE!</p>
+      <img src = "../assets/Sheeple\Savant/Sheeple.png"/>
+    </div>
+    <div id = "SavantDisplay"><p>Welcome, Fellow Savant</p>
+      <img src = "../assets/Sheeple\Savant/OoS_Golden_Sage_Sprite.png"/>
+    </div>
         <button class="movies">Films</button>
         <button class="users">Users</button>
         <button class="scoreboard">Scoreboard</button>
@@ -66,5 +72,10 @@ button {
 div.form-input-group {
 text-decoration-color: aliceblue;
 }
-
+#SheepleDisplay{
+display: none;
+}
+#SavantDisplay{
+display: none;
+}
 </style>

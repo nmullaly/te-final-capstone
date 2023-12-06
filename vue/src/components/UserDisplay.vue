@@ -27,7 +27,7 @@ export default {
         "src/assets/Zoldo/55px-OoS_Ricky_Sprite.png",
         "src/assets/Zoldo/58px-OoS_Great_Moblin_Sprite.png",
         "src/assets/Zoldo/59px-OoS_Great_Fairy_Sprite.png",
-        "src/assets/Zoldo/OoS_Golden_Sage_Sprite.png",
+        "src/assets/Zoldo/Green_Ghini.png",
       ],
     };
   },
