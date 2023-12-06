@@ -83,4 +83,8 @@ html > body {
 button {
   color: black;
 }
+.form-input-group {
+font-family:'Courier New', Courier, monospace;
+font-size: 20px;
+}
 </style>

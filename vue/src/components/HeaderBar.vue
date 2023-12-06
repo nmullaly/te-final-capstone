@@ -59,7 +59,7 @@ export default{
 }
 h1{
   margin: left 100px;
-  font-family: sans-serif;
+  font-family: 'Courier New', Courier, monospace;
 }
 button {
   margin-left:5px;
