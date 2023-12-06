@@ -23,7 +23,7 @@ export default {
 	},
 
 	updateProfile(profile) {
-		return axios.put(`/profiles/${profile.id}`, profile);
+		return axios.put(`/profiles/${profile.profileId}`, profile);
 	},
 
 }
