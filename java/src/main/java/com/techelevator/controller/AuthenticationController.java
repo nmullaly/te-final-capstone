@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import javax.validation.Valid;
 
+import com.techelevator.dao.ProfileDao;
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.*;
 import org.springframework.http.HttpHeaders;
@@ -26,11 +27,13 @@ public class AuthenticationController {
     private final TokenProvider tokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private  UserDao userDao;
+    private ProfileDao profileDao;
 
-    public AuthenticationController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, UserDao userDao) {
+    public AuthenticationController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, UserDao userDao, ProfileDao profileDao) {
         this.tokenProvider = tokenProvider;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.userDao = userDao;
+        this.profileDao = profileDao;
     }
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
@@ -66,6 +69,21 @@ public class AuthenticationController {
         } catch (DaoException e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "User registration failed.");
         }
+
+        Profile newProfile = new Profile();
+        newProfile.setUsername(newUser.getUsername());
+        newProfile.setProfileId(userDao.getUserByUsername(newUser.getUsername()).getId());
+        try {
+            Profile createdProfile = profileDao.createProfile(newProfile);
+            if (createdProfile == null) {
+                userDao.deleteUserById(newProfile.getProfileId());
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Profile creation failed.");
+            }
+        } catch (DaoException e) {
+            userDao.deleteUserById(newProfile.getProfileId());
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Profile creation failed.");
+        }
+
     }
 }
 

@@ -14,9 +14,11 @@ CREATE TABLE users (
 CREATE TABLE profiles (
 	profile_id SERIAL,
 	username varchar(50) NOT NULL UNIQUE,
+	points int DEFAULT 0,
 	bio varchar(200),
 	favorite_film varchar(50),
 	favorite_snack varchar(50),
+	favorite_genres varchar(100),
 	constraint pk_profiles PRIMARY KEY (profile_id),
 	constraint fk_profiles_users FOREIGN KEY (profile_id) references users (user_id)
 );

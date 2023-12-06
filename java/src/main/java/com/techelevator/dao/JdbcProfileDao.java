@@ -68,66 +68,48 @@ public class JdbcProfileDao implements ProfileDao{
     }
 
     @Override
-    public Profile updateBio(int id, String bio) {
-        Profile profile = null;
-        String sql = "UPDATE profiles SET bio = ? WHERE profile_id = ?;";
+    public Profile updateProfile(Profile profile) {
+        Profile updatedProfile = null;
+        String sql = "UPDATE profiles SET username = ?, points = ?, bio = ?, favorite_film = ?, favorite_snack = ?, favorite_genres = ? " +
+                "WHERE profile_id = ?;";
 
         try {
-            int numberOfRows = jdbcTemplate.update(sql, bio, id);
+            int numberOfRows = jdbcTemplate.update(sql, profile.getUsername(), profile.getPoints(), profile.getBio(), profile.getFavoriteFilm(),
+                    profile.getFavoriteSnack(), profile.getFavoriteGenres(), profile.getProfileId());
             if (numberOfRows == 0) {
                 throw new DaoException("Zero rows affected, expected one");
             } else {
-                profile = getProfileById(id);
+                updatedProfile = getProfileById(profile.getProfileId());
             }
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
-        } catch (DataIntegrityViolationException e) {
+        }
+        catch (DataIntegrityViolationException e) {
             throw new DaoException("Data integrity violation", e);
         }
 
-        return profile;
+        return updatedProfile;
     }
 
     @Override
-    public Profile updateFavoriteFilm(int id, String fav) {
-        Profile profile = null;
-        String sql = "UPDATE profiles SET favorite_film = ? WHERE profile_id = ?;";
+    public Profile createProfile(Profile profile) {
+        Profile returnedProfile = null;
+        String sql = "INSERT INTO profiles (username, bio, favorite_film, favorite_snack, favorite_genres) " +
+                "VALUES (?, ?, ?, ?, ?) RETURNING profile_id;";
 
         try {
-            int numberOfRows = jdbcTemplate.update(sql, fav, id);
-            if (numberOfRows == 0) {
-                throw new DaoException("Zero rows affected, expected one");
-            } else {
-                profile = getProfileById(id);
-            }
+            int newProfileId = jdbcTemplate.queryForObject(sql, int.class, profile.getUsername(), profile.getBio(),
+                    profile.getFavoriteFilm(), profile.getFavoriteSnack(), profile.getFavoriteGenres());
+            returnedProfile = getProfileById(newProfileId);
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
         } catch (DataIntegrityViolationException e) {
             throw new DaoException("Data integrity violation", e);
+        } catch (NullPointerException e) {
+            throw new DaoException("Transfer Unsuccessful", e);
         }
 
-        return profile;
-    }
-
-    @Override
-    public Profile updateFavoriteSnack(int id, String fav) {
-        Profile profile = null;
-        String sql = "UPDATE profiles SET favorite_snack = ? WHERE profile_id = ?;";
-
-        try {
-            int numberOfRows = jdbcTemplate.update(sql, fav, id);
-            if (numberOfRows == 0) {
-                throw new DaoException("Zero rows affected, expected one");
-            } else {
-                profile = getProfileById(id);
-            }
-        } catch (CannotGetJdbcConnectionException e) {
-            throw new DaoException("Unable to connect to server or database", e);
-        } catch (DataIntegrityViolationException e) {
-            throw new DaoException("Data integrity violation", e);
-        }
-
-        return profile;
+        return returnedProfile;
     }
 
     private Profile mapRowToProfile(SqlRowSet rs) {
@@ -148,6 +130,11 @@ public class JdbcProfileDao implements ProfileDao{
             profile.setFavoriteSnack(rs.getString("favorite_snack"));
         } else {
             profile.setFavoriteSnack(null);
+        }
+        if (rs.getString("favorite_genres") != null) {
+            profile.setFavoriteGenres(rs.getString("favorite_genres"));
+        } else {
+            profile.setFavoriteGenres(null);
         }
         return profile;
     }
