@@ -4,16 +4,19 @@ public class Profile {
 
     private int profileId;
     private String username;
+    private int points;
     private String bio;
     private String favoriteFilm;
     private String favoriteSnack;
+    private String favoriteGenres;
 
     public Profile() {}
 
-    public Profile(int id, String username, String bio,
+    public Profile(int id, String username, int points, String bio,
                    String favoriteFilm, String favoriteSnack) {
         this.profileId = id;
         this.username = username;
+        this.points = points;
         this.bio = bio;
         this.favoriteFilm = favoriteFilm;
         this.favoriteSnack = favoriteSnack;
@@ -33,6 +36,14 @@ public class Profile {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 
     public String getBio() {
@@ -57,5 +68,13 @@ public class Profile {
 
     public void setFavoriteSnack(String favoriteSnack) {
         this.favoriteSnack = favoriteSnack;
+    }
+
+    public String getFavoriteGenres() {
+        return favoriteGenres;
+    }
+
+    public void setFavoriteGenres(String favoriteGenres) {
+        this.favoriteGenres = favoriteGenres;
     }
 }

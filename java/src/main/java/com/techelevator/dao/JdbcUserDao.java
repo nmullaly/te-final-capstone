@@ -86,6 +86,19 @@ public class JdbcUserDao implements UserDao {
         }
         return newUser;
     }
+
+    @Override
+    public void deleteUserById(int id) {
+        String sql = "DELETE FROM users WHERE user_id = ?;";
+        try {
+            jdbcTemplate.update(sql);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data integrity violation", e);
+        }
+    }
+
 //CHANGES
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();

@@ -11,9 +11,10 @@
         <button class="users">Users</button>
         <button class="scoreboard">Scoreboard</button>
         <!-- We can v-if to switch redirect to login to redirect to logout based on if the user is logged in -->
-        <button class="login" v-on:click="redirectToLogin">Log In</button>
-        <button class="register" v-on:click="redirectToRegister">Register</button>
-        <button class="home" v-on:click="redirectToHome">Home</button>
+        <button class="login" v-on:click="redirectToLogin">log in</button>
+        <button class="register" v-on:click="redirectToRegister">register</button>
+        <button class="profile" v-on:click="redirectToProfile">profile</button>
+        <button class="home" v-on:click="redirectToHome">home</button>
 </template>
 
 <script>
@@ -28,6 +29,9 @@ export default{
         redirectToHome(){
           this.$router.push({name: 'home'});
         },
+        redirectToProfile(){
+          this.$router.push({ name: 'ProfileView', params: { id: this.$store.state.user.id } });
+        }
     }
     
 }</script>
