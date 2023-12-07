@@ -15,10 +15,12 @@
 import EditProfileForm from '../components/EditProfileForm.vue';
 import profileService from '../services/ProfileService.js';
 
+
 export default {
 	props: ['profile'],
 	components: {
-		EditProfileForm
+		EditProfileForm,
+		
 	},
 	data() {
 		return {
