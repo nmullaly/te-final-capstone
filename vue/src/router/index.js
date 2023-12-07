@@ -8,8 +8,8 @@ import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import ProfileView from '../views/ProfileView.vue';
 import TestView from '../views/TestView.vue';
-import FilmHomeView from '../views/FilmHomeView.vue';
-import FilmView from '../views/FilmView.vue';
+import MovieHomeView from '../views/MovieHomeView.vue';
+import MovieView from '../views/MovieView.vue';
 import Test2View from '../views/Test2View.vue';
 import MovieReview from '../components/MovieReview.vue'
 
@@ -74,14 +74,14 @@ const routes = [
     name: "test2",
     component: Test2View  },
   {
-    path: "/film",
-    name: "FilmHome",
-    component: FilmHomeView,
+    path: "/movie",
+    name: "MovieHome",
+    component: MovieHomeView,
   },
   {
-    path: "/film/:id",
-    name: "FilmView",
-    component: FilmView,
+    path: "/movie/:id",
+    name: "Movie",
+    component: MovieView,
   },
   {
     path:"/MovieReview",
