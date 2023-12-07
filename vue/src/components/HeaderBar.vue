@@ -21,12 +21,15 @@
         <button v-if="!$store.state.token" class="register" v-on:click="redirectToRegister">register</button>
         <button v-if="$store.state.token" class="profile" v-on:click="redirectToProfile">profile</button>
         <button class="home" v-on:click="redirectToHome">home</button>
+        <audio ref="audioPlayer" src="../assets/322640__aruscio28__hitmarker-sound-effect.mp3"></audio>
+        <!-- <img src = "src/assets/hm3.jpg"/> -->
 </template>
 
 <script>
 export default{
     methods: {
         redirectToLogin() {
+         this.$refs.audioPlayer.play();
          this.$router.push({ name: 'login' });
          },
         redirectToRegister() {
@@ -68,6 +71,7 @@ button {
   margin-left:5px;
   text-decoration-style: white;
   font-family: courier-new;
+  cursor: url("src/assets/hm3.jpg"), pointer;
 }
 .movies{
   margin-left: auto;
@@ -75,10 +79,4 @@ button {
 div.form-input-group {
 text-decoration-color: aliceblue;
 }
-/* #SheepleDisplay{
-display: none;
-}
-#SavantDisplay{
-display: none;
-} */
 </style>

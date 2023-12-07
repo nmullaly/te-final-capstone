@@ -1,12 +1,26 @@
 <template>
     <div class="search-bar">
-        <input type="text" placeholder="search..."/>
-        <button>Search Films</button>
+        <input type="text" v-model="input" placeholder="search..."/>
+        <button v-on:click="searchMovies">Search Films</button>
     </div>
 </template>
 
 <script>
-
+export default {
+    data() {
+      return {
+        input: ''
+      };
+    },
+    methods: {
+      searchMovies() {
+        let movieId = this.input.trim();
+        if (movieId !== '') {
+          this.$router.push({ name: 'Movie', params: { id: movieId } });
+        }
+      }
+    }
+  }
 </script>
 
 <style>
