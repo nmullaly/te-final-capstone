@@ -1,4 +1,7 @@
 <template>
+  <!-- uncomment this code if you want the header bar to be normal
+  <header class = "header" id = "header">
+    <header-bar/></header> -->
   <header-bar></header-bar>
 
   <div id="curtains-container">
