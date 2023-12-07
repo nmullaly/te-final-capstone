@@ -87,7 +87,7 @@ label {
   color: white;
 }
 html > body {
- background-color: red;
+ background-color: black;
   font-style: courier-new;
   text-align: center;
   
@@ -107,5 +107,8 @@ font-size: 20px;
   z-index: 1; 
   text-align: center; 
   color: white; 
+}
+router-link{
+  color: white;
 }
 </style>
