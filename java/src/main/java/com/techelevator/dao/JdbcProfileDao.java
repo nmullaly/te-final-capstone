@@ -136,6 +136,7 @@ public class JdbcProfileDao implements ProfileDao{
         } else {
             profile.setFavoriteGenres(null);
         }
+        profile.setAvatarId(rs.getInt("avatar_id"));
         return profile;
     }
 

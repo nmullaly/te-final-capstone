@@ -128,6 +128,7 @@ public class JdbcReviewDao implements ReviewDao {
         review.setReviewId(rs.getInt("review_id"));
         review.setProfileId(rs.getInt("profile_id"));
         review.setMovieId(rs.getInt("movie_id"));
+        review.setHeadline(rs.getString("headline"));
         review.setBody(rs.getString("body"));
         review.setRating(rs.getInt("rating"));
         return review;

@@ -21,6 +21,7 @@ CREATE TABLE profiles (
 	favorite_film varchar(50),
 	favorite_snack varchar(50),
 	favorite_genres varchar(100),
+	avatar_id INT,
 	constraint pk_profiles PRIMARY KEY (profile_id),
 	constraint fk_profiles_users FOREIGN KEY (profile_id) references users (user_id)
 );
@@ -29,8 +30,10 @@ CREATE TABLE reviews (
 	review_id SERIAL,
 	profile_id int NOT NULL,
 	movie_id int NOT NULL,
+	headline VARCHAR(50) NOT NULL,
 	body VARCHAR(2000) NOT NULL,
 	rating int NOT NULL CHECK (rating >= 0 AND rating <= 5),
+	score int NOT NULL DEFAULT 0,
 	constraint pk_reviews PRIMARY KEY (review_id),
 	constraint fk_reviews_profiles FOREIGN KEY (profile_id) REFERENCES profiles (profile_id)
 );

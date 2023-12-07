@@ -13,7 +13,7 @@ export default {
 	},
 
 	searchMoviesByName(query) {
-		return movieApi.get(`search/movie?query=${query}`)
+		return movieApi.get(`search/movie?query=${query}&include_adult=false`);
 	}
 
 }

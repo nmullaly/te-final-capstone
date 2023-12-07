@@ -29,9 +29,9 @@ created() {
 				if(error.response) {
 					console.log(error.response.status);
 				} else if (error.request) {
-					console.log("Server error");
+					console.log("Issue retrieving film information");
 				} else {
-					console.log("Front-end error");
+					console.log("Issue requesting film information");
 				}
 			});
 }
