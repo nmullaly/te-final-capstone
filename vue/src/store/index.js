@@ -1,11 +1,14 @@
 import { createStore as _createStore } from 'vuex';
 import axios from 'axios';
+import profileService from '../services/ProfileService';
 
 export function createStore(currentToken, currentUser) {
   let store = _createStore({
     state: {
       token: currentToken || '',
-      user: currentUser || {}
+      user: currentUser || {},
+      profiles: profileService.getProfiles,
+      currentProfile: {}
     },
     mutations: {
       SET_AUTH_TOKEN(state, token) {

@@ -5,6 +5,7 @@ public class Review {
     private int reviewId;
     private int profileId;
     private int movieId;
+    private String headline;
     private String body;
     private int rating;
 
@@ -40,6 +41,14 @@ public class Review {
 
     public void setMovieId(int movieId) {
         this.movieId = movieId;
+    }
+
+    public String getHeadline() {
+        return headline;
+    }
+
+    public void setHeadline(String headline) {
+        this.headline = headline;
     }
 
     public String getBody() {

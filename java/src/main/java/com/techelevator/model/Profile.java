@@ -9,6 +9,7 @@ public class Profile {
     private String favoriteFilm;
     private String favoriteSnack;
     private String favoriteGenres;
+    private int avatarId;
 
     public Profile() {};
 
@@ -76,5 +77,13 @@ public class Profile {
 
     public void setFavoriteGenres(String favoriteGenres) {
         this.favoriteGenres = favoriteGenres;
+    }
+
+    public int getAvatarId() {
+        return avatarId;
+    }
+
+    public void setAvatarId(int avatarId) {
+        this.avatarId = avatarId;
     }
 }
