@@ -6,4 +6,12 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 INSERT INTO profiles (username) VALUES ('user');
 INSERT INTO profiles (username) VALUES ('admin');
 
+INSERT INTO reviews (profile_id, movie_id, headline, body, rating) VALUES
+	(1, 1, 'masterpiece', 'greatest film i ever did see', 4);
+
+INSERT INTO watchlist (profile_id, movie_id) VALUES
+	(1, 3),
+	(1, 4),
+	(2, 7);
+
 COMMIT TRANSACTION;
