@@ -70,12 +70,12 @@ public class JdbcProfileDao implements ProfileDao{
     @Override
     public Profile updateProfile(Profile profile) {
         Profile updatedProfile = null;
-        String sql = "UPDATE profiles SET username = ?, points = ?, bio = ?, favorite_film = ?, favorite_snack = ?, favorite_genres = ? " +
+        String sql = "UPDATE profiles SET username = ?, points = ?, bio = ?, favorite_film = ?, favorite_snack = ?, favorite_genres = ?, avatar_id = ? " +
                 "WHERE profile_id = ?;";
 
         try {
             int numberOfRows = jdbcTemplate.update(sql, profile.getUsername(), profile.getPoints(), profile.getBio(), profile.getFavoriteFilm(),
-                    profile.getFavoriteSnack(), profile.getFavoriteGenres(), profile.getProfileId());
+                    profile.getFavoriteSnack(), profile.getFavoriteGenres(), profile.getAvatarId(), profile.getProfileId());
             if (numberOfRows == 0) {
                 throw new DaoException("Zero rows affected, expected one");
             } else {
@@ -94,12 +94,12 @@ public class JdbcProfileDao implements ProfileDao{
     @Override
     public Profile createProfile(Profile profile) {
         Profile returnedProfile = null;
-        String sql = "INSERT INTO profiles (username, bio, favorite_film, favorite_snack, favorite_genres) " +
-                "VALUES (?, ?, ?, ?, ?) RETURNING profile_id;";
+        String sql = "INSERT INTO profiles (username, bio, favorite_film, favorite_snack, favorite_genres, avatar_id) " +
+                "VALUES (?, ?, ?, ?, ?, ?) RETURNING profile_id;";
 
         try {
             int newProfileId = jdbcTemplate.queryForObject(sql, int.class, profile.getUsername(), profile.getBio(),
-                    profile.getFavoriteFilm(), profile.getFavoriteSnack(), profile.getFavoriteGenres());
+                    profile.getFavoriteFilm(), profile.getFavoriteSnack(), profile.getFavoriteGenres(), profile.getAvatarId());
             returnedProfile = getProfileById(newProfileId);
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);

@@ -86,11 +86,11 @@ public class JdbcReviewDao implements ReviewDao {
     @Override
     public Review createReview(Review review) {
         Review createdReview = new Review();
-        String sql = "INSERT INTO reviews (profile_id, movie_id, body, rating) " +
-                "VALUES (?, ?, ?, ?) RETURNING review_id;";
+        String sql = "INSERT INTO reviews (profile_id, movie_id, headline, body, rating) " +
+                "VALUES (?, ?, ?, ?, ?) RETURNING review_id;";
         try {
             int newReviewId = jdbcTemplate.queryForObject(sql, int.class, review.getProfileId(),
-                    review.getMovieId(), review.getBody(), review.getRating());
+                    review.getMovieId(), review.getHeadline(), review.getBody(), review.getRating());
             createdReview = getReviewById(newReviewId);
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
@@ -105,9 +105,9 @@ public class JdbcReviewDao implements ReviewDao {
     @Override
     public Review updateReview(Review review) {
         Review updatedReview = new Review();
-        String sql = "UPDATE reviews SET body = ?, rating = ? WHERE review_id = ?;";
+        String sql = "UPDATE reviews SET headline = ?, body = ?, rating = ? WHERE review_id = ?;";
         try {
-            int numberOfRows = jdbcTemplate.update(sql, review.getBody(),
+            int numberOfRows = jdbcTemplate.update(sql, review.getHeadline(), review.getBody(),
                     review.getRating(), review.getReviewId());
             if (numberOfRows == 0) {
                 throw new DaoException("Zero rows affected, expected one");
