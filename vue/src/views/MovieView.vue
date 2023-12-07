@@ -1,9 +1,12 @@
 <template>
 	<header class = "header" id = "header">
-    <header-bar/>
-  </header>
+    <header-bar/></header>
 	<movie-search-bar/>
     <p>{{  this.movie.title }}</p>
+	<p>{{ formattedReleaseYear }}</p>
+	<p>{{  formattedGenres }}</p>
+	<img :src="'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + this.movie.poster_path" />
+	<p>{{  this.movie.overview  }}</p>
     <!-- <MovieReview/> -->
 </template>
 
@@ -25,7 +28,23 @@ export default {
       movie: {},
     };
   },
-
+  computed: {
+    formattedReleaseYear() {
+      if (this.movie.release_date) {
+        return this.movie.release_date.substring(0, 4);
+      }
+      return '';
+    },
+	formattedGenres() {
+		let genreList = [];
+		if (this.movie.genres) {
+			this.movie.genres.forEach((genre) => {
+				genreList.push(genre.name);
+			});
+		}
+		return genreList.join(', ');
+	},
+  },
   created() {
     this.fetchMovie();
   },
@@ -53,7 +72,15 @@ export default {
           }
         });
     },
+
+// 	const options = {method: 'GET', headers: {accept: 'application/json'}};
+
+// fetch('https://api.themoviedb.org/3/collection/collection_id/images', options)
+//   .then(response => response.json())
+//   .then(response => console.log(response))
+//   .catch(err => console.error(err));
   },
+
 }
 
 </script>

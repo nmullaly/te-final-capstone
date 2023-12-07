@@ -4,9 +4,10 @@
         id = "logo"
         width ="200"
         height="200"
+        v-on:click="redirectToHome"
       />
      
-    <h1>Call of Movie</h1>
+    <h1 v-on:click="redirectToHome">Call of Movie</h1>
     <div v-if="!$store.state.token" id = "SheepleDisplay"><p>REGISTER, SHEEPLE!</p>
       <img src = "../assets/Sheeple\Savant/Sheeple.png"/>
     </div>
