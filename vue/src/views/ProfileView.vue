@@ -2,6 +2,7 @@
 	<div>
 		<header-bar />
 		<profile v-bind:profile="profile"/>
+		<add-film v-on:film-added="handleFilmAdded" />
 		<footer-bar />
 	</div>
 </template>
@@ -10,13 +11,15 @@
 import Profile from '../components/Profile.vue';
 import HeaderBar from '../components/HeaderBar.vue';
 import FooterBar from '../components/FooterBar.vue';
+import AddFilm from '../components/AddFilm.vue';
 import profileService from '../services/ProfileService.js';
 
 export default {
 	components: {
 		Profile,
 		HeaderBar,
-		FooterBar
+		FooterBar,
+		AddFilm,
 	},
 	data() {
 		return {
