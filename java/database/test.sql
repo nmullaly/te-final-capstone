@@ -1,6 +1,7 @@
 -- SELECT * FROM users;
 -- SELECT * FROM profiles;
 -- SELECT * FROM reviews;
+SELECT * FROM watchlist;
 
 
 -- INSERT INTO users (username, password_hash, role) VALUES ('test', 'asdfjklasdfjklasdfjkl', 'TEST');
@@ -9,4 +10,4 @@
 
 -- UPDATE profiles SET bio = 'i love movie' WHERE profile_id = 3;$2a$10$t0I.mP7HanMr9L8SGZXP/ODXDOk8I0a2mdwA5Q7Yd1oBDM12yNeqK
 
-SELECT * FROM reviews WHERE movie_id = 5
+SELECT * FROM watchlist WHERE profile_id = 2
