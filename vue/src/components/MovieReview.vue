@@ -1,12 +1,12 @@
 <template>
   <div>
-    <button
+    <!-- <button
       id="show-form-button"
       v-if="showForm === false"
       v-on:click.prevent="showForm = true"
-    >Show Form</button>
-
-    <form v-on:submit.prevent="addNewReview" v-if="showForm === true">
+    >Show Form</button> -->
+    <!-- <form v-on:submit.prevent="addNewReview" v-if="showForm === true"> -->
+    <form v-on:submit.prevent="addNewReview">
       <div class="form-element">
         <label for="reviewer">Name:</label>
         <input id="reviewer" type="text" v-model="newReview.reviewer" />
@@ -40,7 +40,7 @@
 export default {
   data() {
     return {
-      showForm: false,
+      // showForm: false,
       newReview: {},
     };
   },
@@ -50,7 +50,7 @@ export default {
       this.resetForm();
     },
     resetForm() {
-      this.showForm = false;
+      // this.showForm = false;
       this.newReview = {};
     },
   },

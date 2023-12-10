@@ -11,14 +11,15 @@
   <div id = "buffer">
   </div>
   <div id = "content">
-    <h1>Films</h1>
-      <h2>Find and Review Films to Gain Rep as a Film Buff</h2>
+    <h1>Movies</h1>
+      <h2>Encounter and Review Films to Increase Your Buff Score</h2>
     <div class = "navigation">
       <movie-search-bar id = "movieSearchBar"></movie-search-bar>
     </div>
       <movie-display></movie-display>   
         <p id = "movieText">
-          Search our database of movies Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <!-- Search our database of movies Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. -->
+          On our website, you will encounter movies.  If you watch these movies, review them, and leave a suggested snack pairing you will increase your film buff score.  Fight against your fellow movie savants and claim the pinnacle of buffhood.  Search TMDB's API for movies by ID.
         </p>
     <h1>Social</h1>
       <h2>Flex Your Film Buff Score</h2>
@@ -26,8 +27,9 @@
         <user-search-bar></user-search-bar>
     </div>
       <user-display></user-display>
-        <p>
-          Search our users for opinions on what movies to see and even what movies to stay away from. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <p id = "movieText">
+          <!-- Search our users for opinions on what movies to see and even what movies to stay away from. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. -->
+          Search our users for opinions on what movies to see and even what movies to stay away from.  See how much bigger your buff score is than theirs, and know that their opinion mathematically doesn't matter as much yours.
         </p>
     <div id="griddy">
       <p class = "buffMessage" id = "mfof">A Message From Our Founder</p>
@@ -97,7 +99,9 @@ footer{
 }
 
 #movieText{
-  margin-bottom: 10vw;
+  margin-top:5rem;
+  margin-bottom: 2vw;
+  font-size: 18px;
 }
 
 #movieSearchBar{
@@ -124,10 +128,24 @@ p{
 
 .buffMessage{
   font-size: 25px;
+  color:black;
+  background-color: rgba(128, 128, 128, 0.75);
+  border-radius: 12px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 #mfof{
   font-size: 35px;
-  margin-top:8vw;
+  margin-top:2vw;
+}
+
+#griddy{
+  /* background-image: url("../assets/CinemaOrange.jpg"); */
+  background-image: url("../assets/Cinema.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  margin-top: 60px;
+  border-radius: 12px;
+  font-weight: bold;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div id="holdThisBox">
+        <div id="dropTheBoxNowOhGod">
         <user-profile-pic class = "pfp" :imageSource="userImages[0]"></user-profile-pic>
         <user-profile-pic class = "pfp" :imageSource="userImages[1]"></user-profile-pic>
         <user-profile-pic class = "pfp" :imageSource="userImages[2]"></user-profile-pic>
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style>
-#holdThisBox{
+#dropTheBoxNowOhGod{
     display: flex;
     justify-content: center;
 }
