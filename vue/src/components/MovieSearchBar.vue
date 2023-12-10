@@ -8,6 +8,9 @@
 <script>
 import movieService from "../services/MovieService.js";
 
+
+// TODO: Import search by Movie from movieService
+//  Get it to work
 export default {
     data() {
       return {
@@ -20,11 +23,6 @@ export default {
         if (movieId !== '') {
           this.$router.push({ name: 'Movie', params: { id: movieId } });
         }
-        // let uI = this.input.trim();
-        // let movieId = uI.searchMovies.id;
-        // if (movieId !== '') {
-        //   this.$router.push({ name: 'Movie', params: { id: movieId } });
-        // }
       }
     }
   }

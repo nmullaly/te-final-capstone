@@ -1,10 +1,23 @@
 <template>
     <footer class="footyboi">
-        <h1 id = "logo">Call of Movie</h1>
+        <h1 id = "logo" v-on:click="redirectToHome">Call of Movie</h1>
         <h2>Copyright 2024</h2>
-        <h3>About Us</h3>
+        <h3 v-on:click="redirectToAbout">About Us</h3>
     </footer> 
 </template>
+
+<script>
+export default{
+    methods: {
+      redirectToHome(){
+          this.$router.push({name: 'home'});
+        },
+        redirectToAbout() {
+          window.location.href = 'https://www.youtube.com/watch?v=7i0XToRoc34';
+        },
+    }
+}</script>
+
 
 <style>
 .footyboi {
@@ -32,6 +45,7 @@ h2{
 }
 
 h3{
-  color:aliceblue
+  color:aliceblue;
+  cursor: pointer;
 }
 </style>

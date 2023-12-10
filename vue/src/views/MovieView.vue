@@ -6,11 +6,11 @@
       <p id="yearAndGenre">{{ formattedReleaseYear }},  {{  formattedGenres }}</p>
       <div id="middleContent">
         <img :src="'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + this.movie.poster_path" id="poster"/>
-        <img src="../assets/FakeReview1.png" id="randomReview"/>
+        <img :src="`/src/assets/Reviews/FakeReview${generateRandomReview()}.png`" id="randomReview"/>
       </div>
       <p id="overview">{{  this.movie.overview  }}</p>
     </div>
-    <MovieReview/>
+    <MovieReview id = "mr"/>
     <footer-bar/>
 </template>
 
@@ -83,7 +83,12 @@ export default {
     setReviewData(){
       this.newReview.reviewer = this.user.username;
       this.newReview.title = this.movie.title;
-    }
+    },
+    generateRandomReview() {
+      let validIds = [1,2,3,4,5]
+      let movieId = validIds[Math.floor(Math.random() * validIds.length)];
+      return movieId;
+    },
   },
 
 }
@@ -142,5 +147,9 @@ footer-bar {
   background-color: #333; /* You can set the background color as needed */
   color: white; /* You can set the text color as needed */
   padding: 10px;
+  margin-top: 2.5rem;
+}
+#mr {
+  margin-bottom: 2.5rem;
 }
 </style>

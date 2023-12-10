@@ -8,20 +8,20 @@
       />
      
     <h1 v-on:click="redirectToHome" id="name">Call of Movie</h1>
-    <div v-if="!$store.state.token" id = "SheepleDisplay"><p>REGISTER, SHEEPLE!</p>
+    <div v-if="!$store.state.token" class = "signInRotato" id = "SheepleDisplay" v-on:click="redirectToRegister"><p>REGISTER, SHEEPLE!</p>
       <img src = "../assets/Sheeple\Savant/Sheeple.png"/>
     </div>
-    <div v-if="$store.state.token" id = "SavantDisplay"><p>Welcome, Fellow Savant</p>
+    <div v-if="$store.state.token" class = "signInRotato" id = "SavantDisplay" v-on:click="redirectToProfile"><p>Welcome, Fellow Savant</p>
       <img src = "../assets/Sheeple\Savant/OoS_Golden_Sage_Sprite.png"/>
     </div>
+        <button class="home" v-on:click="redirectToHome">Home</button>
+        <button v-if="!$store.state.token" class="login" v-on:click="redirectToLogin">Log In</button>
+        <button v-if="!$store.state.token" class="register" v-on:click="redirectToRegister">Register</button>
         <button class="movies" v-on:click="redirectToMovies">Movies</button>
         <button class="users">Users</button>
         <button class="scoreboard">Scoreboard</button>
-        <button v-if="!$store.state.token" class="login" v-on:click="redirectToLogin">log in</button>
         <button v-if="$store.state.token" v-bind:to="{ name: 'logout' }" class="logout" v-on:click="logout">log out</button>
-        <button v-if="!$store.state.token" class="register" v-on:click="redirectToRegister">register</button>
         <button v-if="$store.state.token" class="profile" v-on:click="redirectToProfile">profile</button>
-        <button class="home" v-on:click="redirectToHome">home</button>
         <audio ref="audioPlayer" src="../assets/322640__aruscio28__hitmarker-sound-effect.mp3"></audio>
         <!-- <img src = "src/assets/hm3.jpg"/> -->
 </template>
@@ -77,9 +77,7 @@ button {
   font-family: courier-new;
   cursor: url("../assets/hm3.jpg"), pointer;
 }
-.movies{
-  margin-left: auto;
-}
+
 div.form-input-group {
 text-decoration-color: aliceblue;
 }
@@ -87,6 +85,11 @@ text-decoration-color: aliceblue;
 cursor: url("../assets/hm3.jpg"), pointer;
 }
 #name{
+  cursor: url("../assets/hm3.jpg"), pointer;
+}
+.signInRotato{
+  margin-left:35.5rem;
+  margin-right:auto;
   cursor: url("../assets/hm3.jpg"), pointer;
 }
 </style>
