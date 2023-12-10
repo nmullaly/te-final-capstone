@@ -5,6 +5,7 @@ const movieApi = axios.create({
 });
 
 const apiKey = "?api_key=971c339ba0468ee012b9d13073c7f4f4";
+const apiKey2 = "971c339ba0468ee012b9d13073c7f4f4"
 
 export default {
 
@@ -13,6 +14,6 @@ export default {
 	},
 
 	searchMoviesByName(query) {
-		return movieApi.get(`search/movie?query=${query}&include_adult=false`);
+		return movieApi.get(`search/movie?query=${query}&include_adult=false&api_key=971c339ba0468ee012b9d13073c7f4f4`);
 	},
 }
