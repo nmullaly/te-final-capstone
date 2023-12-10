@@ -7,14 +7,14 @@
         v-on:click="redirectToHome"
       />
      
-    <h1 v-on:click="redirectToHome">Call of Movie</h1>
+    <h1 v-on:click="redirectToHome" id="name">Call of Movie</h1>
     <div v-if="!$store.state.token" id = "SheepleDisplay"><p>REGISTER, SHEEPLE!</p>
       <img src = "../assets/Sheeple\Savant/Sheeple.png"/>
     </div>
     <div v-if="$store.state.token" id = "SavantDisplay"><p>Welcome, Fellow Savant</p>
       <img src = "../assets/Sheeple\Savant/OoS_Golden_Sage_Sprite.png"/>
     </div>
-        <button class="movies">Films</button>
+        <button class="movies" v-on:click="redirectToMovies">Movies</button>
         <button class="users">Users</button>
         <button class="scoreboard">Scoreboard</button>
         <button v-if="!$store.state.token" class="login" v-on:click="redirectToLogin">log in</button>
@@ -41,6 +41,9 @@ export default{
         },
         redirectToProfile(){
           this.$router.push({ name: 'ProfileView', params: { id: this.$store.state.user.id } });
+        },
+        redirectToMovies(){
+          this.$router.push({ name: 'MovieHome' });
         },
         logout(){
           this.$router.push({ name: 'logout' });
@@ -72,12 +75,18 @@ button {
   margin-left:5px;
   text-decoration-style: white;
   font-family: courier-new;
-  cursor: url("src/assets/hm3.jpg"), pointer;
+  cursor: url("../assets/hm3.jpg"), pointer;
 }
 .movies{
   margin-left: auto;
 }
 div.form-input-group {
 text-decoration-color: aliceblue;
+}
+#logo{
+cursor: url("../assets/hm3.jpg"), pointer;
+}
+#name{
+  cursor: url("../assets/hm3.jpg"), pointer;
 }
 </style>
