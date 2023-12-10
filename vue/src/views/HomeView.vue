@@ -99,6 +99,7 @@ footer{
 }
 
 #movieText{
+  margin-top:5rem;
   margin-bottom: 2vw;
   font-size: 18px;
 }
@@ -139,9 +140,12 @@ p{
 }
 
 #griddy{
-  background-image: url("../assets/CinemaOrange.jpg");
+  /* background-image: url("../assets/CinemaOrange.jpg"); */
+  background-image: url("../assets/Cinema.jpg");
   background-size: cover; 
   background-repeat: no-repeat; 
-  margin-top: 120px;
+  margin-top: 60px;
+  border-radius: 12px;
+  font-weight: bold;
 }
 </style>

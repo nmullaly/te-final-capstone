@@ -1,6 +1,6 @@
 <template>
     <header class = "header" id = "header">
-    <header-bar/></header>
+    <header-bar/><movie-search-bar/></header>
     <h1>Some Wild Movies Appeared!</h1>
     <movie-display class="display"/>
     <movie-display class="display"/>
@@ -9,10 +9,10 @@
         <h2>Encounter More Movies</h2>
         <button class = "newMovieButton" v-on:click="redirectToMovies">&#8658;</button>
     </div>
-    <div id = "search">
+    <!-- <div id = "search">
         <h2>Search Movies By Id:  </h2>
         <movie-search-bar/>
-    </div>
+    </div> -->
     <footer-bar/>
 </template>
 
@@ -46,7 +46,7 @@ redirectToMovies() {
 <style>
 .display{
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 #moar{
     display:flex;
