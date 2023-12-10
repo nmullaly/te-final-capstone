@@ -1,8 +1,9 @@
 <template>
-    <!-- uncomment this code if you want the header bar to be normal
   <header class = "header" id = "header">
-    <header-bar/></header> -->
-  <header-bar></header-bar>
+    <header-bar/></header>
+    <div id="curtains-container">
+<img src="../assets/redcurtains.png" alt ="Red Curtains" />
+  </div>
   <div id="register" class="text-center">
     <form v-on:submit.prevent="register">
       <h1>Create Account</h1>
@@ -25,15 +26,18 @@
       <p><router-link v-bind:to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
     </form>
   </div>
+  <footer-bar/>
 </template>
 
 <script>
 import authService from '../services/AuthService';
 import HeaderBar from '../components/HeaderBar.vue';
+import FooterBar from '../components/FooterBar.vue';
 
 export default {
   components:{
     HeaderBar,
+    FooterBar,
   },
   data() {
     return {
@@ -81,16 +85,28 @@ export default {
 </script>
 
 <style>
+#curtains-container{
+  position: relative;
+}
+#curtains-container img {
+width: 100%;
+height: auto;
+}
 .form-input-group {
   margin-bottom: 1rem;
 }
 label {
   margin-right: 0.5rem;
 }
-/* .header img#logo {
-  width: 50px; 
-  height: auto; 
-} */
+#register{
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1; 
+  text-align: center; 
+  color: white; 
+}
 div{
   color: white;
 }

@@ -1,9 +1,6 @@
 <template>
-  <!-- uncomment this code if you want the header bar to be normal
   <header class = "header" id = "header">
-    <header-bar/></header> -->
-  <header-bar></header-bar>
-
+    <header-bar/></header>
   <div id="curtains-container">
 <img src="../assets/redcurtains.png" alt ="Red Curtains" />
   </div>
@@ -34,15 +31,18 @@
       <router-link v-bind:to="{ name: 'register' }">Need an account? Sign up.</router-link></p>
     </form>
   </div>
+  <footer-bar/>
 </template>
 
 <script>
 import authService from "../services/AuthService";
 import HeaderBar from "../components/HeaderBar.vue";
+import FooterBar from "../components/FooterBar.vue";
 
 export default {
   components: {
     HeaderBar,
+    FooterBar,
   },
   data() {
     return {
