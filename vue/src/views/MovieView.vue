@@ -10,6 +10,7 @@
       </div>
       <p id="overview">{{  this.movie.overview  }}</p>
     </div>
+    <button>Add film to watchlist</button>
     <MovieReview id = "mr"/>
     <footer-bar/>
 </template>

@@ -8,6 +8,14 @@
 		<p id="fav-snack">{{ this.profile.favoriteSnack }}</p>
 		<button id="edit-profile-btn" v-on:click="routeToEdit" v-show="isCurrentUser">Edit Profile</button>
 	</div>
+	<div v-if="profile.watchlist && profile.watchlist.length > 0">
+      <h2>My Watchlist:</h2>
+      <ul>
+        <li v-for="film in profile.watchlist" :key="film.id">
+          {{ film.title }}
+        </li>
+		</ul>
+		</div>
 </template>
 
 <script>

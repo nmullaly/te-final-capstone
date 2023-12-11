@@ -8,6 +8,7 @@
             <button v-for="num in 5" :key="num" @click.prevent="setRating(num)" :class="{ 'selected': newReview.rating === num }">
               <span class="popcorn-icon" :class="{ 'inactive': newReview.rating >= num }">&#127871;</span>
             </button>
+            
           </div>
         </div>
       </form>
