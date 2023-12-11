@@ -27,10 +27,10 @@ components: {
     display: flex;
     justify-content: center;
 }
-.movieCard{
+/* .movieCard{
     margin-left: 10px;
     margin-right: 10px;
     border: 1px solid #CBD1DA;
     border-radius: 4px;
-}
+} */
 </style>
