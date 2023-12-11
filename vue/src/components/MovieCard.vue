@@ -41,7 +41,7 @@ export default {
       return movieId;
     },
 
-    addNewReview() {
+    createReview() {
       this.$store.commit("ADD_REVIEW", this.newReview);
       this.resetForm();
     },

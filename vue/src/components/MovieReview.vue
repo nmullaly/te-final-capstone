@@ -1,25 +1,18 @@
 <template>
   <div>
-    <!-- <button
-      id="show-form-button"
-      v-if="showForm === false"
-      v-on:click.prevent="showForm = true"
-    >Show Form</button> -->
-    <!-- <form v-on:submit.prevent="addNewReview" v-if="showForm === true"> -->
-    <form v-on:submit.prevent="addNewReview">
+    <form v-on:submit.prevent="createReview">
       <div class="form-element">
         <label for="reviewer">Name:</label>
         <input id="reviewer" type="text" v-model="newReview.reviewer" />
       </div>
       <div class="form-element">
         <label for="title">Title:</label>
-        <input id="title" type="text" v-model="newReview.title" />
+        <input id="title" type="text" v-model="newReview.headline" />
       </div>
       <div class="form-element">
         <label for="rating">Rating:</label>
-        <!-- NOTE: Use .number modifier here so newReview.rating is a number, not a string -->
         <select id="rating" v-model.number="newReview.rating">
-          <option value="1">1 popcorns</option>
+          <option value="1">1 popcorn</option>
           <option value="2">2 popcorns</option>
           <option value="3">3 popcorns</option>
           <option value="4">4 popcorns</option>
@@ -28,7 +21,7 @@
       </div>
       <div class="form-element">
         <label for="review">Review:</label>
-        <textarea id="review" v-model="newReview.review"></textarea>
+        <textarea id="review" v-model="newReview.body"></textarea>
       </div>
       <input type="submit" value="Save" />
       <input type="button" value="Cancel" v-on:click="resetForm" />
@@ -37,24 +30,41 @@
 </template>
 
 <script>
+import ReviewService from '../services/ReviewService';
+
 export default {
   data() {
     return {
-      // showForm: false,
-      newReview: {},
+      newReview: {
+        profileId: 1,
+        movieId: 1,
+        headline: '',
+        rating: 1, // Default
+        body: ''
+      }
     };
   },
   methods: {
-    addNewReview() {
-      this.$store.commit('ADD_REVIEW', this.newReview);
+    createReview() {
+      ReviewService.createReview(this.newReview)
+        .then(response => {
+          if (response.status == 200) {
+            console.log('Success')
+          }})
       this.resetForm();
     },
     resetForm() {
-      // this.showForm = false;
-      this.newReview = {};
+      this.newReview = {
+        profileId: 1,
+        movieId: 1,
+        headline: '',
+        rating: 1,
+        body: ''
+      };
     },
   },
-};
+}
+
 </script>
 
 <style scoped>
