@@ -99,7 +99,7 @@ button {
   color: black;
 }
 .form-input-group {
-font-family:'Courier New', Courier, monospace;
+/* font-family:'Courier New', Courier, monospace; */
 font-size: 20px;
 }
 #login {

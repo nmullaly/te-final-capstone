@@ -53,7 +53,7 @@ redirectToMovies() {
     justify-content: flex-end;
     background-image: url("../assets/Banner2.jpg");
     margin-top:120px;
-    font-family: 'Courier New', Courier, monospace;
+    /* font-family: 'Courier New', Courier, monospace; */
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.1);
 }
@@ -70,7 +70,7 @@ redirectToMovies() {
     align-content: center;
     margin-top: 30px;
     margin-bottom: 30px;
-    font-family: 'Courier New', Courier, monospace;
+    /* font-family: 'Courier New', Courier, monospace; */
 }
 .newMovieButton{
 margin-right: 30px;

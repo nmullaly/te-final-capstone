@@ -20,8 +20,8 @@
         <button class="movies" v-on:click="redirectToMovies">Movies</button>
         <button class="users">Users</button>
         <button class="scoreboard">Scoreboard</button>
-        <button v-if="$store.state.token" v-bind:to="{ name: 'logout' }" class="logout" v-on:click="logout">log out</button>
-        <button v-if="$store.state.token" class="profile" v-on:click="redirectToProfile">profile</button>
+        <button v-if="$store.state.token" v-bind:to="{ name: 'logout' }" class="logout" v-on:click="logout">Log Out</button>
+        <button v-if="$store.state.token" class="profile" v-on:click="redirectToProfile">Profile</button>
         <audio ref="audioPlayer" src="../assets/322640__aruscio28__hitmarker-sound-effect.mp3"></audio>
         <!-- <img src = "src/assets/hm3.jpg"/> -->
 </template>
@@ -61,7 +61,7 @@ export default{
   text-justify: center;
   align-items: center; 
   font-size: medium;
-  font-style: courier-new;
+  /* font-style: courier-new; */
 }
 .header img#logo {
   width: 50px; 
@@ -69,12 +69,12 @@ export default{
 }
 h1{
   margin: left 100px;
-  font-family: 'Courier New', Courier, monospace;
+  /* font-family: 'Courier New', Courier, monospace; */
 }
 button {
   margin-left:5px;
   text-decoration-style: white;
-  font-family: courier-new;
+  /* font-family: courier-new; */
   cursor: url("../assets/hm3.jpg"), pointer;
 }
 

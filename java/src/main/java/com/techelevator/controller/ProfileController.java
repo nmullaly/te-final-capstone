@@ -25,7 +25,7 @@ public class ProfileController {
         return profileDao.getProfiles();
     }
 
-    @RequestMapping(path = "/profiles/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/profile/{id}", method = RequestMethod.GET)
     public Profile getProfileById(@PathVariable int id) {
         Profile profile = profileDao.getProfileById(id);
         if (profile == null) {
@@ -56,7 +56,7 @@ public class ProfileController {
             return profileDao.listProfilesByUsername(query);
     }
 
-    @RequestMapping(path = "/profiles/{id}", method = RequestMethod.PUT)
+    @RequestMapping(path = "/profile/{id}", method = RequestMethod.PUT)
     public Profile updateProfile(@PathVariable int id, @RequestBody Profile profile) {
         if (id != profile.getProfileId()) {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Resource id does not match url.");
