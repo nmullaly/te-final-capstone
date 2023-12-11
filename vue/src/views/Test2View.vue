@@ -24,8 +24,10 @@ export default {
         return {
             movie: {},
             movieId: 579974,
-            userWatchlist: [],
-            isOnWatchlist: false,
+            // for watchlist purposes
+            item: {
+                profileId: this.$store.state.user.id
+            },
         }
     },
     created() {
@@ -42,43 +44,30 @@ export default {
                     console.log("Front-end error");
                 }
             });
-        this.getWatchlist();
-        // this.isOnWatchlist = this.checkWatchlist();
+        this.item.movieId = this.movieId;
     },
-    // computed: {
-    //     isOnWatchlist() {
-    //         // if (this.userWatchlist == []) {
-    //         //     this.isOnWatchlist = false;
-    //         // }
-    //         this.userWatchlist.forEach((item) => {
-    //             if (item.movieId == this.movieId) {
-    //                 return true;
-    //             }
-    //         })
-    //         return false;
-    //     }
-    // },
+    computed: {
+        isOnWatchlist() {
+            let isOn = false;
+            // this.$store.state.watchlist.forEach(item => {console.log(item)})
+            this.$store.state.watchlist.forEach(item => {
+                if (this.movieId == item.movieId) {
+                    isOn = true;
+                }
+            });
+            return isOn;
+        }
+    },
     methods: {
-        getWatchlist() {
-            watchlistService
-                .getWatchlistByUserId(this.$store.state.user.id)
-                .then(response => {
-                    this.userWatchlist = response.data;
-                })
-                .catch(error => {
-                    console.log(error.response);
-                })
-        },
-        // checkWatchlist() {
-        //     // if (this.userWatchlist == []) {
-        //     //     this.isOnWatchlist = false;
-        //     // }
-        //     this.userWatchlist.forEach((item) => {
-        //         if (item.movieId == this.movieId) {
-        //             return true;
-        //         }
-        //     })
-        //     return false;
+        // getWatchlist() {
+        //     watchlistService
+        //         .getWatchlistByUserId(this.$store.state.user.id)
+        //         .then(response => {
+        //             this.userWatchlist = response.data;
+        //         })
+        //         .catch(error => {
+        //             console.log(error.response);
+        //         })
         // },
         addToWatchlist() {
             let item = {
@@ -96,8 +85,7 @@ export default {
             .catch(error => {
                 console.log(error.response.data);
             });  
-            this.getWatchlist();
-            // this.isOnWatchlist = this.checkWatchlist();
+            this.$store.commit("ADD_TO_WATCHLIST", item);            
         },
         removeFromWatchlist() {
             let item = {
@@ -114,9 +102,8 @@ export default {
             })
             .catch(error => {
                 console.log(error.response.data)
-            }); 
-            this.getWatchlist();
-            // this.isOnWatchlist = this.checkWatchlist();
+            });
+            this.$store.commit("REMOVE_FROM_WATCHLIST", item);
         }
     }
 };

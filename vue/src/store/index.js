@@ -40,6 +40,14 @@ export function createStore(currentToken, currentUser) {
             .catch(error => {
               console.log(error.response);
             });
+      },
+      ADD_TO_WATCHLIST(state, item) {
+        state.watchlist.push(item);
+      },
+      REMOVE_FROM_WATCHLIST(state, item) {
+        state.watchlist = state.watchlist.filter(row => {
+          return row.movieId != item.movieId;
+        });
       }
     },
   });
