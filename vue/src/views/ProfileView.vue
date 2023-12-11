@@ -5,6 +5,10 @@
 		</header>
 		<profile v-bind:profile="profile"/>
 		<!-- <add-film v-on:film-added="handleFilmAdded" /> -->
+		<div id="reviewList">
+      <review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item"/>
+      <!-- <review-copy /> -->
+    </div>
 		<footer-bar />
 	</div>
 </template>
@@ -15,12 +19,16 @@ import HeaderBar from '../components/HeaderBar.vue';
 import FooterBar from '../components/FooterBar.vue';
 import AddFilm from '../components/AddFilm.vue';
 import profileService from '../services/ProfileService.js';
+import reviewService from "../services/ReviewService.js";
+import movieService from "../services/MovieService.js";
+import Review from "../components/Review.vue";
 
 export default {
 	components: {
 		Profile,
 		HeaderBar,
 		FooterBar,
+		Review,
 		// AddFilm,
 	},
 	data() {
@@ -43,10 +51,47 @@ export default {
 					console.log("Front-end error");
 				}
 			});
+		this.fetchReviews();
 	},
 	methods: { 
 		showForm() {
 			this.isFormShown = true;
+		},
+		fetchReviews() {
+			let userId = this.$route.params.id;
+
+			reviewService
+				.getReviewsByUser(userId)
+				.then((response) => {
+					this.reviewList = response.data;
+
+					this.reviewList.forEach(review => {
+						review.username = this.profile.username;
+						movieService
+							.getMovieById(review.movieId)
+							.then((response) => {
+								review.title = response.data.title;
+							})
+							.catch((error) => {
+								if (error.response) {
+									console.log(error.response.status);
+								} else if (error.request) {
+									console.log("Server error");
+								} else {
+									console.log("Front-end error");
+								}
+							});
+					})
+				})
+				.catch((error) => {
+					if (error.response) {
+						console.log(error.response.status);
+					} else if (error.request) {
+						console.log("Server error");
+					} else {
+						console.log("Front-end error");
+					}
+				});
 		},
 		handleFilmAdded(movie) {
       
