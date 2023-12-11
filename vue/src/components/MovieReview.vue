@@ -24,7 +24,7 @@
         <textarea id="review" v-model="newReview.body"></textarea>
       </div>
       <input type="submit" value="Save" />
-      <input type="button" value="Cancel" v-on:click="resetForm" />
+      <input type="button" value="Cancel" v-on:click="redirectToMovieView" />
     </form>
   </div>
 </template>
@@ -51,17 +51,22 @@ export default {
           if (response.status == 200) {
             console.log('Success')
           }})
-      this.resetForm();
+      this.redirectToMovieView();
+      // this.resetForm();
     },
-    resetForm() {
-      this.newReview = {
-        // profileId: '',
-        // movieId: '',
-        headline: '',
-        rating: 1,
-        body: ''
-      };
+    redirectToMovieView() {
+      this.$router.push({name: 'Movie', params: { id: this.$route.params.id }});
     },
+    // resetForm() {
+    //   this.newReview = {
+    //     // profileId: '',
+    //     // movieId: '',
+    //     headline: '',
+    //     rating: 1,
+    //     body: ''
+    //   };
+    // },
+
   },
 }
 

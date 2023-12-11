@@ -4,7 +4,7 @@
 			<header-bar/>
 		</header>
 		<profile v-bind:profile="profile"/>
-		<add-film v-on:film-added="handleFilmAdded" />
+		<!-- <add-film v-on:film-added="handleFilmAdded" /> -->
 		<footer-bar />
 	</div>
 </template>
@@ -21,7 +21,7 @@ export default {
 		Profile,
 		HeaderBar,
 		FooterBar,
-		AddFilm,
+		// AddFilm,
 	},
 	data() {
 		return {

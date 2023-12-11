@@ -9,12 +9,19 @@
         <img :src="`/src/assets/Reviews/FakeReview${generateRandomReview()}.png`" id="randomReview"/>
       </div>
       <p id="overview">{{  this.movie.overview  }}</p>
-    </div>
-    <div id="watchlistBtn">
-      <button id="removeBtn" v-if="isOnWatchlist" v-on:click="removeFromWatchlist">Remove Film from Watchlist</button>
+    
+    <div id="movieButtons">
+      <div id="watchlistBtn">
+        <button id="removeBtn" v-if="isOnWatchlist" v-on:click="removeFromWatchlist">Remove Film from Watchlist</button>
         <button id="addBtn" v-else v-on:click="addToWatchlist">Add Film to Watchlist</button>
+      </div>
+      <button id="reviewBtn" v-on:click="redirectToReviewForm">Review This Film</button>
     </div>
-    <MovieReview id = "mr"/>
+  </div>
+  <div id="reviewList">
+
+  </div>
+    <!-- <MovieReview id = "mr"/> -->
     <footer-bar/>
 </template>
 
@@ -32,7 +39,7 @@ export default {
 	components: {
 		HeaderBar,
 		// MovieSearchBar,
-		MovieReview,
+		// MovieReview,
     FooterBar,
 	},
 	data() {
@@ -43,6 +50,7 @@ export default {
         profileId: this.$store.state.user.id,
         movieId: this.$route.params.id
       },
+      reviewList: [],
     };
   },
   computed: {
@@ -98,6 +106,9 @@ export default {
           }
         });
     },
+    fetchReviews() {
+      
+    },
     setReviewData(){
       this.newReview.reviewer = this.user.username;
       this.newReview.title = this.movie.title;
@@ -142,6 +153,9 @@ export default {
           console.log(error.response.data)
         });
       this.$store.commit("REMOVE_FROM_WATCHLIST", item);
+    },
+    redirectToReviewForm() {
+      this.$router.push({name: 'AddReview', params: { id: this.$route.params.id }});
     }
   },
 
@@ -151,6 +165,13 @@ export default {
 
 
 <style>
+#movieButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 45px;
+}
+
 #movieTitle{
   /* font-family: 'Courier New', Courier, monospace; */
   font-weight: bold;

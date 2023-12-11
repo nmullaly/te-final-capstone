@@ -14,6 +14,7 @@ import Test2View from '../views/Test2View.vue';
 import MovieReview from '../components/MovieReview.vue';
 import EditProfileView from '../views/EditProfileView.vue';
 import ReviewTest from '../views/ReviewTest.vue';
+import AddReviewView from '../views/AddReviewView.vue';
 
 
 /**
@@ -100,6 +101,11 @@ const routes = [
     path:'/test3',
     name: "ReviewTest",
     component: ReviewTest
+  },
+  {
+    path:'/addreview/:id',
+    name: "AddReview",
+    component: AddReviewView
   }
 ];
 
