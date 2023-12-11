@@ -2,16 +2,15 @@
   <div>
     <div id="holdThisBox">
       <img :src="'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + this.movie.poster_path" v-on:click="routeToMovie" id="movie1" class="movieCard" />
-      <form id="reviewUnique">
+      <!-- <form id="reviewUnique">
         <div class="form-element">
           <div class="rating-buttons">
             <button v-for="num in 5" :key="num" @click.prevent="setRating(num)" :class="{ 'selected': newReview.rating === num }">
               <span class="popcorn-icon" :class="{ 'inactive': newReview.rating >= num }">&#127871;</span>
             </button>
-            
           </div>
         </div>
-      </form>
+      </form> -->
     </div>
   </div>
 </template>
@@ -98,19 +97,19 @@ export default {
   cursor: url("../assets/hm3.jpg"), pointer;
 }
 
-.popcorn-icon {
+/* .popcorn-icon {
   margin-left: none;
   margin-right: none;
   font-size: 15px;
-  transition: opacity 0.3s ease; /* Move the transition property here */
+  transition: opacity 0.3s ease; 
 }
 
 .popcorn-icon:hover {
-  opacity: 1; /* Adjust the opacity as needed */
+  opacity: 1; 
 }
 
 .popcorn-icon.inactive {
-  opacity: 0.3; /* Adjust the opacity as needed */
+  opacity: 0.3; 
 }
 
 .rating-buttons {
@@ -126,7 +125,7 @@ export default {
 }
 
 .rating-buttons button.selected {
-  background-color: #007BFF; /* Change to your desired selected color */
+  background-color: #007BFF; 
   color: white;
 }
 
@@ -136,7 +135,7 @@ export default {
 
 #reviewUnique {
   display: none;
-}
+} */
 
 #holdThisBox:hover {
   outline: 3px solid whitesmoke;
