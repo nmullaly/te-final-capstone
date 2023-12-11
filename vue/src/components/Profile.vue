@@ -35,9 +35,9 @@ export default {
 		}
 	},
 	methods: {
-		routeToEdit() {
-			this.$router.push({ name: 'EditProfile', params: { id: this.$route.params.id } });
-		}
+		showForm() {
+			this.isFormShown = true;
+		},
 	}
 }
 

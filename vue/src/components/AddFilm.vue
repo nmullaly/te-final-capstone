@@ -2,7 +2,7 @@
     <form class="new-movie-form" v-on:submit.prevent="saveFilm">
       <input class="title-input" name="title-input" type="text" placeholder="Title" v-model="film.title" />
     
-      <button>Add a film to Your Watchlist</button>
+      <button v-on:click = "searchMovies"> Add a film to Your Watchlist</button>
     </form>
   </template>
   
@@ -36,6 +36,17 @@
         console.error('Error adding movie', error);
     }
   },
+  async searchMovies() {
+        let query = this.film.title.trim();
+        let movie = await MovieService.searchMoviesByName(query);
+        console.log(JSON.stringify(movie.data.results[0].id));
+        if (movie) {
+          let firstMovie = movie.data.results[0];
+          this.$router.push({ name: 'Movie', params: { id: firstMovie.id } });
+        } else {
+          console.error('Javascript is asshole.  Why Addie hate? https://youtu.be/2utk-uiaZlc?si=DBraYTxWVbq74Drs&t=42');
+        }
+      }
 },
   };
   </script>
