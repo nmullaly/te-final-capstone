@@ -21,7 +21,7 @@
 			<p class="error-msg" v-bind:hidden="isSnackErrorHidden">Error: This field cannot be more than 50 characters</p>
 		</div>
 		<button id="save" class="btn btn-save" v-on:click.prevent="saveChanges">Save Changes</button>
-		<button id="cancel" class="btn btn-cancel" v-on:click="discardChanges">Discard Changes</button>
+		<button id="cancel" class="btn btn-cancel" v-on:click.prevent="discardChanges">Discard Changes</button>
 	</form>
 </template>
 
@@ -29,34 +29,20 @@
 import profileService from '../services/ProfileService.js';
 
 export default {
-	// props: {
-	// 	profile: {
-	// 		type: Object,
-	// 		required: true
-	// 	}
-	// },
+	props: ['profile'],
 	data() {
 		return {
-			// Temporary profile object for editing
-			profile: {},
-			editProfile: {
-				// id: this.profile.id,
-				// bio: this.profile.bio,
-				// film: this.profile.favoriteFilm,
-				// genres: this.profile.favoriteGenres,
-				// snack: this.profile.favoriteSnack
-			},
-			isBioErrorHidden: true,
-			isFilmErrorHidden: true,
-			isGenresErrorHidden: true,
-			isSnackErrorHidden: true,
+			// editProfile: {}
 		}
+	},
+	created() {
+		// this.editProfile = this.profile;
 	},
 	methods: {
 		saveChanges() {
-			// if (!this.validateForm()) {
-			// 	return;
-			// }
+			if (!this.isFormValid()) {
+				return;
+			}
 			// TODO: This method should save changes and update the profile in the store/DB as well as display a message reporting the success/failure
 			profileService
 				.updateProfile(this.editProfile)
@@ -71,54 +57,79 @@ export default {
 				})
 		},
 		discardChanges() {
-			let confirmed = (
-				confirm('Are you sure you want to discard your changes?')
-			)
-			if (confirmed) {
-				this.$router.push({ name: 'ProfileView', params: { id: this.profile.id } });
-			}
+			this.$router.push({ name: 'ProfileView', params: { id: this.$route.params.id } });
 		},
-		validateForm() {
-			let isValid = true;
-			if (this.editProfile.bio.length > 200) {
-				this.isBioErrorHidden = false;
-				isValid = false;
-			}
-			if (this.editProfile.favoriteFilm.length > 50) {
-				this.isFilmErrorHidden = false;
-				isValid = false;
-			}
-			if (this.editProfile.favoriteGenres.length > 100) {
-				this.isGenresErrorHidden = false;
-				isValid = false;
-			}
-			if (this.editProfile.favoriteSnack.length > 50) {
-				this.isSnackErrorHidden = false;
-				isValid = false;
+		isFormValid() {
+			let isValid = false;
+			if (
+				this.isBioErrorHidden &&
+				this.isFilmErrorHidden &&
+				this.isGenresErrorHidden &&
+				this.isSnackErrorHidden
+			) {
+				isValid = true;
 			}
 			return isValid;
 		}
 	},
-	created() {
-		let profileId = parseInt(this.$route.params.id);
-		profileService.getProfileById(profileId)
-			.then(response => {
-				this.editProfile = response.data;
-			})
-			.catch((error) => {
-				if(error.response) {
-					console.log(error.response.status);
-				} else if (error.request) {
-					console.log("Server error");
-				} else {
-					console.log("Front-end error");
-				}
-			});
+	computed: {
+		isBioErrorHidden() {
+			if (this.editProfile.bio == null) {
+				return true;
+			}
+			if (this.editProfile.bio.length >= 200) {
+				return false;
+			} else {
+				return true;
+			}
+		},
+		isFilmErrorHidden() {
+			if (this.editProfile.favoriteFilm == null) {
+				return true;
+			}
+			if (this.editProfile.favoriteFilm.length > 50) {
+				return false;
+			} else {
+				return true;
+			}
+		},
+		isGenresErrorHidden() {
+			if (this.editProfile.favoriteGenres == null) {
+				return true;
+			}
+			if (this.editProfile.favoriteGenres.length > 100) {
+				return false;
+			} else {
+				return true;
+			}
+		},
+		isSnackErrorHidden() {
+			if (this.editProfile.favoriteSnack == null) {
+				return true;
+			}
+			if (this.editProfile.favoriteSnack.length > 50) {
+				return false;
+			} else {
+				return true;
+			}
+		},
+		editProfile() {
+			return this.profile;
+		}
 	}
 }
 
 </script>
 
 <style>
+
+* {
+	margin: 5px;
+}
+
+.error-msg {
+	margin-bottom: 20px;
+	color: red;
+}
 
 </style>

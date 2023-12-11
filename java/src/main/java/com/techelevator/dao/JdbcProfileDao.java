@@ -55,7 +55,7 @@ public class JdbcProfileDao implements ProfileDao{
     @Override
     public Profile getProfileByUsername(String username) {
         Profile profile = null;
-        String sql = "SELECT * FROM profiles WHERE username ILIKE ?;";
+        String sql = "SELECT * FROM profiles WHERE username = ?;";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
             if(results.next()) {
@@ -65,6 +65,22 @@ public class JdbcProfileDao implements ProfileDao{
             throw new DaoException("Unable to connect to server or database", e);
         }
         return profile;
+    }
+
+    @Override
+    public List<Profile> listProfilesByUsername(String query) {
+        List<Profile> profiles = new ArrayList<>();
+        query = "%" + query + "%";
+        String sql = "SELECT * FROM profiles WHERE username ILIKE ?;";
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, query);
+            while(results.next()) {
+                profiles.add(mapRowToProfile(results));
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }
+        return profiles;
     }
 
     @Override
