@@ -11,11 +11,11 @@ export default{
     methods: {
       redirectToHome(){
           this.$router.push({name: 'home'});
-        },
-        redirectToAbout() {
-          window.location.href = 'https://www.youtube.com/watch?v=7i0XToRoc34';
+        },redirectToAbout() {
+            window.open('https://www.youtube.com/watch?v=7i0XToRoc34', '_blank');
         },
     }
+        
 }</script>
 
 

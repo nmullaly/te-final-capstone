@@ -5,7 +5,7 @@
   </div> -->
 <body>
   <header class = "header" id = "header">
-    <header-bar></header-bar>
+    <header-bar/>
   </header>
   <main>
   <div id = "buffer">
@@ -19,7 +19,7 @@
       <movie-display></movie-display>   
         <p id = "movieText">
           <!-- Search our database of movies Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. -->
-          On our website, you will encounter movies.  If you watch these movies, review them, and leave a suggested snack pairing you will increase your film buff score.  Fight against your fellow movie savants and claim the pinnacle of buffhood.  Search TMDB's API for movies by ID.
+          On our website, you will encounter movies.  If you watch these movies, review them, and leave a suggested snack pairing you will increase your film buff score.  Fight against your fellow movie savants and claim the pinnacle of buffhood.  Search TMDB's API for movies by name.
         </p>
     <h1>Social</h1>
       <h2>Flex Your Film Buff Score</h2>
@@ -34,7 +34,7 @@
     <div id="griddy">
       <p class = "buffMessage" id = "mfof">A Message From Our Founder</p>
         <img src = "../assets/Ben.jpg" id = "Ben"/>
-        <p class = "buffMessage">From the moment I understood the inadequacy of the general public's film knowledge I was disgusted.  Film is the most important and enjoyable art form, more than the lesser arts like music, books, or even TV shows.  People who disagree are wrong and will be referred on this website as "Sheeple".  You may even be a Sheeple now.  But do not fear!  The first step to Savant-hood is to create an account on our website and start reviewing films.  Only then can Film Buff status be achieved. </p>
+        <p class = "buffMessage">From the moment I understood the inadequacy of the general public's film knowledge I was disgusted.  Film is the most important and enjoyable art form, more than the lesser arts like music, TV shows, or even books.  People who disagree are wrong and will be referred on this website as "Sheeple".  You may even be a Sheeple now.  But do not fear!  The first step to Savant-hood is to create an account on our website and start reviewing films.  Only then can Film Buff status be achieved. </p>
     </div>
   </div>
 </main>
