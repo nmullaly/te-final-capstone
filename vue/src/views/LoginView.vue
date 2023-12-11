@@ -10,7 +10,8 @@
         
       <h1 >Please Sign In</h1>
       <div role="alert" v-if="invalidCredentials">
-        Invalid username and password!
+        
+        <a href="https://www.youtube.com/watch?v=Xe8UV_jmMkk&t=2s">Invalid username and password!</a>
       </div>
   
       <div role="alert" v-if="this.$route.query.registration">
@@ -78,6 +79,9 @@ export default {
 </script>
 
 <style>
+a{
+  color: white;
+}
 #curtains-container{
   position: relative;
 }

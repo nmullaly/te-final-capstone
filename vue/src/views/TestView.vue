@@ -1,17 +1,15 @@
 <template>
-	<header-bar class="header" id="header"/>
-	<add-film/>
+<review-copy/>
 </template>
 
 <script>
-import movieService from "../services/MovieService.js";
-import AddFilm from "../components/AddFilm.vue";
-import HeaderBar from "../components/HeaderBar.vue";
+import ReviewCopy from "../components/ReviewCopy.vue";
 
 export default {
+	
+
 components: {
-	HeaderBar,
-	AddFilm,
+	ReviewCopy,
 },
 };
 </script>

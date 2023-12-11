@@ -52,5 +52,8 @@ export default {
 </script>
 
 <style>
-
+.profile {
+grid-template-columns: 25px;
+padding: 0px 10px;
+}
 </style>
