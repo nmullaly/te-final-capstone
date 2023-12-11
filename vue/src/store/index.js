@@ -1,14 +1,13 @@
 import { createStore as _createStore } from 'vuex';
 import axios from 'axios';
-import profileService from '../services/ProfileService';
+import watchlistService from '../services/WatchlistService';
 
 export function createStore(currentToken, currentUser) {
   let store = _createStore({
     state: {
       token: currentToken || '',
       user: currentUser || {},
-      // profiles: profileService.getProfiles,
-      // profile: profileService.getProfileById(currentUser.id) || {}
+      watchlist: [],
     },
     mutations: {
       SET_AUTH_TOKEN(state, token) {
@@ -19,7 +18,7 @@ export function createStore(currentToken, currentUser) {
       SET_USER(state, user) {
         state.user = user;
         localStorage.setItem('user', JSON.stringify(user));
-        // this.UPDATE_PROFILE(state, profileService.getProfileByUsername(user.username));
+        // this.$store.commit("GET_WATCHLIST");
       },
       LOGOUT(state) {
         localStorage.removeItem('token');
@@ -27,12 +26,21 @@ export function createStore(currentToken, currentUser) {
         // localStorage.removeItem('profile');
         state.token = '';
         state.user = {};
+        state.watchlist = [];
         // state.profile = {};
         axios.defaults.headers.common = {};
       },
-      // UPDATE_PROFILE(state, profile) {
-      //   state.profile = profile;
-      // }
+      GET_WATCHLIST(state) {
+        watchlistService
+          .getWatchlistByUserId(state.user.id)
+            .then(response => {
+              state.watchlist = response.data;
+              localStorage.addItem('watchlist', response.data);
+            })
+            .catch(error => {
+              console.log(error.response);
+            });
+      }
     },
   });
   return store;

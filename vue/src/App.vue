@@ -16,6 +16,11 @@
   </div>
 </template>
 <script>
+  export default {
+    created() {
+      this.$store.commit("GET_WATCHLIST");
+    }
+  }
 // export default {
 // methods: {
 //   handleClick() {
