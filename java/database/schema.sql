@@ -47,7 +47,7 @@ CREATE TABLE watchlist (
 
 -- CREATE SEQUENCE am_serial;
 -- CREATE TABLE admin_movies (
--- -- 	movie_id VARCHAR(20) NOT NULL DEFAULT CONCAT('am', nextval(am_serial)),
+-- 	movie_id VARCHAR(20) NOT NULL DEFAULT CONCAT('am', nextval(am_serial)),
 -- 	title VARCHAR(100) NOT NULL,
 -- 	release_date DATE,
 -- 	genre VARCHAR(50),

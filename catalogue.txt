@@ -50,5 +50,7 @@
   * EditProfileForm.vue
     * Form for editing bio, favorite film/genres/snacks
     * Needs to be on a different view so it can refresh profile
+  * Review.vue
+    * Displays a single review, with movie title and username
 
   
