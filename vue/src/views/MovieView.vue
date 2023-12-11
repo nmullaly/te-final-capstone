@@ -17,9 +17,10 @@
       </div>
       <button id="reviewBtn" v-on:click="redirectToReviewForm">Review This Film</button>
     </div>
-  </div>
-  <div id="reviewList">
-
+    <div id="reviewList">
+      <review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item"/>
+      <!-- <review-copy /> -->
+    </div>
   </div>
     <!-- <MovieReview id = "mr"/> -->
     <footer-bar/>
@@ -32,7 +33,10 @@ import MovieSearchBar from "../components/MovieSearchBar.vue";
 import MovieReview from "../components/MovieReview.vue";
 import movieService from "../services/MovieService.js";
 import watchlistService from "../services/WatchlistService.js";
-import ProfileService from "../services/ProfileService.js";
+import profileService from "../services/ProfileService.js";
+import reviewService from "../services/ReviewService.js";
+import Review from "../components/Review.vue";
+// import ReviewCopy from "../components/ReviewCopy.vue";
 import FooterBar from "../components/FooterBar.vue";
 
 export default {
@@ -40,12 +44,14 @@ export default {
 		HeaderBar,
 		// MovieSearchBar,
 		// MovieReview,
+    Review,
+    // ReviewCopy,
     FooterBar,
 	},
 	data() {
     return {
       movie: {},
-      newReview: {},
+      // newReview: {},
       item: {
         profileId: this.$store.state.user.id,
         movieId: this.$route.params.id
@@ -81,6 +87,7 @@ export default {
   },
   created() {
     this.fetchMovie();
+    this.fetchReviews();
   },
 
   watch: {
@@ -107,7 +114,40 @@ export default {
         });
     },
     fetchReviews() {
-      
+      let movieId = this.$route.params.id;
+
+      reviewService
+        .getReviewsByMovie(movieId)
+        .then((response) => {
+          this.reviewList = response.data;
+
+          this.reviewList.forEach(review => {
+            review.title = this.movie.title;
+            profileService
+              .getProfileById(review.profileId)
+              .then((response) => {
+                review.username = response.data.username;
+              })
+              .catch((error) => {
+              if (error.response) {
+                console.log(error.response.status);
+              } else if (error.request) {
+                console.log("Server error");
+              } else {
+                console.log("Front-end error");
+              }
+            });
+          })
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response.status);
+          } else if (error.request) {
+            console.log("Server error");
+          } else {
+            console.log("Front-end error");
+          }
+        });
     },
     setReviewData(){
       this.newReview.reviewer = this.user.username;
@@ -165,6 +205,12 @@ export default {
 
 
 <style>
+#reviewList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #movieButtons {
   display: flex;
   justify-content: center;
