@@ -1,25 +1,23 @@
 <template>
-	<div>
-		<header-bar />
-		<profile v-bind:profile="profile"/>
-		<add-film v-on:film-added="handleFilmAdded" />
-		<footer-bar />
-	</div>
+	<header-bar />
+	<edit-profile-form v-bind:profile="profile" v-if="isCurrentUser"/>
+	<p v-else>Log in to edit this profile</p>
+	<footer-bar />
 </template>
 
 <script>
-import Profile from '../components/Profile.vue';
+
+import EditProfileForm from '../components/EditProfileForm.vue';
 import HeaderBar from '../components/HeaderBar.vue';
 import FooterBar from '../components/FooterBar.vue';
-import AddFilm from '../components/AddFilm.vue';
 import profileService from '../services/ProfileService.js';
+
 
 export default {
 	components: {
-		Profile,
+		EditProfileForm,
 		HeaderBar,
 		FooterBar,
-		AddFilm,
 	},
 	data() {
 		return {
@@ -32,15 +30,18 @@ export default {
 			.then(response => {
 				this.profile = response.data;
 			})
-			.catch((error) => {
-				if(error.response) {
-					console.log(error.response.status);
-				} else if (error.request) {
-					console.log("Server error");
-				} else {
-					console.log("Front-end error");
-				}
-			});
+			.catch(error => {
+				console.log('error retrieving profile');
+			})
+	},
+	computed: {
+		isCurrentUser() {
+			if (this.$route.params.id == this.$store.state.user.id) {
+				return true;
+			} else {
+				return false;
+			}
+		}
 	}
 }
 

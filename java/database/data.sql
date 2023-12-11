@@ -13,5 +13,7 @@ INSERT INTO watchlist (profile_id, movie_id) VALUES
 	(1, 3),
 	(1, 4),
 	(2, 7);
+	
+-- INSERT INTO admin_movies (title) VALUES ('Pricemaster');
 
 COMMIT TRANSACTION;

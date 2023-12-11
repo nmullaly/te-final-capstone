@@ -1,4 +1,9 @@
 <template>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  </head>
   <div id="capstone-app">
     <div id="nav">
       <!-- <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp; -->
@@ -23,5 +28,9 @@
 // };
 </script>
 <style>
+
+  * {
+    font-family: "VT323";
+  }
 
 </style>

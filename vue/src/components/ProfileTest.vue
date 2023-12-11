@@ -40,9 +40,9 @@ export default {
 	},
 	methods: {
 		saveChanges() {
-			if (!this.isFormValid()) {
-				return;
-			}
+			// if (!this.validateForm()) {
+			// 	return;
+			// }
 			// TODO: This method should save changes and update the profile in the store/DB as well as display a message reporting the success/failure
 			profileService
 				.updateProfile(this.editProfile)
