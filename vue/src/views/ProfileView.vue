@@ -21,7 +21,7 @@ export default {
 		Profile,
 		HeaderBar,
 		FooterBar,
-		AddFilm,
+		// AddFilm,
 	},
 	data() {
 		return {

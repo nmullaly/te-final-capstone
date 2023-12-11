@@ -18,6 +18,9 @@
       <button id="reviewBtn" v-on:click="redirectToReviewForm">Review This Film</button>
     </div>
   </div>
+  <div id="reviewList">
+
+  </div>
     <!-- <MovieReview id = "mr"/> -->
     <footer-bar/>
 </template>
@@ -47,6 +50,7 @@ export default {
         profileId: this.$store.state.user.id,
         movieId: this.$route.params.id
       },
+      reviewList: [],
     };
   },
   computed: {
@@ -101,6 +105,9 @@ export default {
             console.log("Front-end error");
           }
         });
+    },
+    fetchReviews() {
+      
     },
     setReviewData(){
       this.newReview.reviewer = this.user.username;
