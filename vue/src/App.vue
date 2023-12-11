@@ -31,6 +31,7 @@
 
   * {
     font-family: "VT323";
+    font-weight: normal;
   }
 
 </style>
