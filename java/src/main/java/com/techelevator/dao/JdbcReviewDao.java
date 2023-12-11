@@ -89,7 +89,7 @@ public class JdbcReviewDao implements ReviewDao {
         String sql = "INSERT INTO reviews (profile_id, movie_id, headline, body, rating) " +
                 "VALUES (?, ?, ?, ?, ?) RETURNING review_id;";
         try {
-            int newReviewId = jdbcTemplate.queryForObject(sql, int.class, review.getProfileId(),
+            int newReviewId = jdbcTemplate.update(sql, review.getProfileId(),
                     review.getMovieId(), review.getHeadline(), review.getBody(), review.getRating());
             createdReview = getReviewById(newReviewId);
         } catch (CannotGetJdbcConnectionException e) {
@@ -101,6 +101,7 @@ public class JdbcReviewDao implements ReviewDao {
         }
         return createdReview;
     }
+
 
     @Override
     public Review updateReview(Review review) {
