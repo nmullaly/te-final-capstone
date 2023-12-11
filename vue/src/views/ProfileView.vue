@@ -41,9 +41,17 @@ export default {
 					console.log("Front-end error");
 				}
 			});
-	}
-}
-
+	},
+	methods: { 
+		showForm() {
+			this.isFormShown = true;
+		},
+		handleFilmAdded(film) {
+		this.profile.favoriteFilm = film.movieId;
+		profileService.updateProfile(this.profile);
+	},
+},
+};
 </script>
 
 <style>
