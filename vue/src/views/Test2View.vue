@@ -22,16 +22,19 @@ export default {
     },
     data() {
         return {
-            movie: {}
+            movie: {},
+            userWatchlist: []
         }
     },
     computed: {
         isOnWatchlist() {
-            watchlistService.getWatchlistByUserId(this.$store.state.user.id)
-            .then
-
+            this.userWatchlist.forEach((item) => {
+                if (item.movieId == this.movie.id) {
+                    return true;
+                }
+            })
             return false;
-        }
+        },
     },
     created() {
         let movieId = 579974;
@@ -48,8 +51,19 @@ export default {
                     console.log("Front-end error");
                 }
             });
+        this.getWatchlist();
     },
     methods: {
+        getWatchlist() {
+            watchlistService
+                .getWatchlistByUserId(this.$store.state.user.id)
+                .then(response => {
+                    this.userWatchlist = response.data;
+                })
+                .catch(error => {
+                    console.log(error.response);
+                })
+        },
         addToWatchlist() {
             let item = {
                 profileId: this.$store.state.user.id,
@@ -63,8 +77,9 @@ export default {
                 }
             })
             .catch(error => {
-                console.log(error.response)
-            })
+                console.log(error.response);
+            });
+
         },
         removeFromWatchlist() {
             let item = {

@@ -30,13 +30,13 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    /* font-family: 'Courier New', Courier, monospace; */
   }
   
   .search-bar input {
     padding: 5px;
     margin-right: 5px;
-    font-family: 'Courier New', Courier, monospace;
+    /* font-family: 'Courier New', Courier, monospace; */
   }
   
   .search-bar button {

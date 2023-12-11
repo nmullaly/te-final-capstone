@@ -131,7 +131,7 @@ p{
   color:black;
   background-color: rgba(128, 128, 128, 0.75);
   border-radius: 12px;
-  font-family: 'Courier New', Courier, monospace;
+  /* font-family: 'Courier New', Courier, monospace; */
 }
 
 #mfof{
