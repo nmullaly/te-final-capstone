@@ -99,7 +99,7 @@ export default {
 
 <style>
 #movieTitle{
-  font-family: 'Courier New', Courier, monospace;
+  /* font-family: 'Courier New', Courier, monospace; */
   font-weight: bold;
   font-size: 35px;
   display:flex;
@@ -109,7 +109,7 @@ export default {
   margin-left: 5px;
 }
 #yearAndGenre{
-  font-family: 'Courier New', Courier, monospace;
+  /* font-family: 'Courier New', Courier, monospace; */
   font-size: 15px;
   display:flex;
   justify-self: start;
@@ -127,7 +127,7 @@ export default {
   margin-right: 5px;
 }
 #overview{
-  font-family: 'Courier New', Courier, monospace;
+  /* font-family: 'Courier New', Courier, monospace; */
   font-size: 20px;
   display:flex;
   justify-self: start;

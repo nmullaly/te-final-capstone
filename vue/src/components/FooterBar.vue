@@ -31,7 +31,7 @@ export default{
   font-size: medium;
 }
 .footyboi > * {
-  font-size: 16px; /* Adjust the font size as needed */
+  font-size: 18px; /* Adjust the font size as needed */
   flex-grow: 1;
   justify-content: center; 
   text-align: center;
@@ -48,4 +48,6 @@ h3{
   color:aliceblue;
   cursor: pointer;
 }
+
+
 </style>

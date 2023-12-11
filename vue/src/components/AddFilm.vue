@@ -1,4 +1,7 @@
 <template>
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  </head>
     <form class="new-movie-form" v-on:submit.prevent="saveFilm">
       <input class="title-input" name="title-input" type="text" placeholder="Title" v-model="film.title" />
     
@@ -53,7 +56,9 @@
   
   <style>
   button {
-    font-family: 'Courier New', Courier, monospace;
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-family: "VT323";
+    font-size: 18px;
   }
   </style>
   

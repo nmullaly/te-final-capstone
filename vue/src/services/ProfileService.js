@@ -8,11 +8,11 @@ export default {
 	},
 
 	getProfileByUsername(profileName) {
-		return axios.get(`/profiles/${profileName}`)
+		return axios.get(`/profile/${profileName}`)
 	},
 
 	getProfileById(id) {
-		return axios.get(`/profiles/${id}`)
+		return axios.get(`/profile/${id}`)
 	},
 
 	createProfile(profile) {
@@ -20,7 +20,7 @@ export default {
 	},
 
 	updateProfile(profile) {
-		return axios.put(`/profiles/${profile.profileId}`, profile);
+		return axios.put(`/profile/${profile.profileId}`, profile);
 	},
 
 }
