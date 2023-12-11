@@ -5,8 +5,8 @@
         </div>
         <div id="info">
         <h1>{{ this.movie.title }}</h1>
-        <button id="addBtn" v-if="isOnWatchlist" v-on:click="addToWatchlist">Add Film to Watchlist</button>
-        <button id="removeBtn" v-else v-on:click="removeFromWatchlist">Remove Film from Watchlist</button>
+        <button id="removeBtn" v-if="isOnWatchlist" v-on:click="removeFromWatchlist">Remove Film from Watchlist</button>
+        <button id="addBtn" v-else v-on:click="addToWatchlist">Add Film to Watchlist</button>
         </div>
     </div>
 </template>
@@ -23,22 +23,13 @@ export default {
     data() {
         return {
             movie: {},
-            userWatchlist: []
+            movieId: 579974,
+            userWatchlist: [],
+            isOnWatchlist: true,
         }
     },
-    computed: {
-        isOnWatchlist() {
-            this.userWatchlist.forEach((item) => {
-                if (item.movieId == this.movie.id) {
-                    return true;
-                }
-            })
-            return false;
-        },
-    },
     created() {
-        let movieId = 579974;
-        movieService.getMovieById(movieId)
+        movieService.getMovieById(this.movieId)
             .then(response => {
                 this.movie = response.data;
             })
@@ -52,7 +43,21 @@ export default {
                 }
             });
         this.getWatchlist();
+        // this.isOnWatchlist = this.checkWatchlist();
     },
+    // computed: {
+    //     isOnWatchlist() {
+    //         // if (this.userWatchlist == []) {
+    //         //     this.isOnWatchlist = false;
+    //         // }
+    //         this.userWatchlist.forEach((item) => {
+    //             if (item.movieId == this.movieId) {
+    //                 return true;
+    //             }
+    //         })
+    //         return false;
+    //     }
+    // },
     methods: {
         getWatchlist() {
             watchlistService
@@ -64,11 +69,23 @@ export default {
                     console.log(error.response);
                 })
         },
+        // checkWatchlist() {
+        //     // if (this.userWatchlist == []) {
+        //     //     this.isOnWatchlist = false;
+        //     // }
+        //     this.userWatchlist.forEach((item) => {
+        //         if (item.movieId == this.movieId) {
+        //             return true;
+        //         }
+        //     })
+        //     return false;
+        // },
         addToWatchlist() {
             let item = {
                 profileId: this.$store.state.user.id,
                 movieId: this.movie.id
             };
+            console.log(item)
             watchlistService
             .addItemToWatchlist(item)
             .then(response => {
@@ -77,15 +94,17 @@ export default {
                 }
             })
             .catch(error => {
-                console.log(error.response);
-            });
-
+                console.log(error.response.data);
+            });  
+            this.getWatchlist();
+            // this.isOnWatchlist = this.checkWatchlist();
         },
         removeFromWatchlist() {
             let item = {
                 profileId: this.$store.state.user.id,
                 movieId: this.movie.id
             };
+            console.log(item)
             watchlistService
             .removeItemFromWatchlist(item)
             .then(response => {
@@ -94,8 +113,10 @@ export default {
                 }
             })
             .catch(error => {
-                console.log(error.response)
-            })
+                console.log(error.response.data)
+            }); 
+            this.getWatchlist();
+            // this.isOnWatchlist = this.checkWatchlist();
         }
     }
 };

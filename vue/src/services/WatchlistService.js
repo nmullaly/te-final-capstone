@@ -15,13 +15,13 @@ export default {
     // item is an object that contains the current user's Id
     // as profileId, and the movie Id as movieId
     addItemToWatchlist(item) {
-        return axios.post(`profile/${item.profileId}/watchlist`, item);
+        return axios.post(`/profile/${item.profileId}/watchlist`, item);
     },
 
     // item is an object that contains the current user's Id
     // as profileId, and the movie Id as movieId
     removeItemFromWatchlist(item) {
-        return axios.delete(`profile/${item.profileId}/watchlist`, item);
+        return axios.delete(`/profile/${item.profileId}/watchlist`, { data: item });
     }
 
 }

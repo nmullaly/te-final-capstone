@@ -43,9 +43,9 @@ export default {
 		}
 	},
 	methods: {
-		showForm() {
-			this.isFormShown = true;
-		},
+		routeToEdit() {
+			this.$router.push({ name: 'EditProfile', params: { id: this.$store.state.user.id } });
+		}
 	}
 }
 
