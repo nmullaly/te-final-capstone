@@ -18,16 +18,21 @@
         <button v-if="!$store.state.token" class="login" v-on:click="redirectToLogin">Log In</button>
         <button v-if="!$store.state.token" class="register" v-on:click="redirectToRegister">Register</button>
         <button class="movies" v-on:click="redirectToMovies">Movies</button>
-        <button class="users">Users</button>
-        <button class="scoreboard">Scoreboard</button>
+        <!-- <button class="users">Users</button> -->
+        <!-- <button class="scoreboard">Scoreboard</button> -->
         <button v-if="$store.state.token" v-bind:to="{ name: 'logout' }" class="logout" v-on:click="logout">Log Out</button>
         <button v-if="$store.state.token" class="profile" v-on:click="redirectToProfile">Profile</button>
-        <audio ref="audioPlayer" src="../assets/322640__aruscio28__hitmarker-sound-effect.mp3"></audio>
+        <movie-search-bar/>
         <!-- <img src = "src/assets/hm3.jpg"/> -->
 </template>
 
 <script>
-export default{
+import MovieSearchBar from "../components/MovieSearchBar.vue"
+
+export default {
+components: {
+    MovieSearchBar
+},
     methods: {
         redirectToLogin() {
          this.$refs.audioPlayer.play();

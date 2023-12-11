@@ -1,6 +1,6 @@
 <template>
     <header class = "header" id = "header">
-    <header-bar/><movie-search-bar/></header>
+    <header-bar/></header>
     <h1>Some Wild Movies Appeared!</h1>
     <movie-display class="display"/>
     <movie-display class="display"/>

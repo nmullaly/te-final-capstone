@@ -1,14 +1,17 @@
 <template>
-	<movie-card/>
+	<header-bar class="header" id="header"/>
+	<add-film/>
 </template>
 
 <script>
 import movieService from "../services/MovieService.js";
-import MovieCard from "../components/MovieCard.vue";
+import AddFilm from "../components/AddFilm.vue";
+import HeaderBar from "../components/HeaderBar.vue";
 
 export default {
 components: {
-	MovieCard
+	HeaderBar,
+	AddFilm,
 },
 };
 </script>
