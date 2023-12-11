@@ -1,4 +1,3 @@
-//for reviews
 import axios from 'axios';
 
 export default {

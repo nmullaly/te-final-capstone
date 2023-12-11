@@ -1,10 +1,10 @@
 <template>
   <div>
     <form v-on:submit.prevent="createReview">
-      <div class="form-element">
+      <!-- <div class="form-element">
         <label for="reviewer">Name:</label>
         <input id="reviewer" type="text" v-model="newReview.reviewer" />
-      </div>
+      </div> -->
       <div class="form-element">
         <label for="title">Title:</label>
         <input id="title" type="text" v-model="newReview.headline" />
@@ -36,8 +36,8 @@ export default {
   data() {
     return {
       newReview: {
-        profileId: 1,
-        movieId: 1,
+        profileId: this.$store.state.user.id,
+        movieId: this.$route.params.id,
         headline: '',
         rating: 1, // Default
         body: ''
@@ -55,8 +55,8 @@ export default {
     },
     resetForm() {
       this.newReview = {
-        profileId: 1,
-        movieId: 1,
+        // profileId: '',
+        // movieId: '',
         headline: '',
         rating: 1,
         body: ''
