@@ -10,7 +10,10 @@
       </div>
       <p id="overview">{{  this.movie.overview  }}</p>
     </div>
-    <button>Add film to watchlist</button>
+    <div id="watchlistBtn">
+      <button id="removeBtn" v-if="isOnWatchlist" v-on:click="removeFromWatchlist">Remove Film from Watchlist</button>
+        <button id="addBtn" v-else v-on:click="addToWatchlist">Add Film to Watchlist</button>
+    </div>
     <MovieReview id = "mr"/>
     <footer-bar/>
 </template>
@@ -21,13 +24,14 @@ import HeaderBar from "../components/HeaderBar.vue";
 import MovieSearchBar from "../components/MovieSearchBar.vue";
 import MovieReview from "../components/MovieReview.vue";
 import movieService from "../services/MovieService.js";
+import watchlistService from "../services/WatchlistService.js";
 import ProfileService from "../services/ProfileService.js";
 import FooterBar from "../components/FooterBar.vue";
 
 export default {
 	components: {
 		HeaderBar,
-		MovieSearchBar,
+		// MovieSearchBar,
 		MovieReview,
     FooterBar,
 	},
@@ -35,6 +39,10 @@ export default {
     return {
       movie: {},
       newReview: {},
+      item: {
+        profileId: this.$store.state.user.id,
+        movieId: this.$route.params.id
+      },
     };
   },
   computed: {
@@ -44,15 +52,24 @@ export default {
       }
       return '';
     },
-	formattedGenres() {
-		let genreList = [];
-		if (this.movie.genres) {
-			this.movie.genres.forEach((genre) => {
-				genreList.push(genre.name);
-			});
-		}
-		return genreList.join(', ');
-	},
+    formattedGenres() {
+      let genreList = [];
+      if (this.movie.genres) {
+        this.movie.genres.forEach((genre) => {
+          genreList.push(genre.name);
+        });
+      }
+      return genreList.join(', ');
+    },
+    isOnWatchlist() {
+      let isOn = false;
+      this.$store.state.watchlist.forEach(item => {
+        if (this.$route.params.id == item.movieId) {
+          isOn = true;
+        }
+      });
+      return isOn;
+    }
   },
   created() {
     this.fetchMovie();
@@ -90,6 +107,42 @@ export default {
       let movieId = validIds[Math.floor(Math.random() * validIds.length)];
       return movieId;
     },
+    addToWatchlist() {
+      let item = {
+        profileId: this.$store.state.user.id,
+        movieId: this.movie.id
+      };
+      console.log(item)
+      watchlistService
+        .addItemToWatchlist(item)
+        .then(response => {
+          if (response.status === 200) {
+            console.log('Success');
+          }
+        })
+        .catch(error => {
+          console.log(error.response.data);
+        });
+      this.$store.commit("ADD_TO_WATCHLIST", item);
+    },
+    removeFromWatchlist() {
+      let item = {
+        profileId: this.$store.state.user.id,
+        movieId: this.movie.id
+      };
+      console.log(item)
+      watchlistService
+        .removeItemFromWatchlist(item)
+        .then(response => {
+          if (response.status === 200) {
+            console.log('Success');
+          }
+        })
+        .catch(error => {
+          console.log(error.response.data)
+        });
+      this.$store.commit("REMOVE_FROM_WATCHLIST", item);
+    }
   },
 
 }
