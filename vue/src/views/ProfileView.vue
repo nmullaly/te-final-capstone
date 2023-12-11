@@ -48,9 +48,19 @@ export default {
 		showForm() {
 			this.isFormShown = true;
 		},
-		handleFilmAdded(film) {
-		this.profile.favoriteFilm = film.movieId;
-		profileService.updateProfile(this.profile);
+		handleFilmAdded(movie) {
+      
+      this.profile.watchlist = this.profile.watchlist || [];
+      this.profile.watchlist.push(movie);
+
+      
+      profileService.updateProfile(this.profile)
+        .then(() => {
+          console.log('Film added to profile successfully');
+        })
+        .catch((error) => {
+          console.error('Error updating user profile', error);
+        });
 	},
 },
 };

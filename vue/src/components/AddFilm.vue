@@ -5,7 +5,7 @@
     <form class="new-movie-form" v-on:submit.prevent="saveFilm">
       <input class="title-input" name="title-input" type="text" placeholder="Title" v-model="film.title" />
     
-      <button v-on:click = "searchMovies"> Add a film to Your Watchlist</button>
+      <button v-on:click = "saveFilm"> Add a film to Your Watchlist</button>
     </form>
   </template>
   
