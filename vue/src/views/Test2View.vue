@@ -25,7 +25,7 @@ export default {
             movie: {},
             movieId: 579974,
             userWatchlist: [],
-            isOnWatchlist: true,
+            isOnWatchlist: false,
         }
     },
     created() {

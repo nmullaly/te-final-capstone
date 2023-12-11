@@ -13,6 +13,7 @@ import MovieView from '../views/MovieView.vue';
 import Test2View from '../views/Test2View.vue';
 import MovieReview from '../components/MovieReview.vue';
 import EditProfileView from '../views/EditProfileView.vue';
+import ReviewTest from '../views/ReviewTest.vue';
 
 
 /**
@@ -94,6 +95,11 @@ const routes = [
     path:"/edit/:id",
     name: "EditProfile",
     component: EditProfileView
+  },
+  {
+    path:'/test3',
+    name: "ReviewTest",
+    component: ReviewTest
   }
 ];
 
