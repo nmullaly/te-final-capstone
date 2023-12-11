@@ -11,7 +11,9 @@ import TestView from '../views/TestView.vue';
 import MovieHomeView from '../views/MovieHomeView.vue';
 import MovieView from '../views/MovieView.vue';
 import Test2View from '../views/Test2View.vue';
-import MovieReview from '../components/MovieReview.vue'
+import MovieReview from '../components/MovieReview.vue';
+import EditProfileView from '../views/EditProfileView.vue';
+
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -88,6 +90,11 @@ const routes = [
     name: "MovieReview",
     component:  MovieReview,
   },
+  {
+    path:"/edit/:id",
+    name: "EditProfile",
+    component: EditProfileView
+  }
 ];
 
 // Create the router

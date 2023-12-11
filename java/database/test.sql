@@ -8,6 +8,12 @@ SELECT * FROM watchlist;
 -- INSERT INTO profiles (username) VALUES ('test');
 -- INSERT INTO reviews (profile_id, movie_id, body, rating) VALUES (3, 5, 'masterpiece', 5);
 
--- UPDATE profiles SET bio = 'i love movie' WHERE profile_id = 3;$2a$10$t0I.mP7HanMr9L8SGZXP/ODXDOk8I0a2mdwA5Q7Yd1oBDM12yNeqK
+UPDATE profiles SET
+	bio = 'i love movie',
+	favorite_film = 'Annette',
+	favorite_snack = 'Takis',
+	favorite_genres = 'Psychological Thriller'
+	WHERE profile_id = 3;
 
-SELECT * FROM watchlist WHERE profile_id = 2
+
+INSERT INTO watchlist (profile_id, movie_id) VALUES (1, 18)

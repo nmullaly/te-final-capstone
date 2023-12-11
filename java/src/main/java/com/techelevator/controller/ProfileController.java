@@ -4,6 +4,7 @@ import com.techelevator.dao.ProfileDao;
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.Profile;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -35,16 +36,25 @@ public class ProfileController {
     }
 
     // getProfileByUsername - going by id is preferable, but I'm keeping this in case we change our mind
-//    @RequestMapping(path = "/profiles/{name}", method = RequestMethod.GET)
 
+//    @RequestMapping(path = "/profiles/{name}", method = RequestMethod.GET)
 //    public Profile getProfileByUsername(@PathVariable String name) {
-//        Profile profile = profileDao.getProfileByUsername(name);
-//        if (profile == null) {
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Profile not found.");
-//        } else {
-//            return profile;
+//        try {
+//            Profile profile = profileDao.getProfileByUsername(name);
+//            if (profile == null) {
+//                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Profile not found.");
+//            } else {
+//                return profile;
+//            }
+//        } catch (DaoException e) {
+//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Request not found.");
 //        }
 //    }
+
+    @RequestMapping(path = "/search/profiles", method = RequestMethod.GET)
+    public List<Profile> listProfilesByUsername(@RequestParam(required=false) String query) {
+            return profileDao.listProfilesByUsername(query);
+    }
 
     @RequestMapping(path = "/profiles/{id}", method = RequestMethod.PUT)
     public Profile updateProfile(@PathVariable int id, @RequestBody Profile profile) {
