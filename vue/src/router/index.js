@@ -12,7 +12,6 @@ import MovieHomeView from '../views/MovieHomeView.vue';
 import MovieView from '../views/MovieView.vue';
 import Test2View from '../views/Test2View.vue';
 import MovieReview from '../components/MovieReview.vue';
-import ProfileTestView from '../views/ProfileTestView.vue';
 import EditProfileView from '../views/EditProfileView.vue';
 
 
@@ -90,11 +89,6 @@ const routes = [
     path:"/MovieReview",
     name: "MovieReview",
     component:  MovieReview,
-  },
-  {
-    path:"/proftest/:id",
-    name: "proftest",
-    component: ProfileTestView
   },
   {
     path:"/edit/:id",

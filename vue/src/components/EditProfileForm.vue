@@ -21,7 +21,7 @@
 			<p class="error-msg" v-bind:hidden="isSnackErrorHidden">Error: This field cannot be more than 50 characters</p>
 		</div>
 		<button id="save" class="btn btn-save" v-on:click.prevent="saveChanges">Save Changes</button>
-		<button id="cancel" class="btn btn-cancel" v-on:click="discardChanges">Discard Changes</button>
+		<button id="cancel" class="btn btn-cancel" v-on:click.prevent="discardChanges">Discard Changes</button>
 	</form>
 </template>
 
@@ -55,6 +55,9 @@ export default {
 				.catch(error => {
 					alert('Error updating profile.');
 				})
+		},
+		discardChanges() {
+			this.$router.push({ name: 'ProfileView', params: { id: this.$route.params.id } });
 		},
 		isFormValid() {
 			let isValid = false;
