@@ -21,14 +21,12 @@
 import HeaderBar from "../components/HeaderBar.vue";
 import MovieDisplay from "../components/MovieDisplay.vue";
 import FooterBar from "../components/FooterBar.vue";
-import MovieSearchBar from "../components/MovieSearchBar.vue"
 
 export default {
 components: {
     HeaderBar,
 	MovieDisplay,
     FooterBar,
-    MovieSearchBar
 },
 mounted(){
     window.scrollTo(0, 0);
