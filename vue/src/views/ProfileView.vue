@@ -67,5 +67,7 @@ export default {
 </script>
 
 <style>
-
+.profile {
+	
+}
 </style>
