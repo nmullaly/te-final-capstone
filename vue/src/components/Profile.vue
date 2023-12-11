@@ -6,6 +6,7 @@
 		<p id="fav-film">{{ profile.favoriteFilm }}</p>
 		<p id="fav-genres">{{ profile.favoriteGenres }}</p>
 		<p id="fav-snack">{{ profile.favoriteSnack }}</p>
+		
 		<button id="edit-profile-btn" v-on:click="showForm">Edit Profile</button>
 		<edit-profile-form v-show="isFormShown" />
 	</div>
@@ -30,7 +31,7 @@ export default {
 	methods: {
 		showForm() {
 			this.isFormShown = true;
-		}
+		},
 	}
 }
 
