@@ -6,17 +6,25 @@
       <input class="title-input" name="title-input" type="text" placeholder="Title" v-model="film.title" />
     
       <button v-on:click = "saveFilm"> Add a film to Your Watchlist</button>
+      <movie-card-w-search :film="film" />
     </form>
   </template>
   
   <script>
   import MovieService from '../services/MovieService';
+  import MovieCardWSearch from '../components/MovieCardWSearch.vue'; 
+  
   export default {
+    components:{
+      MovieCardWSearch,
+    },
     name: "new-movie-form",
     data() {
       return {
         film: {
             title: '',
+            id: '',
+            poster_path: '',
         },
       };
     },

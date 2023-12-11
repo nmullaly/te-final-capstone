@@ -1,6 +1,6 @@
 <template>
 	<header class = "header" id = "header">
-    <header-bar/><movie-search-bar/></header>
+    <header-bar/></header>
     <div id = "movieInfo">
       <p id="movieTitle">{{  this.movie.title }}</p>
       <p id="yearAndGenre">{{ formattedReleaseYear }},  {{  formattedGenres }}</p>
