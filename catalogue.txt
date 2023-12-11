@@ -1,0 +1,54 @@
+* Views
+  * RegisterView.vue
+  * LoginView.vue
+  * LogoutView.vue
+    * Redirects to login page
+  * ProfileView.vue
+    * Profile name, info, link to edit profile
+    * Displays reviews, watchlist
+  * MovieView.vue
+    * One movie
+    * Movie poster/info
+    * Top review
+    * Add review form
+    * Add to watchlist
+  * MovieHomeView.vue
+    * Lists movies that lead to MovieView pages
+  * HomeView.vue
+    * Search films
+    * Display random movies
+    * Search users
+    * Display message from founder
+  * EditProfileView.vue
+    * Edit bio, favorite film/genres/snacks
+* Components
+  * UserSearchBar.vue
+    * Search users by id
+  * UserProfilePic.vue
+    * Displays user profile pic
+  * UserDisplay.vue
+    * Displays user profile pic
+  * Profile.vue
+    * Profile name, info, link to edit profile
+  * MovieSearchBar.vue
+    * Search movies by name
+  * MovieReview.vue
+    * Adds new review form
+  * MovieDisplay.vue
+    * Displays 5 MovieCards
+  * MovieCard.vue
+    * Picks a random movie, displays poster
+    * Links to MovieView
+  * HeaderBar.vue
+    * Logo/site name links to homepage
+    * Icon in center displays user caste
+    * Nav bar in top right for home, movies, users, scoreboard, log out/log in/register, profile
+  * FooterBar.vue
+    * site name redirects to home page
+    * copyright year
+    * about us goes to on cinema for 12 hours
+  * EditProfileForm.vue
+    * Form for editing bio, favorite film/genres/snacks
+    * Needs to be on a different view so it can refresh profile
+
+  
