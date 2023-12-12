@@ -2,7 +2,7 @@
 	<form class="profileForm">
 		<div class="form-item">
 			<label for="bio-field">Bio:</label>
-			<input id="bio-field" type="text" v-model="editProfile.bio" autocomplete="off" />
+			<textarea id="bio-field" type="text" v-model="editProfile.bio" autocomplete="off" />
 			<p class="error-msg" v-bind:hidden="isBioErrorHidden">Error: Bio cannot be more than 200 characters</p>
 		</div>
 		<div class="form-item">
@@ -122,14 +122,57 @@ export default {
 </script>
 
 <style>
+  * {
+    margin: 5px;
+  }
 
-* {
-	margin: 5px;
+  .form-item {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input {
+    width: 70%; 
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 8px; 
+    border: 1px solid #ccc;
+  }
+  #bio-field {
+    width: 70%;
+    font-size: 16px;
+    height: 100px; 
+	border-radius: 8px; 
+    vertical-align: top; 
+    white-space: pre-wrap; 
 }
 
-.error-msg {
-	margin-bottom: 20px;
-	color: red;
-}
+  .error-msg {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    color: red;
+  }
 
+  .btn {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px; 
+    cursor: pointer;
+  }
+
+  #save {
+    background-color: green;
+    color: white;
+  }
+
+  #cancel {
+    background-color: gray;
+    color: white;
+  }
 </style>
+
