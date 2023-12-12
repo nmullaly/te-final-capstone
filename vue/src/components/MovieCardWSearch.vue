@@ -42,7 +42,7 @@ export default {
 							});
     },
     routeToMovie() {
-      this.$router.push({ name: "Movie", params: { id: this.movie.movieId } });
+      this.$router.push({ name: "Movie", params: { id: this.film.movieId } });
     },
   },
 };
