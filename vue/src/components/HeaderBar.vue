@@ -90,11 +90,15 @@ text-decoration-color: aliceblue;
 cursor: url("../assets/hm3.jpg"), pointer;
 }
 #name{
+  margin-left: 15px;
   cursor: url("../assets/hm3.jpg"), pointer;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 1.5);
+  font-size: 50px;
 }
 .signInRotato{
-  margin-left:35.5rem;
+  margin-left:32.2rem;
   margin-right:auto;
   cursor: url("../assets/hm3.jpg"), pointer;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 10.8);
 }
 </style>

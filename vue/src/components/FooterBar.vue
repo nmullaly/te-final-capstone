@@ -29,6 +29,8 @@ export default{
   background: linear-gradient(to bottom, #f72a06, #DC8A8A);
   /* border: 2px solid #000000; */
   font-size: medium;
+  margin-bottom: 0;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 .footyboi > * {
   font-size: 18px; /* Adjust the font size as needed */
@@ -37,16 +39,19 @@ export default{
   text-align: center;
 }
 #logo{
-  color:aliceblue
+  color:aliceblue;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 h2{
-  color:aliceblue
+  color:aliceblue;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 h3{
   color:aliceblue;
   cursor: pointer;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 
