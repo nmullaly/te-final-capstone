@@ -35,7 +35,6 @@ components: {
 },
     methods: {
         redirectToLogin() {
-         this.$refs.audioPlayer.play();
          this.$router.push({ name: 'login' });
          },
         redirectToRegister() {
