@@ -3,14 +3,14 @@
 		<div id="ReviewMetaData">
 			<h1 id="movieTitle">{{this.review.title}}</h1>
 				<div id="usernameAndRating">
-					<h2 id="username">{{ this.review.username }}</h2>
+					<h2 id="username" class="EBoog">{{ this.review.username }}</h2>
 					<div id="rating">
 						<img class="popcorn" src="../assets/Popcorn.svg.png" v-for="num in this.review.rating" v-bind:key="num" />
 					</div>
 				</div>
 		</div>
-		<div id="ReviewContent">
-			<h2 id="reviewTitle">{{ this.review.headline }}</h2>
+		<div id="ReviewContent" >
+			<h2 id="reviewTitle" class="EBoog">{{ this.review.headline }}</h2>
 			<p id="reviewText">{{ this.review.body }}</p>
 		</div>
 	</div>
@@ -36,9 +36,7 @@ props: ['review'],
 	border-radius: 5px;
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
-
-
-h2{
+.Eboog{
   font-size: 20px;
   display:flex;
   justify-self: start;
