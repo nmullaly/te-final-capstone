@@ -128,8 +128,14 @@ export default {
 	display: flex;
 
 }
+
+SideBar {
+	width: 20%;
+}
+
 .main-content {
 	flex-grow: 1;
 	padding: 20px;
 }
+
 </style>
