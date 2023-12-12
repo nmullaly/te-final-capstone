@@ -1,6 +1,6 @@
 <template>
     <div class="search-bar">
-        <input type="text" v-model="input" placeholder="search..." @keyup.enter="searchMovies">Search Movies</input>
+        <input type="text" v-model="input" placeholder="search..." @keyup.enter="searchMovies"/>
     </div>
 </template>
 
