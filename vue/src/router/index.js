@@ -100,7 +100,7 @@ const routes = [
   },
   {
     path:'/search/:query',
-    name: "MovieSearchView",
+    name: "MovieSearch",
     component: MovieSearchView
   },
   {

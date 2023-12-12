@@ -68,6 +68,11 @@ export default {
 
 
 <style>
+#searchResults {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .display{
 	margin-top: 30px;
 	margin-bottom: 50px;
