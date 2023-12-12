@@ -6,9 +6,15 @@
       <p id="yearAndGenre">{{ formattedReleaseYear }},  {{  formattedGenres }}</p>
       <div id="middleContent">
         <img :src="'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + this.movie.poster_path" id="poster"/>
-        <div id="reviewList">
+        <div v-if="reviewList.length > 0" id="reviewList">
          <review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item" id="headlineReview"/>
         </div>
+		<div v-else id="Gregg">
+			<h1>There Are No Reviews Here Yet!</h1>
+				<h2>What does Gregg say about this movie?</h2>
+			<img :src="`/src/assets/Reviews/FakeReview${generateRandomReview()}.png`" id="randomReview"/>
+			<img src="../assets/Sheeple\Savant/OoS_Golden_Sage_Sprite.png" id="GreggSprite"/>
+		</div>
       </div>
       <p id="overview">{{  this.movie.overview  }}</p>
     <div id="movieButtons">
@@ -93,7 +99,7 @@ export default {
 
   methods: {
     fetchMovie() {
-      let movieId = this.$route.params.id;
+		let movieId = this.$route.params.id;
 
       movieService
         .getMovieById(movieId)
@@ -268,7 +274,6 @@ export default {
   margin-right: 5px;
 }
 #overview{
-  /* font-family: 'Courier New', Courier, monospace; */
   font-size: 20px;
   display:flex;
   justify-self: start;
@@ -282,20 +287,28 @@ export default {
   background-color: rgba(128, 128, 128, 0.35);
   border-radius: 12px;
   margin-bottom: 2.5rem;
-  border: 1px white;
-
+  border: 1px solid white;
+  margin-top:2.5rem;
 }
 footer-bar {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #333; /* You can set the background color as needed */
-  color: white; /* You can set the text color as needed */
+  background-color: #333; 
+  color: white; 
   padding: 10px;
   margin-top: 2.5rem;
   
 }
 #mr {
   margin-bottom: 2.5rem;
+}
+#Gregg{
+	display: flex;
+	flex-direction: column;
+}
+#GreggSprite{
+	width: 50px; 
+  height: auto;
 }
 </style>
