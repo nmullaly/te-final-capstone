@@ -1,7 +1,8 @@
 <template>
     <aside class="sidebar">
-      <h2>{{ profile.username }}</h2>
-      <p>{{ profile.bio }}</p>
+      <profile v-bind:profile="this.profile" />
+      <!-- <h2>{{ profile.username }}</h2>
+      <p>{{ profile.bio }}</p> -->
       <h3>Favorite Movies</h3>
       <ul>
         <li v-for="(movie, index) in profile.watchlist" :key="index">
@@ -18,9 +19,14 @@
     </aside>
   </template>
   
-  <script>
+<script>
+import Profile from '../components/Profile.vue';
+
   export default {
     props: ['profile'],
+    components: {
+      Profile,
+    },
     data() {
       return {
         isEditing: false,
