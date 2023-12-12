@@ -16,6 +16,11 @@
         </li>
 		</ul>
 		</div>
+		<div v-if ="reviewList && reviewList.length > 0">
+			<h2>My Reviews:</h2>
+			<review v-for="item in reviewList" :key="item.reviewId" :review="item"/>
+
+		</div>
 </template>
 
 <script>
@@ -53,7 +58,7 @@ export default {
 
 <style>
 .profile {
-grid-template-columns: 25px;
+
 padding: 0px 10px;
 }
 </style>

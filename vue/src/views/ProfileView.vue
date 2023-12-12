@@ -1,17 +1,31 @@
 <template>
 	<div>
-		<header class = "header" id = "header">
-			<header-bar/>
-		</header>
-		<profile v-bind:profile="profile"/>
-		<!-- <add-film v-on:film-added="handleFilmAdded" /> -->
-		<div id="reviewList">
-      <review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item"/>
-      <!-- <review-copy /> -->
-    </div>
-		<footer-bar />
+	<header class="header" id="header">
+		<header-bar />
+	</header>
+	<div class="content-container">
+		<SideBar :profile="profile" />
+		<div class="main-content">
+		<profile v-bind:profile="profile" />
+		<div id="watchlist">
+			<div v-for ="movie in profile.watchlist" :key="movie.id">
+				<img :src="'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + movie.poster_path" />
+				<h3>{{ movie.title }}</h3>
+				</div>
+				</div>
+ <!-- <add-film v-on:film-added="handleFilmAdded" /> -->
+  <div id="reviewList">
+			<review
+ v-for="item in this.reviewList"
+ v-bind:key="item.reviewId"
+ v-bind:review="item"
+	
+  </div>
+		</div>
+ </div>
+ <footer-bar />
 	</div>
-</template>
+  </template>
 
 <script>
 import Profile from '../components/Profile.vue';
@@ -22,6 +36,7 @@ import profileService from '../services/ProfileService.js';
 import reviewService from "../services/ReviewService.js";
 import movieService from "../services/MovieService.js";
 import Review from "../components/Review.vue";
+import SideBar from "../components/SideBar.vue";
 
 export default {
 	components: {
@@ -30,6 +45,7 @@ export default {
 		FooterBar,
 		Review,
 		// AddFilm,
+		SideBar,
 	},
 	data() {
 		return {
@@ -112,7 +128,12 @@ export default {
 </script>
 
 <style>
-.profile {
-	
+.content-container {
+	display: flex;
+
+}
+.main-content {
+	flex-grow: 1;
+	padding: 20px;
 }
 </style>
