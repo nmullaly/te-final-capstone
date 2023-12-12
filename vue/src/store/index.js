@@ -48,7 +48,7 @@ export function createStore(currentToken, currentUser) {
         state.watchlist = state.watchlist.filter(row => {
           return row.movieId != item.movieId;
         });
-      }
+      },
     },
   });
   return store;
