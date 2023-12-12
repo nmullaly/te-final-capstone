@@ -1,5 +1,7 @@
 <template>
-	<header-bar />
+<header class="header" id="header">
+		<header-bar />
+	</header>
 	<edit-profile-form v-bind:profile="profile" v-if="isCurrentUser"/>
 	<p v-else>Log in to edit this profile</p>
 	<footer-bar />

@@ -3,19 +3,19 @@
       <profile v-bind:profile="this.profile" />
       <!-- <h2>{{ profile.username }}</h2>
       <p>{{ profile.bio }}</p> -->
-      <h3>Favorite Movies</h3>
+      <!-- <h3>Favorite Movies</h3>
       <ul>
         <li v-for="(movie, index) in profile.watchlist" :key="index">
           {{ movie.title }} <span @click="removeFavorite(index)">❌</span>
         </li>
       </ul>
-      <button @click="editFavorites">Edit Favorites</button>
+      <button @click="editFavorites">Edit Favorites</button> -->
       <!-- Edit Favorites Form -->
-      <div v-if="isEditing">
+      <!-- <div v-if="isEditing">
         <label for="newFavorite">Add a new favorite:</label>
         <input v-model="newFavorite" />
         <button @click="addFavorite">Add</button>
-      </div>
+      </div> -->
     </aside>
   </template>
   
@@ -37,19 +37,19 @@ import Profile from '../components/Profile.vue';
       editFavorites() {
         this.isEditing = true;
       },
-      addFavorite() {
-        // Add the new favorite to the watchlist
-        this.profile.watchlist.push({
-            title: this.newFavorite,
-        });
-        // Reset the input and hide the form
-        this.newFavorite = '';
-        this.isEditing = false;
-      },
-      removeFavorite(index) {
-        // Remove the favorite at the specified index
-        this.profile.watchlist.splice(index, 1);
-      },
+      // addFavorite() {
+      //   // Add the new favorite to the watchlist
+      //   this.profile.watchlist.push({
+      //       title: this.newFavorite,
+      //   });
+      //   // Reset the input and hide the form
+      //   this.newFavorite = '';
+      //   this.isEditing = false;
+      // },
+      // removeFavorite(index) {
+      //   // Remove the favorite at the specified index
+      //   this.profile.watchlist.splice(index, 1);
+      // },
     },
   };
   </script>
