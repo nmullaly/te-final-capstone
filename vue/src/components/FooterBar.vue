@@ -36,7 +36,7 @@ export default{
   justify-content: center; 
   text-align: center;
 }
-h1{
+#logo{
   color:aliceblue
 }
 

@@ -79,7 +79,20 @@ export default {
 					this.reviewList = response.data;
 
 					this.reviewList.forEach(review => {
-						review.username = this.profile.username;
+						profileService
+							.getProfileById(review.profileId)
+							.then((response) => {
+								review.username = response.data.username;
+							})
+							.catch((error) => {
+							if (error.response) {
+								console.log(error.response.status);
+							} else if (error.request) {
+								console.log("Server error");
+							} else {
+								console.log("Front-end error");
+							}
+							});
 						movieService
 							.getMovieById(review.movieId)
 							.then((response) => {
