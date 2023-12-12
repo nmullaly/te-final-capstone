@@ -15,11 +15,7 @@
 				</div>
  <!-- <add-film v-on:film-added="handleFilmAdded" /> -->
   <div id="reviewList">
-			<review
- v-for="item in this.reviewList"
- v-bind:key="item.reviewId"
- v-bind:review="item"
-	
+			<review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item"/>
   </div>
 		</div>
  </div>
