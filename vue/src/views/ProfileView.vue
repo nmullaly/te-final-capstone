@@ -17,6 +17,9 @@
   <div id="reviewList">
 			<review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item"	/>
   </div>
+	<div id="profileWatchlist">
+		<watchlist />
+	</div>
 		</div>
  </div>
  <footer-bar />
@@ -33,6 +36,7 @@ import reviewService from "../services/ReviewService.js";
 import movieService from "../services/MovieService.js";
 import Review from "../components/Review.vue";
 import SideBar from "../components/SideBar.vue";
+import Watchlist from '../components/Watchlist.vue';
 
 export default {
 	components: {
@@ -42,6 +46,7 @@ export default {
 		Review,
 		// AddFilm,
 		SideBar,
+		Watchlist,
 	},
 	data() {
 		return {
@@ -144,7 +149,7 @@ export default {
 }
 
 #sidebar {
-	width: 40%;
+	width: 25%;
 }
 
 .main-content {
