@@ -10,7 +10,7 @@
 				</div>
 		</div>
 		<div id="ReviewContent">
-			<h3 id="reviewTitle">{{ this.review.headline }}</h3>
+			<h2 id="reviewTitle">{{ this.review.headline }}</h2>
 			<p id="reviewText">{{ this.review.body }}</p>
 		</div>
 	</div>
@@ -23,38 +23,35 @@ import ProfileService from '../services/ProfileService';
 
 export default {
 
-	props: ['review'],
+props: ['review'],
 
 }
 
 </script>
 
 <style>
-	#reviewBoxGottaHaveBetterVariableNames{
-	background-color: #E9CBCB;
+#reviewBoxGottaHaveBetterVariableNames{
+	background-color: whitesmoke;
 	margin-right:60vw;
+	border-radius: 5px;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
-#usernameAndRating{
-  font-size: 15px;
+
+
+h2{
+  font-size: 20px;
   display:flex;
   justify-self: start;
   margin: 0px;
   margin-left: 5px;
-  align-items: center;
+  align-items: flex-end;
   border-radius: 1px black;
   z-index: 1;
+  
 }
 #username{
 	margin-right: auto;
 	color:black;
-}
-#reviewTitle{
-  display:flex;
-  justify-self: start;
-  margin: 0px;
-  margin-left: 5px;
-  margin-bottom: 15px;
-  color:black;
 }
 #reviewText{
   display:flex;
@@ -65,17 +62,37 @@ export default {
 }
 #movieTitle{
 	color:black;
+	font-weight: bold;
+	padding-top:5px;
 }
-#reviewContent{
-	background-color: rgba(128, 128, 128, 0.35);
-	z-index: 1;
+#ReviewMetaData {
+  border-bottom: 2px solid black;
+  margin-right: 0;
+}
+#rating{
+	background-color: #E9CBCB;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border: 1px solid black;
+	margin-right: 0;
+	border-right: 0;
+	padding-right: 0;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 .popcorn {
 	height: 20px;
 }
-
-h1 {
-	font-weight: normal;
+#reviewContent{
+	background-color: #E9CBCB;
 }
-
+#reviewTitle{
+	display:flex;
+	margin-left: 10px;
+	margin-top: 8px;
+}
+#reviewText {
+  text-indent: 20px;
+  text-align: left;
+	padding-bottom: 15px;
+}
 </style>
