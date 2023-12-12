@@ -34,7 +34,7 @@
     <div id="griddy">
       <p class = "buffMessage" id = "mfof">A Message From Our Founder</p>
         <img src = "../assets/Ben.jpg" id = "Ben"/>
-        <p class = "buffMessage">From the moment I understood the inadequacy of the general public's film knowledge I was disgusted.  Film is the most important and enjoyable art form, more than the lesser arts like music, TV shows, or even books.  People who disagree are wrong and will be referred on this website as "Sheeple".  You may even be a Sheeple now.  But do not fear!  The first step to Savant-hood is to create an account on our website and start reviewing films.  Only then can Film Buff status be achieved. </p>
+        <p class = "buffMessageTwo">From the moment I understood the inadequacy of the general public's film knowledge I was disgusted.  Film is the most important and enjoyable art form, more than the lesser arts like music, TV shows, or even books.  People who disagree are wrong and will be referred on this website as "Sheeple".  You may even be a Sheeple now.  But do not fear!  The first step to Savant-hood is to create an account on our website and start reviewing films.  Only then can Film Buff status be achieved. </p>
     </div>
   </div>
 </main>
@@ -128,15 +128,34 @@ p{
 
 .buffMessage{
   font-size: 25px;
-  color:black;
-  background-color: rgba(128, 128, 128, 0.75);
-  border-radius: 12px;
+  color: white;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+  background-color: rgba(128, 128, 128, 0.9);
+  border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  /* font-family: 'Courier New', Courier, monospace; */
+}
+
+.buffMessageTwo{
+  font-size: 25px;
+  color: white;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+  background-color: rgba(128, 128, 128, 0.9);
+  border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
   /* font-family: 'Courier New', Courier, monospace; */
 }
 
 #mfof{
   font-size: 35px;
-  margin-top:2vw;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 #griddy{
@@ -147,5 +166,6 @@ p{
   margin-top: 60px;
   border-radius: 12px;
   font-weight: bold;
+  border: 1px solid white;
 }
 </style>

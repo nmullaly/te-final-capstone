@@ -282,6 +282,7 @@ export default {
   background-color: rgba(128, 128, 128, 0.35);
   border-radius: 12px;
   margin-bottom: 2.5rem;
+  border: 1px white;
 
 }
 footer-bar {

@@ -1,7 +1,6 @@
 <template>
     <div class="search-bar">
-        <input type="text" v-model="input" placeholder="search..." @keyup.enter="searchMovies"/>
-        <button v-on:click="searchMovies">Search Movies</button>
+        <input type="text" v-model="input" placeholder="search..." @keyup.enter="searchMovies">Search Movies</input>
     </div>
 </template>
 
