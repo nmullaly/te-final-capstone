@@ -53,6 +53,8 @@ export default {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  height: 300px;
+  width: 200px;
 }
 
 .movieCard {
@@ -60,7 +62,7 @@ export default {
   margin-right: 10px;
   border: 1px solid #CBD1DA;
   border-radius: 4px;
-  height: 350px;
+  height: auto;
   width: auto;
   cursor: url("../assets/hm3.jpg"), pointer;
 }
