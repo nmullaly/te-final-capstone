@@ -22,17 +22,9 @@ import ProfileService from '../services/ProfileService';
 
 
 export default {
-	data() {
-      return {
-        review: {
-            title: 'The Santa Clauses',
-			username:'Tim Heidecker',
-			rating: 5,
-            headline: 'Directed by Jason Weiner, starring Time Alien',
-			body: 'Im giving The Santa Clauses 5 bags of popcorn and a little christmas tree.  Gregg Turkington has no opinion on The Santa Clauses and is officially cedeing his role as an expert on film and movies and television here today and I dont understand what youre doing here if youre not going to give the time of day to the Santa Clauses.  Time Alien deserves to be reviewed.'
-        },
-      };
-	}
+
+props: ['review'],
+
 }
 
 </script>
@@ -61,15 +53,6 @@ h2{
 	margin-right: auto;
 	color:black;
 }
-/* #reviewTitle{
-  display:flex;
-  justify-self: start;
-  margin: 0px;
-  margin-left: 5px;
-  margin-bottom: 15px;
-  color:black;
-  font-size: 15px;
-} */
 #reviewText{
   display:flex;
   justify-self: start;
@@ -82,7 +65,6 @@ h2{
 	font-weight: bold;
 	padding-top:5px;
 }
-
 #ReviewMetaData {
   border-bottom: 2px solid black;
   margin-right: 0;
@@ -113,6 +95,4 @@ h2{
   text-align: left;
 	padding-bottom: 15px;
 }
-
-
 </style>
