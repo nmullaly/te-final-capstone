@@ -113,7 +113,7 @@ font-size: 20px;
   transform: translate(-50%, -50%);
   z-index: 1; 
   text-align: center; 
-  color: white; 
+  color: black; 
 }
 router-link{
   color: white;
