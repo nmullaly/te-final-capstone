@@ -4,7 +4,7 @@
 		<header-bar />
 	</header>
 	<div class="content-container">
-		<SideBar :profile="profile" />
+		<SideBar :profile="profile" id="sidebar"/>
 		<div class="main-content">
 		<!-- <profile v-bind:profile="profile" /> -->
 		<div id="watchlist">
@@ -46,6 +46,7 @@ export default {
 	data() {
 		return {
 			profile: {},
+			reviewList: [],
 		}
 	},
 	created() {
@@ -129,8 +130,8 @@ export default {
 
 }
 
-SideBar {
-	width: 20%;
+#sidebar {
+	width: 40%;
 }
 
 .main-content {
