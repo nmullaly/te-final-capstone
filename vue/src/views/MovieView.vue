@@ -6,10 +6,11 @@
       <p id="yearAndGenre">{{ formattedReleaseYear }},  {{  formattedGenres }}</p>
       <div id="middleContent">
         <img :src="'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + this.movie.poster_path" id="poster"/>
-        <img :src="`/src/assets/Reviews/FakeReview${generateRandomReview()}.png`" id="randomReview"/>
+        <div id="reviewList">
+         <review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item" id="headlineReview"/>
+        </div>
       </div>
       <p id="overview">{{  this.movie.overview  }}</p>
-    
     <div id="movieButtons">
       <div id="watchlistBtn">
         <button id="removeBtn" v-if="isOnWatchlist" v-on:click="removeFromWatchlist">Remove Film from Watchlist</button>
@@ -17,12 +18,8 @@
       </div>
       <button id="reviewBtn" v-on:click="redirectToReviewForm">Review This Film</button>
     </div>
-    <div id="reviewList">
-      <review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item"/>
-      <!-- <review-copy /> -->
-    </div>
+    <!-- <img :src="`/src/assets/Reviews/FakeReview${generateRandomReview()}.png`" id="randomReview"/> -->
   </div>
-    <!-- <MovieReview id = "mr"/> -->
     <footer-bar/>
 </template>
 
@@ -218,6 +215,14 @@ export default {
 
 
 <style>
+#headlineReview{
+  background-color: #A0A59B;
+  border-radius: 5px;
+  border: 2px solid black;
+  margin-left: 15rem;
+  width: 500px;
+	height:auto;
+}
 #reviewList {
   display: flex;
   justify-content: center;
@@ -241,6 +246,7 @@ export default {
   margin: 0px;
   margin-top: 2.5rem;
   margin-left: 5px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
 }
 #yearAndGenre{
   /* font-family: 'Courier New', Courier, monospace; */
@@ -249,6 +255,7 @@ export default {
   justify-self: start;
   margin: 0px;
   margin-left: 5px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 #middleContent{
   display:flex;
@@ -267,6 +274,7 @@ export default {
   justify-self: start;
   margin: 0px;
   margin-left: 5px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
 }
 #movieInfo {
   margin-left: 15%;
@@ -274,6 +282,7 @@ export default {
   background-color: rgba(128, 128, 128, 0.35);
   border-radius: 12px;
   margin-bottom: 2.5rem;
+
 }
 footer-bar {
   position: fixed;
@@ -283,6 +292,7 @@ footer-bar {
   color: white; /* You can set the text color as needed */
   padding: 10px;
   margin-top: 2.5rem;
+  
 }
 #mr {
   margin-bottom: 2.5rem;

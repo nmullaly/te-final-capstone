@@ -1,7 +1,7 @@
 <template>
 	<div id="reviewBoxGottaHaveBetterVariableNames">
 		<div id="ReviewMetaData">
-			<h1 id="movieTitleTwo">{{this.review.title}}</h1>
+			<h1 id="movieTitleTwo">{{ this.review.headline }}</h1>
 				<div id="usernameAndRating">
 					<h2 id="username" class="EBoog">{{ this.review.username }}</h2>
 					<div id="rating">
@@ -10,7 +10,7 @@
 				</div>
 		</div>
 		<div id="ReviewContent" >
-			<h2 id="reviewTitle" class="EBoog">{{ this.review.headline }}</h2>
+			<h2 id="reviewTitle" class="EBoog" v-on:click="routeToMovie"> {{this.review.title}} </h2>
 			<p id="reviewText">{{ this.review.body }}</p>
 		</div>
 	</div>
@@ -24,6 +24,16 @@ import ProfileService from '../services/ProfileService';
 export default {
 
 props: ['review'],
+methods:{
+routeToMovie() {
+      let movieId = this.movie.id;
+      this.$router.push({ name: "Movie", params: { id: movieId } });
+    },
+routeToUser() {
+		let userID = this.profile.id;
+		this.$router.push({ name: "ProfileView", params: { id: userID } });
+}
+}
 // data() {
 //     return {
 //       review: {
