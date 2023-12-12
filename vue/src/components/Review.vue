@@ -1,11 +1,11 @@
 <template>
 	<div id="reviewBoxGottaHaveBetterVariableNames">
 		<div id="ReviewMetaData">
-			<h1 id="movieTitle">{{this.review.title}}</h1>
+			<h1 id="movieTitleTwo">{{this.review.title}}</h1>
 				<div id="usernameAndRating">
 					<h2 id="username" class="EBoog">{{ this.review.username }}</h2>
 					<div id="rating">
-						<img class="popcorn" src="../assets/Popcorn.svg.png" v-for="num in this.review.rating" v-bind:key="num" />
+						<span class="popcorn" v-for="num in this.review.rating" v-bind:key="num">&#127871;</span>
 					</div>
 				</div>
 		</div>
@@ -27,9 +27,13 @@ props: ['review'],
 // data() {
 //     return {
 //       review: {
-// 		id
+// 		title: "movie title",
+// 		username: "tim Heidecker",
+// 		rating: 5,
+// 		headline: "I love the movies",
+// 		body: "These are great movies",
 // 	  }
-
+// }
 // }
 }
 
@@ -37,12 +41,13 @@ props: ['review'],
 
 <style>
 #reviewBoxGottaHaveBetterVariableNames{
-	background-color: whitesmoke;
+	background-color: #A0A59B;
 	/* margin-right:60vw; */
 	border-radius: 5px;
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 	width: 500px;
 	height:auto;
+	border: 2px solid black;
 }
 .Eboog{
   font-size: 20px;
@@ -55,25 +60,33 @@ props: ['review'],
   z-index: 1;
   
 }
+#usernameAndRating{
+	display: flex;
+	align-items: center;
+	margin-right: 0;
+}
 #username{
 	margin-right: auto;
-	color:black;
+	color:white;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 #reviewText{
   display:flex;
   justify-self: start;
   margin: 0px;
   margin-left: 5px;
-  color:black;
+  color:white;
 }
-#movieTitle{
-	color:black;
+#movieTitleTwo{
+	color:white;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.83);
 	font-weight: bold;
 	padding-top:5px;
 }
 #ReviewMetaData {
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid black;
   margin-right: 0;
+  margin-left: 0;;
 }
 #rating{
 	background-color: #E9CBCB;
@@ -93,12 +106,16 @@ props: ['review'],
 }
 #reviewTitle{
 	display:flex;
-	margin-left: 10px;
+	margin-left: 5px;
 	margin-top: 8px;
+	color:white;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 #reviewText {
   text-indent: 20px;
   text-align: left;
 	padding-bottom: 15px;
+	color:white;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.50);
 }
 </style>
