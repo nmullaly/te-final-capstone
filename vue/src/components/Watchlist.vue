@@ -1,10 +1,7 @@
 <template>
 <div>
-    <MovieCardWSearch/>
-    <MovieCardWSearch/>
-    <MovieCardWSearch/>
-    <MovieCardWSearch/>
-</div>
+    <MovieCardWSearch v-for="item in this.watchlist" :key="item.id" :film="item"/>
+</div> 
 </template>
 
 <script>
@@ -14,26 +11,30 @@ import WatchlistService from '../services/WatchlistService';
 import MovieService from '../services/MovieService';
 
 export default {
-    components: {MovieCardWSearch},
-     
-    data() {
-      return {  profileId: parseInt(this.$route.param.id),
-        watchlist :[]
-      }
-    },
-    methods: {
-    get_watchlist() {
-        WatchlistService
-          .getWatchlistByUserId(this.profileId)
-            .then(response => {
-              this.watchlist = response.data;
-              
-            })
-            .catch(error => {
-              console.log(error.response);
-            });
-      }
-}
+  components: { MovieCardWSearch },
+
+  data() {
+    return {
+      profileId: parseInt(this.$route.params.id),
+      watchlist: []
+    }
+  },
+  created() {
+    this.getWatchlist();
+  },
+  methods: {
+    getWatchlist() {
+      WatchlistService
+        .getWatchlistByUserId(this.profileId)
+        .then(response => {
+          this.watchlist = response.data;
+
+        })
+        .catch(error => {
+          console.log(error.response);
+        });
+    }
+  }
 }
 </script>
 <style>

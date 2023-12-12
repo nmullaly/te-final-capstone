@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="holdThisBox">
-      <img :src="'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + this.film.poster_path" v-on:click="routeToMovie" id="movie1" class="movieCard" />
+      <img :src="'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + this.movie.poster_path" v-on:click="routeToMovie" id="movie1" class="movieCard" />
     </div>
   </div>
 </template>
@@ -21,11 +21,28 @@ export default {
       hoveredRating: false,
     };
   },
-
+  created() {
+    this.fetchMovie();
+  },
   methods: {
+    fetchMovie() {
+      movieService
+							.getMovieById(this.film.movieId)
+							.then((response) => {
+								this.movie = response.data;
+							})
+							.catch((error) => {
+								if (error.response) {
+									console.log(error.response.status);
+								} else if (error.request) {
+									console.log("Server error");
+								} else {
+									console.log("Front-end error");
+								}
+							});
+    },
     routeToMovie() {
-      let movieId = this.film.id;
-      this.$router.push({ name: "Movie", params: { id: movieId } });
+      this.$router.push({ name: "Movie", params: { id: this.movie.movieId } });
     },
   },
 };
@@ -36,6 +53,8 @@ export default {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  height: 300px;
+  width: 200px;
 }
 
 .movieCard {
@@ -43,7 +62,7 @@ export default {
   margin-right: 10px;
   border: 1px solid #CBD1DA;
   border-radius: 4px;
-  height: 350px;
+  height: auto;
   width: auto;
   cursor: url("../assets/hm3.jpg"), pointer;
 }
