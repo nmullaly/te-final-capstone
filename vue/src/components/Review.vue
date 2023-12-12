@@ -24,7 +24,13 @@ import ProfileService from '../services/ProfileService';
 export default {
 
 props: ['review'],
+// data() {
+//     return {
+//       review: {
+// 		id
+// 	  }
 
+// }
 }
 
 </script>
@@ -32,9 +38,11 @@ props: ['review'],
 <style>
 #reviewBoxGottaHaveBetterVariableNames{
 	background-color: whitesmoke;
-	margin-right:60vw;
+	/* margin-right:60vw; */
 	border-radius: 5px;
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+	width: 500px;
+	height:auto;
 }
 .Eboog{
   font-size: 20px;
