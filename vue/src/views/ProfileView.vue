@@ -19,7 +19,8 @@
  v-for="item in this.reviewList"
  v-bind:key="item.reviewId"
  v-bind:review="item"
-	
+			/>
+			<!-- <review-copy /> -->
   </div>
 		</div>
  </div>
