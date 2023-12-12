@@ -24,7 +24,7 @@
   </template>
 
 <script>
-import Profile from '../components/Profile.vue';
+// import Profile from '../components/Profile.vue';
 import HeaderBar from '../components/HeaderBar.vue';
 import FooterBar from '../components/FooterBar.vue';
 import AddFilm from '../components/AddFilm.vue';
