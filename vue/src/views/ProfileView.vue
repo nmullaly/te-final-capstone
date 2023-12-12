@@ -4,9 +4,9 @@
 		<header-bar />
 	</header>
 	<div class="content-container">
-		<SideBar :profile="profile" />
+		<SideBar :profile="profile" id="sidebar"/>
 		<div class="main-content">
-		<profile v-bind:profile="profile" />
+		<!-- <profile v-bind:profile="profile" /> -->
 		<div id="watchlist">
 			<div v-for ="movie in profile.watchlist" :key="movie.id">
 				<img :src="'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + movie.poster_path" />
@@ -15,12 +15,7 @@
 				</div>
  <!-- <add-film v-on:film-added="handleFilmAdded" /> -->
   <div id="reviewList">
-			<review
- v-for="item in this.reviewList"
- v-bind:key="item.reviewId"
- v-bind:review="item"
-			/>
-			<!-- <review-copy /> -->
+			<review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item"	/>
   </div>
 		</div>
  </div>
@@ -41,7 +36,7 @@ import SideBar from "../components/SideBar.vue";
 
 export default {
 	components: {
-		Profile,
+		// Profile,
 		HeaderBar,
 		FooterBar,
 		Review,
@@ -51,6 +46,7 @@ export default {
 	data() {
 		return {
 			profile: {},
+			reviewList: [],
 		}
 	},
 	created() {
@@ -83,7 +79,20 @@ export default {
 					this.reviewList = response.data;
 
 					this.reviewList.forEach(review => {
-						review.username = this.profile.username;
+						profileService
+							.getProfileById(review.profileId)
+							.then((response) => {
+								review.username = response.data.username;
+							})
+							.catch((error) => {
+							if (error.response) {
+								console.log(error.response.status);
+							} else if (error.request) {
+								console.log("Server error");
+							} else {
+								console.log("Front-end error");
+							}
+							});
 						movieService
 							.getMovieById(review.movieId)
 							.then((response) => {
@@ -133,8 +142,14 @@ export default {
 	display: flex;
 
 }
+
+#sidebar {
+	width: 40%;
+}
+
 .main-content {
 	flex-grow: 1;
 	padding: 20px;
 }
+
 </style>

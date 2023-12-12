@@ -122,7 +122,20 @@ export default {
           this.reviewList = response.data;
 
           this.reviewList.forEach(review => {
-            review.title = this.movie.title;
+            movieService
+							.getMovieById(review.movieId)
+							.then((response) => {
+								review.title = response.data.title;
+							})
+							.catch((error) => {
+								if (error.response) {
+									console.log(error.response.status);
+								} else if (error.request) {
+									console.log("Server error");
+								} else {
+									console.log("Front-end error");
+								}
+							});
             profileService
               .getProfileById(review.profileId)
               .then((response) => {
@@ -209,6 +222,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 #movieButtons {

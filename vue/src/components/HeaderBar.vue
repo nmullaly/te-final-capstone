@@ -72,7 +72,7 @@ components: {
   width: 50px; 
   height: auto; 
 }
-h1{
+#movie{
   margin: left 100px;
   /* font-family: 'Courier New', Courier, monospace; */
 }

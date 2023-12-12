@@ -1,15 +1,15 @@
 <template>
-<review-copy/>
+<review/>
 </template>
 
 <script>
-import ReviewCopy from "../components/ReviewCopy.vue";
+import Review from "../components/Review.vue";
 
 export default {
 	
 
 components: {
-	ReviewCopy,
+	Review,
 },
 };
 </script>
