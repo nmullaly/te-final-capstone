@@ -11,25 +11,22 @@
   <div id = "buffer">
   </div>
   <div id = "content">
-    <h1>Movies</h1>
-      <h2>Encounter and Review Films to Increase Your Buff Score</h2>
+    <h1 class="barOne">Movies</h1>
+      <h2 class="barOne">Encounter and Review Films to Increase Your Buff Score</h2>
     <div class = "navigation">
       <movie-search-bar id = "movieSearchBar"></movie-search-bar>
     </div>
       <movie-display></movie-display>   
         <p id = "movieText">
           <!-- Search our database of movies Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. -->
-          On our website, you will encounter movies.  If you watch these movies, review them, and leave a suggested snack pairing you will increase your film buff score.  Fight against your fellow movie savants and claim the pinnacle of buffhood.  Search TMDB's API for movies by name.
+          Search TMDB's API for movies by name.  Fight against your fellow movie savants' wrong opinions and claim the pinnacle of buffhood.  Go to our Movie page to encounter random movies to watch and review.  
         </p>
-    <h1>Social</h1>
-      <h2>Flex Your Film Buff Score</h2>
-    <div class = "navigation">
-        <user-search-bar></user-search-bar>
-    </div>
-      <user-display></user-display>
+    <h1 id = "social">Social</h1>
+      <h2 id="barTwo">Flex Your Film Buff Score</h2>
+      <user-display id = "user-display"></user-display>
         <p id = "movieText">
           <!-- Search our users for opinions on what movies to see and even what movies to stay away from. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. -->
-          Search our users for opinions on what movies to see and even what movies to stay away from.  See how much bigger your buff score is than theirs, and know that their opinion mathematically doesn't matter as much yours.
+          Create an account on our website to ascend from your status as a sheeple and leave movie reviews alongside our other movie savants.
         </p>
     <div id="griddy">
       <p class = "buffMessage" id = "mfof">A Message From Our Founder</p>
@@ -99,9 +96,10 @@ footer{
 }
 
 #movieText{
-  margin-top:5rem;
+  margin-top: 2vw;
   margin-bottom: 2vw;
-  font-size: 18px;
+  font-size: 22px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
 }
 
 #movieSearchBar{
@@ -109,16 +107,27 @@ footer{
   margin-bottom: 3vw;
 }
 
-h1{
-  color:aliceblue
+#social{
+  color:aliceblue;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+  margin-top: 90px;
 }
 
-h2{
-  color:aliceblue
+.barOne{
+  color:aliceblue;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
+#barTwo{
+  color:aliceblue;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
+#user-display{
+  margin-bottom: 3vw;
 }
 
 p{
-  color:aliceblue
+  color:aliceblue;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
 }
 
 #Ben{
@@ -149,6 +158,8 @@ p{
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 0;
+  text-indent: 80px;
+  text-align: left;
   /* font-family: 'Courier New', Courier, monospace; */
 }
 
@@ -163,7 +174,8 @@ p{
   background-image: url("../assets/Cinema.jpg");
   background-size: cover; 
   background-repeat: no-repeat; 
-  margin-top: 60px;
+  /* margin-top: 60px; */
+  margin-top: 220px;
   border-radius: 12px;
   font-weight: bold;
   border: 1px solid white;

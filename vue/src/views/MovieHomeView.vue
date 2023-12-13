@@ -1,7 +1,7 @@
 <template>
     <header class = "header" id = "header">
     <header-bar/></header>
-    <h1>Some Wild Movies Appeared!</h1>
+    <h1 id="wild">Some Wild Movies Appeared!</h1>
     <movie-display class="display"/>
     <movie-display class="display"/>
     <movie-display class="display"/>
@@ -42,6 +42,10 @@ redirectToMovies() {
 
 
 <style>
+#wild{
+    margin-top: 30px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
 .display{
     margin-top: 30px;
     margin-bottom: 50px;
