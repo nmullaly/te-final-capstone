@@ -67,7 +67,6 @@ routeToUser() {
   align-items: flex-end;
   border-radius: 1px black;
   z-index: 1;
-  
 }
 #usernameAndRating{
 	display: flex;
@@ -78,6 +77,7 @@ routeToUser() {
 	margin-right: auto;
 	color:white;
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
 }
 #reviewText{
   display:flex;
@@ -119,6 +119,7 @@ routeToUser() {
 	margin-top: 8px;
 	color:white;
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
 }
 #reviewText {
   text-indent: 20px;
