@@ -88,7 +88,7 @@ height: auto;
 }
 label {
   
-  color: black;
+  color: aliceblue;
 }
 html > body {
  background-color: black;
@@ -106,16 +106,16 @@ button {
   transform: translate(-50%, -50%);
   z-index: 1; 
   text-align: center; 
-  color: black; 
+  color: aliceblue; 
 }
 
 .form-input-group {
   font-size: 20px;
-  color: black;
+  color: aliceblue;
 }
 
 #login input {
-  color: black;
+  color: rgb(0, 0, 0);
   text-shadow: none;
 }
 router-link{
