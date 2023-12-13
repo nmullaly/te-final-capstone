@@ -15,6 +15,7 @@
 				</div>
 				</div>
  <!-- <add-film v-on:film-added="handleFilmAdded" /> -->
+ <h1 id="my-reviews">My Reviews</h1>
   <div id="reviewList">
 			<review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item"	/>
   </div>
@@ -90,6 +91,7 @@ export default {
 							.getProfileById(review.profileId)
 							.then((response) => {
 								review.username = response.data.username;
+								review.profileId = response.data.profileId;
 							})
 							.catch((error) => {
 							if (error.response) {
@@ -104,6 +106,7 @@ export default {
 							.getMovieById(review.movieId)
 							.then((response) => {
 								review.title = response.data.title;
+								review.movieId = response.data.id;
 							})
 							.catch((error) => {
 								if (error.response) {
@@ -160,6 +163,7 @@ export default {
 
 .watchlist-reviews-container {
   display: flex;
+  
  
 }
 
@@ -172,5 +176,13 @@ export default {
 #reviewList {
   flex: 1;
 }
+#my-reviews {
+	text-align: center;
+	position: absolute;
+	margin-top: -0.5%;
+	margin-left: 12%;
+	justify-content: space-around;
+	
+	}
 
 </style>
