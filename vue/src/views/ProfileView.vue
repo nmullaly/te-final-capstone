@@ -6,6 +6,7 @@
 	<div class="content-container">
 		<SideBar :profile="profile" id="sidebar"/>
 		<div class="main-content">
+			<div class ="watchlist-reviews-container" >
 		<!-- <profile v-bind:profile="profile" /> -->
 		<div id="watchlist">
 			<div v-for ="movie in profile.watchlist" :key="movie.id">
@@ -21,6 +22,7 @@
 		<watchlist />
 	</div>
 		</div>
+ </div>
  </div>
  <footer-bar />
 	</div>
@@ -144,17 +146,26 @@ export default {
 
 <style>
 .content-container {
-	display: flex;
-
+  display: flex;
 }
 
 #sidebar {
-	width: 25%;
+  width: 100%;
 }
 
 .main-content {
-	flex-grow: 1;
-	padding: 20px;
+  flex-wrap: wrap;
 }
 
+.watchlist-reviews-container {
+  display: flex;
+}
+
+#watchlist {
+  margin-right: 20px; /* Adjust margin as needed */
+}
+
+#reviewList {
+  flex: 1;
+}
 </style>

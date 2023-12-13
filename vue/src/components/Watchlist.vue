@@ -1,7 +1,11 @@
 <template>
 <div>
     <MovieCardWSearch v-for="item in this.watchlist" :key="item.id" :film="item"/>
-</div> 
+    <div class = "watchlist-section">
+    <h1 class ="my-watchlist"></h1>
+    
+    </div>
+</div>
 </template>
 
 <script>
@@ -37,6 +41,16 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
+.my-watchlist {
+  display: flex;
+ justify-content: space-around;
+}
+
+div  {  
+   display: flex;
+ justify-content: space-around;
+}
+
 
 </style>
