@@ -3,11 +3,15 @@ BEGIN TRANSACTION;
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 INSERT INTO users (username,password_hash,role) VALUES ('nate','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('AdalynDanger','$2a$10$25rilUrz2gt4jssWJgHIwukj7efQbSECVszTH2IxLl.dBC/gA6DeW','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('lovrek','$2a$10$Jla2EgIaAS/A83zdGCBInu0EDDAbw1mnNgIzFSb1cRWiJVYVinVE6','ROLE_USER');
 
 INSERT INTO profiles (username) VALUES ('user');
 INSERT INTO profiles (username) VALUES ('admin');
-INSERT INTO profiles (username, bio, favorite_film, favorite_snack, favorite_genres)
-	VALUES ('nate', 'I love movie!!!', 'Malignant', 'Takis', 'Psychological Thrillers');
+INSERT INTO profiles (username, bio, favorite_film, favorite_snack, favorite_genres) VALUES 
+	('nate', 'I love movie!!!', 'Malignant', 'Takis', 'Psychological Thrillers'),
+	('AdalynDanger', 'A force of chaos in a world of peace', 'The Matrix', 'Popcorn', null),
+	('lovrek', 'i love movies!!!!', null, null, null);
 
 INSERT INTO reviews (profile_id, movie_id, headline, body, rating) VALUES
 	(3, 579974, 'masterpiece', 'greatest film i ever did see', 5),

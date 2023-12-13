@@ -30,6 +30,7 @@ export default{
   font-size: medium;
   margin-bottom: 0;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
 .footyboi > * {
   font-size: 18px;

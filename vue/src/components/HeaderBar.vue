@@ -66,6 +66,7 @@ components: {
   text-justify: center;
   align-items: center; 
   font-size: medium;
+  border-radius: 5px;
 }
 .header img#logo {
   width: 50px; 

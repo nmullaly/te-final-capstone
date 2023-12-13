@@ -56,10 +56,17 @@ import Profile from '../components/Profile.vue';
   
   <style>
   .sidebar {
-    width: 250px;
+    width: 300px;
     padding: 20px;
-    background: linear-gradient(to bottom, #DC8A8A, #f01607);
+    background: linear-gradient(to bottom, #f01607, #DC8A8A);
     height: 100vh;
+    /* width: 20%; */
+    height: 20%;
+    margin-left: 1%;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
   }
   
   /* Add styling for the edit form if needed */
