@@ -21,7 +21,7 @@
 		<p id="noReviewsText" v-if="this.reviewList.length==0">No Reviews Yet!</p>
 		<review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item"	/>
   </div>
-	<div id="profileWatchlist" v-if="isCurrentUser">
+	<div id="profileWatchlist" v-show="isCurrentUser">
 		<watchlist/>
 	</div>
 		</div>
@@ -196,7 +196,7 @@ export default {
 #reviewList {
   flex: 1;
 	margin-left: 375px;
-	/* width: 100%; */
+	width: 100%;
 	background-image: linear-gradient(#333333, #3333336c);
   border-radius: 12px;
   border: 1px solid white;
@@ -211,11 +211,10 @@ export default {
 }
 #my-reviews {
 	text-align: center;
-	position: absolute;
-	margin-top: -0.5%;
-	margin-left: 12%;
+	/* position: absolute; */
+	/* margin-top: -0.5%; */
+	/* margin-left: 12%; */
 	justify-content: space-around;
-	
-	}
+}
 
 </style>
