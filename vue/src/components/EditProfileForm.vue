@@ -140,7 +140,7 @@ export default {
     padding: 10px;
     box-sizing: border-box;
     border-radius: 8px; 
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
   }
   #bio-field {
     width: 70%;

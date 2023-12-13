@@ -84,7 +84,7 @@ button {
 }
 
 div.form-input-group {
-text-decoration-color: aliceblue;
+text-decoration-color: rgb(0, 0, 0);
 }
 #logo{
 cursor: url("../assets/hm3.jpg"), pointer;

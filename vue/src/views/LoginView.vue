@@ -80,7 +80,7 @@ export default {
 
 <style>
 a{
-  color: white;
+  color: rgb(0, 0, 0);
 }
 #curtains-container{
   position: relative;
@@ -91,7 +91,7 @@ height: auto;
 }
 label {
   
-  color: white;
+  color: black;
 }
 html > body {
  background-color: black;
@@ -113,9 +113,9 @@ font-size: 20px;
   transform: translate(-50%, -50%);
   z-index: 1; 
   text-align: center; 
-  color: white; 
+  color: black; 
 }
 router-link{
-  color: white;
+  color: black;
 }
 </style>
