@@ -17,8 +17,9 @@
 				</div> -->
  <!-- <add-film v-on:film-added="handleFilmAdded" /> -->
   <div id="reviewList">
-			<review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item"	/>
-			<p id="noReviewsText" v-if="this.reviewList.length==0">No Reviews Yet!</p>
+		<h1 id="my-reviews">My Reviews</h1>
+		<p id="noReviewsText" v-if="this.reviewList.length==0">No Reviews Yet!</p>
+		<review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item"	/>
   </div>
 	<div id="profileWatchlist" v-if="isCurrentUser">
 		<watchlist/>
@@ -208,5 +209,13 @@ export default {
   border-radius: 12px;
   border: 1px solid white;
 }
+#my-reviews {
+	text-align: center;
+	position: absolute;
+	margin-top: -0.5%;
+	margin-left: 12%;
+	justify-content: space-around;
+	
+	}
 
 </style>

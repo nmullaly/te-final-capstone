@@ -79,7 +79,6 @@ export default {
 </script>
 
 <style>
-
 #curtains-container{
   position: relative;
 }
@@ -89,7 +88,7 @@ height: auto;
 }
 label {
   
-  color: white;
+  color: black;
 }
 html > body {
  background-color: black;

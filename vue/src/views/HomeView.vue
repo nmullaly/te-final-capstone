@@ -11,8 +11,8 @@
   <div id = "buffer">
   </div>
   <div id = "content">
-    <h1 class="barOne">Movies</h1>
-      <h2 class="barOne">Encounter and Review Films to Increase Your Buff Score</h2>
+    <h1 class="barOne" id = "barOneMovies">Movies</h1>
+      <h2 class="barOne">Review movies to increase your standing in the Film Buff community</h2>
     <div class = "navigation">
       <movie-search-bar id = "movieSearchBar"></movie-search-bar>
     </div>
@@ -22,7 +22,7 @@
           Search TMDB's API for movies by name.  Fight against your fellow movie savants' wrong opinions and claim the pinnacle of buffhood.  Go to our Movie page to encounter random movies to watch and review.  
         </p>
     <h1 id = "social">Social</h1>
-      <h2 id="barTwo">Flex Your Film Buff Score</h2>
+      <h2 id="barTwo">Register, Sheeple</h2>
       <user-display id = "user-display"></user-display>
         <p id = "movieText">
           <!-- Search our users for opinions on what movies to see and even what movies to stay away from. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. -->
@@ -111,8 +111,11 @@ footer{
   color:aliceblue;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
   margin-top: 90px;
+  font-size: 45px;
 }
-
+#barOneMovies{
+  font-size: 45px;
+}
 .barOne{
   color:aliceblue;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
@@ -120,9 +123,10 @@ footer{
 #barTwo{
   color:aliceblue;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+  margin-bottom: 2vw;
 }
 #user-display{
-  margin-bottom: 3vw;
+  margin-bottom: 2vw;
 }
 
 p{
@@ -175,7 +179,7 @@ p{
   background-size: cover; 
   background-repeat: no-repeat; 
   /* margin-top: 60px; */
-  margin-top: 220px;
+  margin-top: 190px;
   border-radius: 12px;
   font-weight: bold;
   border: 1px solid white;

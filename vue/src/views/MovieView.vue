@@ -52,6 +52,9 @@ import Review from "../components/Review.vue";
 import FooterBar from "../components/FooterBar.vue";
 
 export default {
+  mounted(){
+    window.scrollTo(0, 0);
+  },
 	components: {
 		HeaderBar,
 		// MovieSearchBar,
