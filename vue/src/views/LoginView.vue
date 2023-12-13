@@ -79,9 +79,7 @@ export default {
 </script>
 
 <style>
-a{
-  color: white;
-}
+
 #curtains-container{
   position: relative;
 }
@@ -102,10 +100,6 @@ html > body {
 button {
   color: black;
 }
-.form-input-group {
-/* font-family:'Courier New', Courier, monospace; */
-font-size: 20px;
-}
 #login {
   position: absolute;
   top: 70%;
@@ -115,7 +109,17 @@ font-size: 20px;
   text-align: center; 
   color: black; 
 }
-router-link{
-  color: white;
+
+.form-input-group {
+  font-size: 20px;
+  color: black;
 }
+
+#login input {
+  color: black;
+  text-shadow: none;
+}
+router-link{
+  color: white;}
+
 </style>

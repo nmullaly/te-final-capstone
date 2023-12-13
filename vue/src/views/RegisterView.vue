@@ -110,4 +110,9 @@ label {
 div{
   color: white;
 }
+
+#register input {
+  color: black;
+  text-shadow: none;
+}
 </style>

@@ -1,8 +1,8 @@
 <template>
     <footer class="footyboi">
         <h1 id = "logo" v-on:click="redirectToHome">Call of Movie</h1>
-        <h2 >Copyright 2024</h2>
-        <h3 v-on:click="redirectToAbout">About Us</h3>
+        <h2 id = "copyright">Copyright 2024</h2>
+        <h3 id = "ocatc" v-on:click="redirectToAbout">About Us</h3>
     </footer> 
 </template>
 
@@ -22,18 +22,17 @@ export default{
 <style>
 .footyboi {
   display: flex;
-  flex-direction: row; /* Make the children stack vertically */
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
+  flex-direction: row; 
+  justify-content: center; 
+  align-items: center; 
   background-color: #DC8A8A;
   background: linear-gradient(to bottom, #f72a06, #DC8A8A);
-  /* border: 2px solid #000000; */
   font-size: medium;
   margin-bottom: 0;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 .footyboi > * {
-  font-size: 18px; /* Adjust the font size as needed */
+  font-size: 18px;
   flex-grow: 1;
   justify-content: center; 
   text-align: center;
@@ -43,12 +42,12 @@ export default{
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-h2{
+#copyright{
   color:aliceblue;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-h3{
+#ocatc{
   color:aliceblue;
   cursor: pointer;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
