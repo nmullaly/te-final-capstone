@@ -5,27 +5,29 @@
 	</header>
 	<div class="content-container">
 		<SideBar :profile="profile" id="sidebar"/>
+		<span id="sidebarSpace"/>
 		<div class="main-content">
 			<div class ="watchlist-reviews-container" >
 		<!-- <profile v-bind:profile="profile" /> -->
-		<div id="watchlist">
+		<!-- <div id="watchlist">
 			<div v-for ="movie in profile.watchlist" :key="movie.id">
 				<img :src="'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + movie.poster_path" />
 				<h3>{{ movie.title }}</h3>
 				</div>
-				</div>
+				</div> -->
  <!-- <add-film v-on:film-added="handleFilmAdded" /> -->
- <h1 id="my-reviews">My Reviews</h1>
   <div id="reviewList">
-			<review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item"	/>
+		<h1 id="my-reviews">My Reviews</h1>
+		<p id="noReviewsText" v-if="this.reviewList.length==0">No Reviews Yet!</p>
+		<review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item"	/>
   </div>
-	<div id="profileWatchlist">
-		<watchlist />
+	<div id="profileWatchlist" v-show="isCurrentUser">
+		<watchlist/>
 	</div>
 		</div>
  </div>
  </div>
- <footer-bar />
+ <footer-bar/>
 	</div>
   </template>
 
@@ -55,6 +57,15 @@ export default {
 		return {
 			profile: {},
 			reviewList: [],
+		}
+	},
+	computed: {
+		isCurrentUser() {
+			if (this.$route.params.id == this.$store.state.user.id) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 	},
 	created() {
@@ -148,13 +159,25 @@ export default {
 </script>
 
 <style>
-.content-container {
-  display: flex;
-  
+
+#noReviewsText {
+	/* background-image: linear-gradient(#333333, #3333336c);
+  border-radius: 12px;
+  border: 1px solid white; */
+	width: 500px;
+	height: 211px;
 }
 
+.content-container {
+  display: flex;
+}
+
+/* #sidebarSpace {
+	width: 50%;
+} */
+
 #sidebar {
-  width: 50%;
+  margin-top: 16px;
 }
 
 .main-content {
@@ -163,26 +186,35 @@ export default {
 
 .watchlist-reviews-container {
   display: flex;
-  
- 
 }
 
 #watchlist {
-   flex-wrap: wrap;
-   display: block;
-
+	flex-wrap: wrap;
+	display: block;
 }
 
 #reviewList {
   flex: 1;
+	margin-left: 375px;
+	width: 100%;
+	background-image: linear-gradient(#333333, #3333336c);
+  border-radius: 12px;
+  border: 1px solid white;
+}
+
+#profileWatchlist {
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(#333333, #3333336c);
+  border-radius: 12px;
+  border: 1px solid white;
 }
 #my-reviews {
 	text-align: center;
-	position: absolute;
-	margin-top: -0.5%;
-	margin-left: 12%;
+	/* position: absolute; */
+	/* margin-top: -0.5%; */
+	/* margin-left: 12%; */
 	justify-content: space-around;
-	
-	}
+}
 
 </style>

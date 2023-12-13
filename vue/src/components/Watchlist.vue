@@ -36,20 +36,23 @@
     }
   }
   </script>
-  <style scoped>
-  .my-watchlist {
-    text-align: center;
-   justify-content: space-around;
-   margin-bottom: 20px;
-  }
-  div  {
-     display: flex;
-   justify-content: space-around;
-   flex-wrap: wrap;
-  }
-  h1 {
-    margin-top: -1%;
-    position: absolute;
-    text-align: center;
-  }
-  </style>
+<style scoped>
+.my-watchlist {
+  text-align: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+div {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+h1 {
+  /* margin-top: -1%; */
+  /* position: absolute; */
+  text-align: center;
+}
+</style>

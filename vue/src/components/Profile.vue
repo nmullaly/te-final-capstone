@@ -2,9 +2,9 @@
 	<div class="profile">
 		<h1 id="profile-head">{{ this.profile.username }} | {{ this.profile.points }} points</h1>
 		<p id="bio">{{ this.profile.bio }}</p>
-		<p id="fav-film">Favorite Movie: {{ this.profile.favoriteFilm }}</p>
-		<p id="fav-genres">Favorite Genre: {{ this.profile.favoriteGenres }}</p>
-		<p id="fav-snack">Favorite Snack: {{ this.profile.favoriteSnack }}</p>
+		<p id="fav-film" v-if="this.profile.favoriteFilm!=null">Favorite Movie: {{ this.profile.favoriteFilm }}</p>
+		<p id="fav-genres" v-if="this.profile.favoriteGenres!=null">Favorite Genre: {{ this.profile.favoriteGenres }}</p>
+		<p id="fav-snack" v-if="this.profile.favoriteSnack!=null">Favorite Snack: {{ this.profile.favoriteSnack }}</p>
 		<button id="edit-profile-btn" v-on:click="routeToEdit" v-show="isCurrentUser">Edit Profile</button>
 	</div>
 	<div v-if="profile.watchlist && profile.watchlist.length > 0">
