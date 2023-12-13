@@ -9,7 +9,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('lovrek','$2a$10$Jla2EgI
 INSERT INTO profiles (username) VALUES ('user');
 INSERT INTO profiles (username) VALUES ('admin');
 INSERT INTO profiles (username, bio, favorite_film, favorite_snack, favorite_genres) VALUES 
-	('nate', 'I love movie!!!', 'Malignant', 'Takis', 'Psychological Thrillers'),
+	('nate', 'I watched 40 movies in the last 30 days.', 'Nope', 'Takis', 'Psychological Thriller'),
 	('AdalynDanger', 'A force of chaos in a world of peace', 'The Matrix', 'Popcorn', null),
 	('lovrek', 'i love movies!!!!', null, null, null);
 
@@ -20,10 +20,12 @@ INSERT INTO reviews (profile_id, movie_id, headline, body, rating) VALUES
 	(3, 124532, 'awful', 'i hated it', 1),
 	(3, 49051, 'Great film', 'This is a very good film with a twist ending. But I really dont want to spoil the ending for anyone so I wont say much. But this was a great film, lots of thrills and again a very exciting ending twist at the end that I will not reveal because everyone should experience it for themselves. All I can say is this was a really fun film to watch and very good.', 5);
 
--- INSERT INTO watchlist (profile_id, movie_id) VALUES
--- 	(1, 3),
--- 	(1, 4),
--- 	(2, 7);
+INSERT INTO watchlist (profile_id, movie_id) VALUES
+	(3, 579974),
+	(3, 619778),
+	(3, 458723),
+	(3, 536554),
+	(3, 475557);
 	
 -- INSERT INTO admin_movies (title) VALUES ('Pricemaster');
 

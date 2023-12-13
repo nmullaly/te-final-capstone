@@ -1,4 +1,5 @@
 <template>
+  <div id="sidebarContainer">
     <aside class="sidebar">
       <profile v-bind:profile="this.profile" />
       <!-- <h2>{{ profile.username }}</h2>
@@ -17,7 +18,8 @@
         <button @click="addFavorite">Add</button>
       </div> -->
     </aside>
-  </template>
+  </div>
+</template>
   
 <script>
 import Profile from '../components/Profile.vue';
@@ -55,15 +57,22 @@ import Profile from '../components/Profile.vue';
   </script>
   
   <style>
+  #sidebarContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
   .sidebar {
-    width: 300px;
+    /* width: 100%; */
     padding: 20px;
     background: linear-gradient(to bottom, #f01607, #DC8A8A);
-    height: 100vh;
-    /* width: 20%; */
+    /* height: 100vh; */
+    width: 21.55%;
     height: 20%;
-    margin-left: 1%;
+    /* margin-left: 1%; */
     border-radius: 5px;
+    border-radius: 12px;
+    border: 1px solid white;
     align-items: center;
     justify-content: center;
     position: fixed;

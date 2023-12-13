@@ -1,35 +1,34 @@
 <template>
 	<div>
-	<header class="header" id="header">
-		<header-bar />
-	</header>
-	<div class="content-container">
-		<SideBar :profile="profile" id="sidebar"/>
-		<span id="sidebarSpace"/>
-		<div class="main-content">
-			<div class ="watchlist-reviews-container" >
-		<!-- <profile v-bind:profile="profile" /> -->
-		<!-- <div id="watchlist">
-			<div v-for ="movie in profile.watchlist" :key="movie.id">
-				<img :src="'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + movie.poster_path" />
-				<h3>{{ movie.title }}</h3>
+		<header class="header" id="header">
+			<header-bar />
+		</header>
+		<div class="content-container">
+			<div class="main-content">
+				<SideBar :profile="profile" id="sidebar" />
+				<div class="watchlist-reviews-container">
+					<!-- <profile v-bind:profile="profile" /> -->
+					<!-- <div id="watchlist">
+					<div v-for ="movie in profile.watchlist" :key="movie.id">
+					<img :src="'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + movie.poster_path" />
+					<h3>{{ movie.title }}</h3>
+					</div>
+					</div> -->
+					<!-- <add-film v-on:film-added="handleFilmAdded" /> -->
+					<div id="reviewList">
+						<h1 id="my-reviews">My Reviews</h1>
+						<p id="noReviewsText" v-if="this.reviewList.length == 0">No Reviews Yet!</p>
+						<review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item" />
+					</div>
+					<div id="profileWatchlist" v-show="isCurrentUser">
+						<watchlist />
+					</div>
 				</div>
-				</div> -->
- <!-- <add-film v-on:film-added="handleFilmAdded" /> -->
-  <div id="reviewList">
-		<h1 id="my-reviews">My Reviews</h1>
-		<p id="noReviewsText" v-if="this.reviewList.length==0">No Reviews Yet!</p>
-		<review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item"	/>
-  </div>
-	<div id="profileWatchlist" v-show="isCurrentUser">
-		<watchlist/>
-	</div>
+			</div>
 		</div>
- </div>
- </div>
- <footer-bar/>
+		<footer-bar />
 	</div>
-  </template>
+</template>
 
 <script>
 // import Profile from '../components/Profile.vue';
@@ -66,7 +65,7 @@ export default {
 			} else {
 				return false;
 			}
-		}
+		},
 	},
 	created() {
 		let profileId = parseInt(this.$route.params.id);
@@ -169,46 +168,60 @@ export default {
 }
 
 .content-container {
-  display: flex;
+  display: grid;
+	width: 99%;
 }
 
-/* #sidebarSpace {
-	width: 50%;
-} */
+#sidebarSpace {
+	/* width: 1fr; */
+}
 
 #sidebar {
-  margin-top: 16px;
+  /* margin-top: 32px; */
+	/* width: 400px; */
+	/* width: 1fr; */
 }
 
 .main-content {
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+	display: grid;
+	grid-template-columns: 2fr 6fr;
+	width: 100%;
 }
 
 .watchlist-reviews-container {
   display: flex;
+	grid-template-columns: 1fr 1fr;
+	width: 100%;
+	/* grid-column-gap: 5%; */
 }
 
-#watchlist {
+/* #watchlist {
 	flex-wrap: wrap;
 	display: block;
-}
+} */
 
 #reviewList {
-  flex: 1;
-	margin-left: 375px;
-	width: 100%;
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	width: 1fr;
 	background-image: linear-gradient(#333333, #3333336c);
   border-radius: 12px;
   border: 1px solid white;
+	padding: 0px 43px;
+	align-self: start;
 }
 
 #profileWatchlist {
 	width: 100%;
-	height: 100%;
+	height: auto;
 	background-image: linear-gradient(#333333, #3333336c);
   border-radius: 12px;
   border: 1px solid white;
+	align-self: start;
 }
+
 #my-reviews {
 	text-align: center;
 	/* position: absolute; */

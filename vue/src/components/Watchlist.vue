@@ -1,9 +1,10 @@
 <template>
   <div>
       <h1 class ="my-watchlist">My Watchlist</h1>
+      <p v-if="watchlist.length==0">No Movies Yet!</p>
       <MovieCardWSearch v-for="item in this.watchlist" :key="item.id" :film="item"/>
-      <div class = "watchlist-section">
-      </div>
+      <!-- <div class = "watchlist-section">
+      </div> -->
   </div>
   </template>
   <script>
@@ -39,14 +40,14 @@
 <style scoped>
 .my-watchlist {
   text-align: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-bottom: 20px;
   width: 100%;
 }
 
 div {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
