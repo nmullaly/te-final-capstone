@@ -39,4 +39,8 @@
     font-weight: normal;
   }
 
+  #login {
+    color: black;
+  }
+
 </style>

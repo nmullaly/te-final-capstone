@@ -3,7 +3,7 @@
 		<div id="ReviewMetaData">
 			<h1 id="movieTitleTwo">{{ this.review.headline }}</h1>
 				<div id="usernameAndRating">
-					<h2 id="username" class="EBoog">{{ this.review.username }}</h2>
+					<h2 id="username" class="EBoog" v-on:click="routeToUser">{{ this.review.username }}</h2>
 					<div id="rating">
 						<span class="popcorn" v-for="num in this.review.rating" v-bind:key="num">&#127871;</span>
 					</div>
@@ -26,11 +26,11 @@ export default {
 props: ['review'],
 methods:{
 routeToMovie() {
-      let movieId = this.movie.id;
+      let movieId = this.review.movieId;
       this.$router.push({ name: "Movie", params: { id: movieId } });
     },
 routeToUser() {
-		let userID = this.profile.id;
+		let userID = this.review.profileId;
 		this.$router.push({ name: "ProfileView", params: { id: userID } });
 }
 }
@@ -52,7 +52,6 @@ routeToUser() {
 <style>
 #reviewBoxGottaHaveBetterVariableNames{
 	background-color: #A0A59B;
-	/* margin-right:60vw; */
 	border-radius: 5px;
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 	width: 500px;
@@ -68,7 +67,6 @@ routeToUser() {
   align-items: flex-end;
   border-radius: 1px black;
   z-index: 1;
-  
 }
 #usernameAndRating{
 	display: flex;
@@ -79,6 +77,7 @@ routeToUser() {
 	margin-right: auto;
 	color:white;
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
 }
 #reviewText{
   display:flex;
@@ -120,6 +119,7 @@ routeToUser() {
 	margin-top: 8px;
 	color:white;
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
 }
 #reviewText {
   text-indent: 20px;

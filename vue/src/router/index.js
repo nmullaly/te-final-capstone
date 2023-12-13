@@ -15,6 +15,7 @@ import MovieReview from '../components/MovieReview.vue';
 import EditProfileView from '../views/EditProfileView.vue';
 import ReviewTest from '../views/ReviewTest.vue';
 import AddReviewView from '../views/AddReviewView.vue';
+import MovieSearchView from '../views/MovieSearchView.vue';
 
 
 /**
@@ -98,9 +99,9 @@ const routes = [
     component: EditProfileView
   },
   {
-    path:'/test3',
-    name: "ReviewTest",
-    component: ReviewTest
+    path:'/search/:query',
+    name: "MovieSearch",
+    component: MovieSearchView
   },
   {
     path:'/addreview/:id',

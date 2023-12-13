@@ -17,17 +17,21 @@ export default {
     },
 
     methods: {
-    async searchMovies() {
-        let query = this.input.trim();
-        let movie = await movieService.searchMoviesByName(query);
-        console.log(JSON.stringify(movie.data.results[0].id));
-        if (movie) {
-          let firstMovie = movie.data.results[0];
-          this.$router.push({ name: 'Movie', params: { id: firstMovie.id } });
-        } else {
-          console.error('Javascript is asshole.  Why Addie hate? https://youtu.be/2utk-uiaZlc?si=DBraYTxWVbq74Drs&t=42');
-        }
-      }
+    searchMovies() {
+      let thisQuery = this.input.trim();
+      this.$router.push({ name: 'MovieSearch', params: { query: thisQuery}})
+    }
+    // async searchMovies() {
+    //   let query = this.input.trim();
+    //   let movie = await movieService.searchMoviesByName(query);
+    //   console.log(JSON.stringify(movie.data.results[0].id));
+    //   if (movie) {
+    //     let firstMovie = movie.data.results[0];
+    //     this.$router.push({ name: 'Movie', params: { id: firstMovie.id } });
+    //   } else {
+    //     console.error('Javascript is asshole.  Why Addie hate? https://youtu.be/2utk-uiaZlc?si=DBraYTxWVbq74Drs&t=42');
+    //   }
+    // }
     }
   }
 </script>

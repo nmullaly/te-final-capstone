@@ -6,11 +6,20 @@
       <p id="yearAndGenre">{{ formattedReleaseYear }},  {{  formattedGenres }}</p>
       <div id="middleContent">
         <img :src="'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + this.movie.poster_path" id="poster"/>
-        <div id="reviewList">
+        <p id="overview">{{  this.movie.overview  }}</p>
+      </div>
+    </div>
+    <div id="reviewBox">
+        <div v-if="reviewList.length > 0" id="reviewList">
          <review v-for="item in this.reviewList" v-bind:key="item.reviewId" v-bind:review="item" id="headlineReview"/>
         </div>
-      </div>
-      <p id="overview">{{  this.movie.overview  }}</p>
+              <div v-else id="Gregg">
+                <h1>There Are No Reviews Here Yet!</h1>
+                <h2>What does Gregg say about this movie?</h2>
+                <img :src="`/src/assets/Reviews/FakeReview${generateRandomReview()}.png`" id="randomReview"/>
+                <img src="../assets/Sheeple\Savant/OoS_Golden_Sage_Sprite.png" id="GreggSprite"/>
+              </div>
+    </div>
     <div id="movieButtons">
       <div id="watchlistBtn">
         <button id="removeBtn" v-if="isOnWatchlist" v-on:click="removeFromWatchlist">Remove Film from Watchlist</button>
@@ -19,7 +28,6 @@
       <button id="reviewBtn" v-on:click="redirectToReviewForm">Review This Film</button>
     </div>
     <!-- <img :src="`/src/assets/Reviews/FakeReview${generateRandomReview()}.png`" id="randomReview"/> -->
-  </div>
     <footer-bar/>
 </template>
 
@@ -93,7 +101,7 @@ export default {
 
   methods: {
     fetchMovie() {
-      let movieId = this.$route.params.id;
+		let movieId = this.$route.params.id;
 
       movieService
         .getMovieById(movieId)
@@ -219,7 +227,6 @@ export default {
   background-color: #A0A59B;
   border-radius: 5px;
   border: 2px solid black;
-  margin-left: 15rem;
   width: 500px;
 	height:auto;
 }
@@ -244,7 +251,7 @@ export default {
   display:flex;
   justify-self: start;
   margin: 0px;
-  margin-top: 2.5rem;
+  margin-top: 10px;
   margin-left: 5px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
 }
@@ -262,19 +269,32 @@ export default {
   justify-self:space-between;
   align-items: center;
   margin-left: 5px;
+  margin-right: 0;
 }
 #randomReview{
   margin-left: auto;
   margin-right: 5px;
 }
 #overview{
-  /* font-family: 'Courier New', Courier, monospace; */
-  font-size: 20px;
+  font-size: 23px;
   display:flex;
   justify-self: start;
   margin: 0px;
   margin-left: 5px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+  text-indent: 20px;
+  text-align: left;
+  border: 1px solid white;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 5px;
+  margin-right: 0;
+	border-right: 0;
+	padding-right: 0;
+  margin-top:auto;
+  /* margin-bottom: 10px; */
+  margin-bottom: auto;
+
 }
 #movieInfo {
   margin-left: 15%;
@@ -282,20 +302,47 @@ export default {
   background-color: rgba(128, 128, 128, 0.35);
   border-radius: 12px;
   margin-bottom: 2.5rem;
-  border: 1px white;
-
+  border: 1px solid white;
+  margin-top:2.5rem;
+  background-image: url("../assets/MovieBack.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat; 
 }
 footer-bar {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #333; /* You can set the background color as needed */
-  color: white; /* You can set the text color as needed */
+  background-color: #333; 
+  color: white; 
   padding: 10px;
   margin-top: 2.5rem;
   
 }
 #mr {
   margin-bottom: 2.5rem;
+}
+#Gregg{
+	display: flex;
+	flex-direction: column;
+}
+#GreggSprite{
+	width: 50px; 
+  height: auto;
+}
+#reviewBox{
+  margin-left: 15%;
+  margin-right: 15%;
+  background-color: rgba(128, 128, 128, 0.35);
+  border-radius: 12px;
+  margin-bottom: 2.5rem;
+  border: 1px solid white;
+  margin-top:2.5rem;
+  display: flex;
+  justify-content: center;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+  justify-items: center;
+  background-image: url("../assets/MovieBack.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat; 
 }
 </style>

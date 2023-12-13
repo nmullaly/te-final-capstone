@@ -42,7 +42,7 @@ export default {
 							});
     },
     routeToMovie() {
-      this.$router.push({ name: "Movie", params: { id: this.movie.movieId } });
+      this.$router.push({ name: "Movie", params: { id: this.film.movieId } });
     },
   },
 };
@@ -69,6 +69,6 @@ export default {
 
 #holdThisBox:hover {
   outline: 3px solid whitesmoke;
-  transform: scale(1.03);
+  transform: scale(1.08);
 }
 </style>
