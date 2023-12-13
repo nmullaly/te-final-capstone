@@ -35,6 +35,7 @@ components: {
 },
     methods: {
         redirectToLogin() {
+         
          this.$router.push({ name: 'login' });
          },
         redirectToRegister() {
@@ -65,7 +66,6 @@ components: {
   text-justify: center;
   align-items: center; 
   font-size: medium;
-  /* font-style: courier-new; */
 }
 .header img#logo {
   width: 50px; 
@@ -73,12 +73,10 @@ components: {
 }
 #movie{
   margin: left 100px;
-  /* font-family: 'Courier New', Courier, monospace; */
 }
 button {
   margin-left:5px;
   text-decoration-style: white;
-  /* font-family: courier-new; */
   cursor: url("../assets/hm3.jpg"), pointer;
 }
 
