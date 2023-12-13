@@ -90,6 +90,7 @@ export default {
 							.getProfileById(review.profileId)
 							.then((response) => {
 								review.username = response.data.username;
+								review.profileId = response.data.profileId;
 							})
 							.catch((error) => {
 							if (error.response) {
@@ -104,6 +105,7 @@ export default {
 							.getMovieById(review.movieId)
 							.then((response) => {
 								review.title = response.data.title;
+								review.movieId = response.data.id;
 							})
 							.catch((error) => {
 								if (error.response) {

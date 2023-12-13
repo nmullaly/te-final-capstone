@@ -3,7 +3,7 @@
 		<div id="ReviewMetaData">
 			<h1 id="movieTitleTwo">{{ this.review.headline }}</h1>
 				<div id="usernameAndRating">
-					<h2 id="username" class="EBoog">{{ this.review.username }}</h2>
+					<h2 id="username" class="EBoog" v-on:click="routeToUser">{{ this.review.username }}</h2>
 					<div id="rating">
 						<span class="popcorn" v-for="num in this.review.rating" v-bind:key="num">&#127871;</span>
 					</div>
@@ -26,11 +26,11 @@ export default {
 props: ['review'],
 methods:{
 routeToMovie() {
-      let movieId = this.movie.id;
+      let movieId = this.review.movieId;
       this.$router.push({ name: "Movie", params: { id: movieId } });
     },
 routeToUser() {
-		let userID = this.profile.id;
+		let userID = this.review.profileId;
 		this.$router.push({ name: "ProfileView", params: { id: userID } });
 }
 }
