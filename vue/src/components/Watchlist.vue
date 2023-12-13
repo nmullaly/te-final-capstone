@@ -50,6 +50,7 @@ export default {
 div  {  
    display: flex;
  justify-content: space-around;
+ flex-wrap: wrap;
 }
 
 

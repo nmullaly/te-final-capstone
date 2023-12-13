@@ -147,10 +147,11 @@ export default {
 <style>
 .content-container {
   display: flex;
+  
 }
 
 #sidebar {
-  width: 100%;
+  width: 50%;
 }
 
 .main-content {
@@ -159,13 +160,17 @@ export default {
 
 .watchlist-reviews-container {
   display: flex;
+ 
 }
 
 #watchlist {
-  margin-right: 20px; /* Adjust margin as needed */
+   flex-wrap: wrap;
+   display: block;
+
 }
 
 #reviewList {
   flex: 1;
 }
+
 </style>
