@@ -52,7 +52,6 @@ routeToUser() {
 <style>
 #reviewBoxGottaHaveBetterVariableNames{
 	background-color: #A0A59B;
-	/* margin-right:60vw; */
 	border-radius: 5px;
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 	width: 500px;
