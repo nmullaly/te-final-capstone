@@ -269,18 +269,32 @@ export default {
   justify-self:space-between;
   align-items: center;
   margin-left: 5px;
+  margin-right: 0;
 }
 #randomReview{
   margin-left: auto;
   margin-right: 5px;
 }
 #overview{
-  font-size: 20px;
+  font-size: 23px;
   display:flex;
   justify-self: start;
   margin: 0px;
   margin-left: 5px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+  text-indent: 20px;
+  text-align: left;
+  border: 1px solid white;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 5px;
+  margin-right: 0;
+	border-right: 0;
+	padding-right: 0;
+  margin-top:auto;
+  /* margin-bottom: 10px; */
+  margin-bottom: auto;
+
 }
 #movieInfo {
   margin-left: 15%;
