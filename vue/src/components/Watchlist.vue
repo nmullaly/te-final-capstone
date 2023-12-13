@@ -1,6 +1,7 @@
 <template>
   <div>
       <h1 class ="my-watchlist">My Watchlist</h1>
+      <p v-if="watchlist.length==0">No Movies Yet!</p>
       <MovieCardWSearch v-for="item in this.watchlist" :key="item.id" :film="item"/>
       <!-- <div class = "watchlist-section">
       </div> -->

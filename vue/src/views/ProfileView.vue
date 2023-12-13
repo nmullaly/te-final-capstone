@@ -65,7 +65,7 @@ export default {
 			} else {
 				return false;
 			}
-		}
+		},
 	},
 	created() {
 		let profileId = parseInt(this.$route.params.id);
