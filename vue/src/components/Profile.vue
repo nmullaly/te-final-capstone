@@ -1,6 +1,6 @@
 <template>
 	<div class="profile">
-		<h1 id="profile-head">{{ this.profile.username }} | {{ this.profile.points }} points</h1>
+		<h1 id="profile-head">{{ this.profile.username }}</h1>
 		<p id="bio">{{ this.profile.bio }}</p>
 		<p id="fav-film" v-if="this.profile.favoriteFilm!=null">Favorite Movie: {{ this.profile.favoriteFilm }}</p>
 		<p id="fav-genres" v-if="this.profile.favoriteGenres!=null">Favorite Genre: {{ this.profile.favoriteGenres }}</p>
