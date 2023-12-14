@@ -252,6 +252,8 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border: none;
+  background: none;
 }
 
 #movieButtons {
